@@ -1,4 +1,4 @@
-base: 'https://cmt-blog.ddev.site/'
+base: '%env(TYPO3_BASE_URL)%'
 dependencies:
   - typo3/fluid-styled-content
   - typo3/seo-sitemap
