@@ -1,0 +1,13 @@
+name: brauer/article-link
+prefixFields: true
+prefixType: vendor
+fields:
+  - identifier: intro_text
+    type: Text
+    default: "Weitere Informationen findest du im Artikel"
+
+  - identifier: page
+    type: Relation
+    allowed: pages
+    minitems: 1
+    maxitems: 1

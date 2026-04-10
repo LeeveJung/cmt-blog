@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Quicksand Variable", sans-serif;
+    --font-serif: "Lora Variable", serif;
+
+    --color-brand-50: oklch(0.943 0.029 17.73);
+    --color-brand-100: oklch(0.886 0.06 18.38);
+    --color-brand-200: oklch(0.783 0.127 20.93);
+    --color-brand-300: oklch(0.673 0.215 25.88);
+    --color-brand-400: oklch(0.553 0.223 29.84);
+    --color-brand-500: oklch(0.429 0.173 29.82);
+    --color-brand-600: oklch(0.372 0.15 29.83);
+    --color-brand-700: oklch(0.317 0.128 29.71);
+    --color-brand-800: oklch(0.263 0.106 29.66);
+    --color-brand-900: oklch(0.198 0.079 30.23);
+    --color-brand-950: oklch(0.156 0.064 29.23);
+}
+
+@layer components {
+    p.lead {
+        @apply text-[20px] leading-relaxed;
+    }
+}
+
+@layer base {
+
+    html {
+        @apply scroll-smooth scroll-pt-24;
+    }
+
+    body {
+        @apply font-sans text-black text-lg;
+    }
+
+    .material-symbols-outlined {
+        font-family: 'Material Symbols Outlined Variable', sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px; /* Preferred icon size */
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+    }
+
+    main ul {
+        @apply list-disc list-inside mb-4;
+    }
+
+    main ol {
+        @apply list-decimal list-inside mb-4;
+    }
+
+    blockquote {
+        @apply border-l-4 border-slate-400 pl-4 italic;
+    }
+
+    a {
+        @apply text-brand-500;
+
+        &:hover {
+            @apply underline;
+        }
+    }
+
+    h1, h2, h3 {
+        @apply font-serif font-bold leading-tight text-slate-900;
+    }
+
+    h1 {
+        @apply text-4xl mb-6;
+    }
+
+    h2 {
+        @apply text-3xl mb-4;
+    }
+
+    h3 {
+        @apply text-2xl mb-2;
+    }
+
+    article h2 {
+        @apply pl-4 border-l-4 border-brand-500;
+    }
+
+    p:not(:last-child) {
+        @apply mb-4;
+    }
+
+    .rounded-md img {
+        @apply rounded-md;
+    }
+}
+

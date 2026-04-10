@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="labels.xlf" source-language="en" date="2026-04-08T15:00:13+00:00" product-name="brauer/blog-list">
+    <header/>
+    <body>
+      <trans-unit id="title">
+        <source>Recent Posts</source>
+      </trans-unit>
+      <trans-unit id="description">
+        <source>Displays a grid of recent blog posts with teaser image, title, description and date.</source>
+      </trans-unit>
+      <trans-unit id="max_items.label">
+        <source>Maximum number of posts</source>
+      </trans-unit>
+      <trans-unit id="max_items.description">
+        <source>Limits the number of blog posts shown. Leave empty to show all.</source>
+      </trans-unit>
+      <trans-unit id="overview_link.label">
+        <source>Link to overview page</source>
+      </trans-unit>
+      <trans-unit id="overview_link.description">
+        <source>If set, a button linking to the blog overview will be shown below the posts.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

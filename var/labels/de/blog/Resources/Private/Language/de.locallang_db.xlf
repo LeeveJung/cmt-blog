@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns:t3="http://typo3.org/schemas/xliff" version="1.0">
+  <file t3:id="1557352031" source-language="en" datatype="plaintext" original="messages" date="2019-05-08T21:47:12Z" product-name="blog" target-language="de">
+    <header/>
+    <body><trans-unit id="blog-folder" approved="yes"><source>Blog</source><target state="final">Blog</target></trans-unit><trans-unit id="wizard.group.blog" xml:space="preserve" approved="yes">
+                <source>Blog</source>
+            <target state="final">Blog</target></trans-unit><trans-unit id="plugin.blog_posts.title" xml:space="preserve" approved="yes">
+                <source>Blog: List of posts</source>
+            <target state="final">Blog: Liste der Artikel</target></trans-unit><trans-unit id="plugin.blog_posts.description" xml:space="preserve" approved="yes">
+                <source>Displays a list of blog posts ordered by date. All non-hidden, non-deleted and non-archived posts are shown in the list.</source>
+            <target state="final">Zeigt eine Liste von Artikeln, sortiert nach Datum. Alle nicht versteckten, nicht gelöschten und nicht archivierten Beiträge werden in der Liste angezeigt.</target></trans-unit><trans-unit id="plugin.blog_demandedposts.title" xml:space="preserve" approved="yes">
+                <source>Blog: List of posts by demand configuration</source>
+            <target state="final">Blog: Liste der Beiträge nach Demand-Konfiguration</target></trans-unit><trans-unit id="plugin.blog_demandedposts.description" xml:space="preserve" approved="yes">
+                <source>Displays a list of blog posts depending on your demand configuration.</source>
+            <target state="final">Zeigt eine Liste von Blogeinträgen an, die von deiner Demand-Konfiguration abhängt.</target></trans-unit><trans-unit id="plugin.blog_latestposts.title" xml:space="preserve" approved="yes">
+                <source>Blog: Latest posts</source>
+            <target state="final">Blog: Neueste Beiträge</target></trans-unit><trans-unit id="plugin.blog_latestposts.description" xml:space="preserve" approved="yes">
+                <source>Displays a number of latest posts. You can specify the amount of items yourself.</source>
+            <target state="final">Zeigt eine Anzahl neuester Beiträge. Sie können die Anzahl der Artikel selbst festlegen.</target></trans-unit><trans-unit id="plugin.blog_category.title" xml:space="preserve" approved="yes">
+                <source>Blog: List by category</source>
+            <target state="final">Blog: Liste nach Kategorie</target></trans-unit><trans-unit id="plugin.blog_category.description" xml:space="preserve" approved="yes">
+                <source>If you add this element and you have selected a category on the categories tab, it will show an overview of posts for that category. If you have no categories selected, it will show an overview of categories.</source>
+            <target state="final">Wenn Sie dieses Element hinzufügen und eine Kategorie in der Registerkarte Kategorien ausgewählt haben, wird eine Übersicht der Artikel für diese Kategorie angezeigt. Wenn Sie keine Kategorien ausgewählt haben, wird eine Übersicht aller Kategorien angezeigt.</target></trans-unit><trans-unit id="plugin.blog_authorposts.title" xml:space="preserve" approved="yes">
+                <source>Blog: List by author</source>
+            <target state="final">Blog: Liste nach Autor</target></trans-unit><trans-unit id="plugin.blog_authorposts.description" xml:space="preserve" approved="yes">
+                <source>Displays all posts belonging to the chosen author.</source>
+            <target state="final">Zeigt alle Artikel, die vom ausgewählten Autor geschrieben worden sind.</target></trans-unit><trans-unit id="plugin.blog_tag.title" xml:space="preserve" approved="yes">
+                <source>Blog: List by tags</source>
+            <target state="final">Blog: Liste nach Schlagworten</target></trans-unit><trans-unit id="plugin.blog_tag.description" xml:space="preserve" approved="yes">
+                <source>Allows the users to show all posts tagged with a specific keyword.</source>
+            <target state="final">Ermöglicht den Benutzern, alle Beiträge mit einem bestimmten Schlagwort zu zeigen.</target></trans-unit><trans-unit id="plugin.blog_archive.title" xml:space="preserve" approved="yes">
+                <source>Blog: Archive</source>
+            <target state="final">Blog: Archiv</target></trans-unit><trans-unit id="plugin.blog_archive.description" xml:space="preserve" approved="yes">
+                <source>The archive plugin displays all posts categorized by year and month.</source>
+            <target state="final">Das Archiv-Plugin zeigt alle Beiträge nach Jahr und Monat.</target></trans-unit><trans-unit id="plugin.blog_sidebar.title" xml:space="preserve" approved="yes">
+                <source>Blog: Sidebar</source>
+            <target state="final">Blog: Seitenleiste</target></trans-unit><trans-unit id="plugin.blog_sidebar.description" xml:space="preserve" approved="yes">
+                <source>The sidebar contains links enabling the user to quickly navigate your blog. It shows an overview of recent posts and comments, categories, tags and archive links.</source>
+            <target state="final">Die Seitenleiste enthält Links, die es dem Benutzer ermöglichen, schnell in Ihrem Blog zu navigieren. Sie zeigt eine Übersicht über aktuelle Beiträge und Kommentare, Kategorien, Schlagworte und Archivlinks.</target></trans-unit><trans-unit id="plugin.blog_header.title" xml:space="preserve" approved="yes">
+                <source>Blog: Header</source>
+            <target state="final">Blog: Kopfzeile</target></trans-unit><trans-unit id="plugin.blog_header.description" xml:space="preserve" approved="yes">
+                <source>Displays post header</source>
+            <target state="final">Zeigt Artikel-Kopfzeile an</target></trans-unit><trans-unit id="plugin.blog_footer.title" xml:space="preserve" approved="yes">
+                <source>Blog: Footer</source>
+            <target state="final">Blog: Fußzeile</target></trans-unit><trans-unit id="plugin.blog_footer.description" xml:space="preserve" approved="yes">
+                <source>Displays post footer</source>
+            <target state="final">Zeigt Artikel-Fußzeile an</target></trans-unit><trans-unit id="plugin.blog_metadata.title" xml:space="preserve" approved="yes">
+                <source>Blog: Metadata (Deprecated, will be removed with v11)</source>
+            <target state="final">Blog: Metadaten (veraltet, wird mit v11 entfernt)</target></trans-unit><trans-unit id="plugin.blog_metadata.description" xml:space="preserve" approved="yes">
+                <source>Displays post meta data, like date, tags, category...</source>
+            <target state="final">Zeigt Artikel-Meta-Daten, wie Datum, Schlagworte, Kategorie...</target></trans-unit><trans-unit id="plugin.blog_commentform.title" xml:space="preserve" approved="yes">
+                <source>Blog: Comment Form</source>
+            <target state="final">Blog: Kommentarformular</target></trans-unit><trans-unit id="plugin.blog_commentform.description" xml:space="preserve" approved="yes">
+                <source>Displays the comment form for a post.</source>
+            <target state="final">Zeigt das Kommentarformular für einen Artikel an.</target></trans-unit><trans-unit id="plugin.blog_comments.title" xml:space="preserve" approved="yes">
+                <source>Blog: Comments</source>
+            <target state="final">Blog: Kommentar</target></trans-unit><trans-unit id="plugin.blog_comments.description" xml:space="preserve" approved="yes">
+                <source>Displays the comments for a post.</source>
+            <target state="final">Zeigt die Kommentare für einen Artikel an.</target></trans-unit><trans-unit id="plugin.blog_authors.title" xml:space="preserve" approved="yes">
+                <source>Blog: Authors</source>
+            <target state="final">Blog: Autor</target></trans-unit><trans-unit id="plugin.blog_authors.description" xml:space="preserve" approved="yes">
+                <source>Displays post authors, like name, title, avatar, social links...</source>
+            <target state="final">Zeigt Artikel-Autoren-Informationen wie Name, Titel, Avatar, soziale Links...</target></trans-unit><trans-unit id="plugin.blog_relatedposts.title" xml:space="preserve" approved="yes">
+                <source>Blog: Related Posts</source>
+            <target state="final">Blog: Verwandte Artikel</target></trans-unit><trans-unit id="plugin.blog_relatedposts.description" xml:space="preserve" approved="yes">
+                <source>Based on the categories and tags of the current post, it will show a list of related posts. This overview should only be placed on a Blog detail page.</source>
+            <target state="final">Basierend auf den Kategorien und Schlagworten des aktuellen Artikels wird eine Liste der verwandten Artikel angezeigt. Diese Übersicht sollte nur auf einer Blog-Detailseite platziert werden.</target></trans-unit><trans-unit id="pages.featured_image" xml:space="preserve" approved="yes">
+                <source>Featured Image</source>
+            <target state="final">Feature-Bild</target></trans-unit><trans-unit id="pages.comments_active" xml:space="preserve" approved="yes">
+                <source>Comments enabled</source>
+            <target state="final">Kommentare aktiviert</target></trans-unit><trans-unit id="pages.comments" xml:space="preserve" approved="yes">
+                <source>Comments</source>
+            <target state="final">Kommentare</target></trans-unit><trans-unit id="pages.crdate" xml:space="preserve" approved="yes">
+                <source>Creation date</source>
+            <target state="final">Erstellungsdatum</target></trans-unit><trans-unit id="pages.palettes.publish_date" xml:space="preserve" approved="yes">
+                <source>Publish date</source>
+            <target state="final">Veröffentlichungsdatum</target></trans-unit><trans-unit id="pages.crdate_month" xml:space="preserve" approved="yes">
+                <source>Publish date month</source>
+            <target state="final">Veröffentlichungs-Monat</target></trans-unit><trans-unit id="pages.crdate_year" xml:space="preserve" approved="yes">
+                <source>Publish date year</source>
+            <target state="final">Veröffentlichungs-Jahr</target></trans-unit><trans-unit id="pages.publish_date" xml:space="preserve" approved="yes">
+                <source>Publish date</source>
+            <target state="final">Veröffentlichungsdatum</target></trans-unit><trans-unit id="pages.archive_date" xml:space="preserve" approved="yes">
+                <source>Archive date</source>
+            <target state="final">Archivierungsdatum</target></trans-unit><trans-unit id="pages.tags" xml:space="preserve" approved="yes">
+                <source>Tags</source>
+            <target state="final">Schlagworte</target></trans-unit><trans-unit id="pages.authors" xml:space="preserve" approved="yes">
+                <source>Authors</source>
+            <target state="final">Autoren</target></trans-unit><trans-unit id="pages.tabs.blog" xml:space="preserve" approved="yes">
+                <source>Blog</source>
+            <target state="final">Blog</target></trans-unit><trans-unit id="tx_blog_domain_model_comment" xml:space="preserve" approved="yes">
+                <source>Blog: Comment</source>
+            <target state="final">Blog: Kommentar</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.author" xml:space="preserve" approved="yes">
+                <source>Author (FE-User)</source>
+            <target state="final">Autor (Frontend-Benutzer)</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.name" xml:space="preserve" approved="yes">
+                <source>Name</source>
+            <target state="final">Name</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.url" xml:space="preserve" approved="yes">
+                <source>URL</source>
+            <target state="final">Adresse (URL)</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.email" xml:space="preserve" approved="yes">
+                <source>E-Mail</source>
+            <target state="final">E-Mail</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.comment" xml:space="preserve" approved="yes">
+                <source>Comment</source>
+            <target state="final">Kommentar</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.status" xml:space="preserve" approved="yes">
+                <source>Status</source>
+            <target state="final">Status</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.status.pending" xml:space="preserve" approved="yes">
+                <source>Pending</source>
+            <target state="final">Ausstehend</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.status.approved" xml:space="preserve" approved="yes">
+                <source>Approved</source>
+            <target state="final">Genehmigt</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.status.declined" xml:space="preserve" approved="yes">
+                <source>Declined</source>
+            <target state="final">Abgelehnt</target></trans-unit><trans-unit id="tx_blog_domain_model_comment.status.deleted" xml:space="preserve" approved="yes">
+                <source>Deleted</source>
+            <target state="final">Gelöscht</target></trans-unit><trans-unit id="tx_blog_domain_model_tag" xml:space="preserve" approved="yes">
+                <source>Blog: Tag</source>
+            <target state="final">Blog: Schlagwort</target></trans-unit><trans-unit id="tx_blog_domain_model_tag.title" xml:space="preserve" approved="yes">
+                <source>Title</source>
+            <target state="final">Titel</target></trans-unit><trans-unit id="tx_blog_domain_model_tag.slug" xml:space="preserve" approved="yes">
+                <source>Path Segment</source>
+            <target state="final">Pfadsegment</target></trans-unit><trans-unit id="tx_blog_domain_model_tag.description" xml:space="preserve" approved="yes">
+                <source>Description (meta description)</source>
+            <target state="final">Beschreibung (Meta-Beschreibung)</target></trans-unit><trans-unit id="tx_blog_domain_model_tag.tabs.general" xml:space="preserve" approved="yes">
+                <source>General</source>
+            <target state="final">Allgemein</target></trans-unit><trans-unit id="tx_blog_domain_model_tag.tabs.seo" xml:space="preserve" approved="yes">
+                <source>SEO</source>
+            <target state="final">SEO</target></trans-unit><trans-unit id="tx_blog_domain_model_tag.content" xml:space="preserve" approved="yes">
+                <source>Content</source>
+            <target state="final">Inhalt</target></trans-unit><trans-unit id="tx_blog_domain_model_author" xml:space="preserve" approved="yes">
+                <source>Blog: Author</source>
+            <target state="final">Blog: Autor</target></trans-unit><trans-unit id="tx_blog_domain_model_author.name" xml:space="preserve" approved="yes">
+                <source>Name</source>
+            <target state="final">Name</target></trans-unit><trans-unit id="tx_blog_domain_model_author.slug" xml:space="preserve" approved="yes">
+                <source>Path Segment</source>
+            <target state="final">Pfadsegment</target></trans-unit><trans-unit id="tx_blog_domain_model_author.avatar_provider" xml:space="preserve" approved="yes">
+                <source>Avatar Provider</source>
+            <target state="final">Avatar-Anbieter</target></trans-unit><trans-unit id="tx_blog_domain_model_author.image" xml:space="preserve" approved="yes">
+                <source>Image</source>
+            <target state="final">Bild</target></trans-unit><trans-unit id="tx_blog_domain_model_author.title" xml:space="preserve" approved="yes">
+                <source>Title</source>
+            <target state="final">Titel</target></trans-unit><trans-unit id="tx_blog_domain_model_author.website" xml:space="preserve" approved="yes">
+                <source>Website</source>
+            <target state="final">Webseite</target></trans-unit><trans-unit id="tx_blog_domain_model_author.email" xml:space="preserve" approved="yes">
+                <source>Email</source>
+            <target state="final">E-Mail</target></trans-unit><trans-unit id="tx_blog_domain_model_author.location" xml:space="preserve" approved="yes">
+                <source>Location</source>
+            <target state="final">Ort</target></trans-unit><trans-unit id="tx_blog_domain_model_author.twitter" xml:space="preserve" approved="yes">
+                <source>Twitter username</source>
+            <target state="final">Twitter-Benutzername</target></trans-unit><trans-unit id="tx_blog_domain_model_author.linkedin" xml:space="preserve" approved="yes">
+                <source>LinkIn profile URL</source>
+            <target state="final">LinkIn-Profil-URL</target></trans-unit><trans-unit id="tx_blog_domain_model_author.xing" xml:space="preserve" approved="yes">
+                <source>XING profile URL</source>
+            <target state="final">XING-Profil-URL</target></trans-unit><trans-unit id="tx_blog_domain_model_author.instagram" xml:space="preserve" approved="yes">
+                <source>Instagram profile URL</source>
+            <target state="final">Instagram-Profil-URL</target></trans-unit><trans-unit id="tx_blog_domain_model_author.profile" xml:space="preserve" approved="yes">
+                <source>Author profile URL (used for schema.org markup)</source>
+            <target state="final">URL des Autorenprofils (wird für schema.org-Markup verwendet)</target></trans-unit><trans-unit id="tx_blog_domain_model_author.bio" xml:space="preserve" approved="yes">
+                <source>Bio</source>
+            <target state="final">Biographie</target></trans-unit><trans-unit id="tx_blog_domain_model_author.posts" xml:space="preserve" approved="yes">
+                <source>Blog posts</source>
+            <target state="final">Blogbeiträge</target></trans-unit><trans-unit id="tx_blog_domain_model_author.details_page" xml:space="preserve" approved="yes">
+                <source>Details page</source>
+            <target state="final">Detailseite</target></trans-unit><trans-unit id="tx_blog_domain_model_author.palette_personal" xml:space="preserve" approved="yes">
+                <source>Personal data</source>
+            <target state="final">Personendaten</target></trans-unit><trans-unit id="tx_blog_domain_model_author.palette_contact" xml:space="preserve" approved="yes">
+                <source>Contact data</source>
+            <target state="final">Kontaktdaten</target></trans-unit><trans-unit id="tx_blog_domain_model_author.tab_profile" xml:space="preserve" approved="yes">
+                <source>Profile</source>
+            <target state="final">Profil</target></trans-unit><trans-unit id="tx_blog_domain_model_author.tab_social_media" xml:space="preserve" approved="yes">
+                <source>Social Media</source>
+            <target state="final">Soziale Medien</target></trans-unit><trans-unit id="tx_blog_domain_model_author.tab_blog" xml:space="preserve" approved="yes">
+                <source>Blog data</source>
+            <target state="final">Blog-Daten</target></trans-unit><trans-unit id="sys_category.record_type" xml:space="preserve" approved="yes">
+                <source>Record Type</source>
+            <target state="final">Datensatztyp</target></trans-unit><trans-unit id="sys_category.content" xml:space="preserve" approved="yes">
+                <source>Content</source>
+            <target state="final">Inhalt</target></trans-unit><trans-unit id="sys_category.slug" xml:space="preserve" approved="yes">
+                <source>Path Segment</source>
+            <target state="final">Pfadsegment</target></trans-unit><trans-unit id="sys_category.tabs.seo" xml:space="preserve" approved="yes">
+                <source>SEO</source>
+            <target state="final">SEO</target></trans-unit><trans-unit id="sys_category.tabs.blog" xml:space="preserve" approved="yes">
+                <source>Blog</source>
+            <target state="final">Blog</target></trans-unit><trans-unit id="sys_category.posts" xml:space="preserve" approved="yes">
+                <source>Posts</source>
+            <target state="final">Beiträge</target></trans-unit><trans-unit id="flexform.sheet_general" xml:space="preserve" approved="yes">
+                <source>General</source>
+            <target state="final">Allgemein</target></trans-unit><trans-unit id="flexform.latestPosts.limit" xml:space="preserve" approved="yes">
+                <source>Amount of items to show in overview of latest posts</source>
+            <target state="final">Anzahl der anzuzeigenden Artikel in der Übersicht der neuesten Beiträge</target></trans-unit><!-- Settings --><trans-unit id="settings.demand.posts" xml:space="preserve" approved="yes">
+                <source>Blog posts</source>
+            <target state="final">Blogbeiträge</target></trans-unit><trans-unit id="settings.demand.posts.description" xml:space="preserve" approved="yes">
+                <source>Blog posts are mutually exclusive to categories and tags. If blog posts are selected, any set categories, tags and sorting settings are ignored!</source>
+            <target state="final">Blog-Posts schließen sich gegenseitig mit Kategorien und Schlagworten aus. Wenn Blogbeiträge ausgewählt sind, werden alle eingestellten Kategorien, Schlagworte und Sortiereinstellungen ignoriert!</target></trans-unit><trans-unit id="settings.demand.categories" xml:space="preserve" approved="yes">
+                <source>Categories</source>
+            <target state="final">Kategorien</target></trans-unit><trans-unit id="settings.demand.categoriesConjunction" xml:space="preserve" approved="yes">
+                <source>Category Conjunction</source>
+            <target state="final">Kategorie-Verbindung</target></trans-unit><trans-unit id="settings.demand.categoriesConjunction.AND" xml:space="preserve" approved="yes">
+                <source>Require all categories set (AND)</source>
+            <target state="final">Alle eingestellten Kategorien benötigen (UND)</target></trans-unit><trans-unit id="settings.demand.categoriesConjunction.OR" xml:space="preserve" approved="yes">
+                <source>Require any category set (OR)</source>
+            <target state="final">Eine beliebige Kategorie benötigen (ODER)</target></trans-unit>´
+            <trans-unit id="settings.demand.sortBy" xml:space="preserve" approved="yes">
+                <source>Sort blog posts by</source>
+            <target state="final">Blogbeiträge sortieren nach</target></trans-unit>
+            <trans-unit id="settings.demand.sortDirection" xml:space="preserve" approved="yes">
+                <source>Sorting direction</source>
+            <target state="final">Sortierrichtung</target></trans-unit>
+            <trans-unit id="settings.demand.sortDirection.ASC" xml:space="preserve" approved="yes">
+                <source>Ascending</source>
+            <target state="final">Aufsteigend</target></trans-unit>
+            <trans-unit id="settings.demand.sortDirection.DESC" xml:space="preserve" approved="yes">
+                <source>Descending</source>
+            <target state="final">Absteigend</target></trans-unit>
+            <trans-unit id="settings.demand.tags" xml:space="preserve" approved="yes">
+                <source>Tags</source>
+            <target state="final">Schlagworte</target></trans-unit>
+            <trans-unit id="settings.demand.tagsConjunction" xml:space="preserve" approved="yes">
+                <source>Tag Conjunction</source>
+            <target state="final">Schlagwort-Verbindung</target></trans-unit>
+            <trans-unit id="settings.demand.tagsConjunction.AND" xml:space="preserve" approved="yes">
+                <source>Require all tags set (AND)</source>
+            <target state="final">Alle Schlagworte müssen gesetzt sein (UND)</target></trans-unit>
+            <trans-unit id="settings.demand.tagsConjunction.OR" xml:space="preserve" approved="yes">
+                <source>Require any tags set (OR)</source>
+            <target state="final">Erfordert mindestens eins der Schlagworte (ODER)</target></trans-unit>
+            <trans-unit id="settings.demand.limit" xml:space="preserve" approved="yes">
+                <source>Limit of posts</source>
+            <target state="final">Maximalanzahl der Beiträge</target></trans-unit>
+            <trans-unit id="settings.noTranslationHintMessage.title" xml:space="preserve" approved="yes">
+                <source>No settings here</source>
+            <target state="final">Keine Einstellungen vorhanden</target></trans-unit>
+            <trans-unit id="settings.noTranslationHintMessage.description" xml:space="preserve" approved="yes">
+                <source>This configuration cannot get changed while being in a translated record.</source>
+            <target state="final">Diese Konfiguration kann nicht geändert werden, solange sie sich in einem übersetzten Datensatz befindet.</target></trans-unit>
+        </body>
+  </file>
+</xliff>

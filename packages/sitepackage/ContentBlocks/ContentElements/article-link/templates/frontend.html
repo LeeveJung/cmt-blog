@@ -1,0 +1,18 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{data.brauer_page.0}">
+    <f:variable name="linkedPage" value="{data.brauer_page.0}" />
+    <aside class="my-8 flex items-start gap-4 rounded-xl border border-primary/20 bg-primary/5 px-6 py-5 font-sans">
+        <span class="material-symbols-outlined text-primary mt-0.5 shrink-0">arrow_forward</span>
+        <p class="text-base text-slate-700 leading-relaxed">
+            <f:if condition="{data.brauer_intro_text}">
+                {data.brauer_intro_text}&nbsp;
+            </f:if>
+            <f:link.page pageUid="{linkedPage.uid}" rel="related" additionalAttributes="{itemprop: 'relatedLink'}" class="font-bold text-primary hover:underline">
+                „{linkedPage.title}"
+            </f:link.page>
+        </p>
+    </aside>
+</f:if>
+
+</html>

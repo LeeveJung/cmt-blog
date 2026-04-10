@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2026-04-07UTC16:15:560">
+        <header>
+            <authorName>Christoph</authorName>
+            <authorEmail>homerjay2007@gmail.com</authorEmail>
+        </header>
+        <body>
+            <trans-unit id="blog_post.disclaimer.title">
+                <source>Important!</source>
+                <target>Wichtig!</target>
+            </trans-unit>
+            <trans-unit id="blog_post.disclaimer.text">
+                <source>This article does not replace medical advice. If you have health concerns or new symptoms, always consult a qualified medical professional.</source>
+                <target>Dieser Beitrag ersetzt keine ärztliche Beratung. Bei gesundheitlichen Fragen oder neuen Symptomen solltest du dich immer an Fachärztinnen und Fachärzte wenden.</target>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.article_details">
+                <source>Article Details</source>
+                <target>Artikel Details</target>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.date">
+                <source>Date</source>
+                <target>Datum</target>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.category">
+                <source>Category</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.toc">
+                <source>Contents</source>
+                <target>Inhalt</target>
+            </trans-unit>
+            <trans-unit id="blog_list.overview_link">
+                <source>View all posts</source>
+                <target>Alle Beiträge ansehen</target>
+            </trans-unit>
+            <trans-unit id="footer.disclaimer">
+                <source>&lt;strong&gt;Medical disclaimer:&lt;/strong&gt; The content on this site is for informational purposes only and does not replace medical diagnosis. For health concerns, always consult a qualified medical professional.</source>
+                <target>&lt;strong&gt;Medizinischer Disclaimer:&lt;/strong&gt; Die Inhalte dieser Seite dienen der Information und ersetzen keine ärztliche Diagnose. Bitte konsultieren Sie bei gesundheitlichen Fragen stets qualifiziertes Fachpersonal.</target>
+            </trans-unit>
+            <trans-unit id="footer.nav.navigation">
+                <source>Navigation</source>
+                <target>Navigation</target>
+            </trans-unit>
+            <trans-unit id="footer.nav.legal">
+                <source>Legal</source>
+                <target>Rechtliches</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

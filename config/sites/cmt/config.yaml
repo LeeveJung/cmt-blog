@@ -1,0 +1,31 @@
+base: 'https://cmt-blog.ddev.site/'
+dependencies:
+  - typo3/fluid-styled-content
+  - typo3/seo-sitemap
+  - nitsan/ns-comments
+  - brauer/sitepackage
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    languageId: 0
+    base: /
+    locale: de_DE
+    navigationTitle: DE
+    flag: de
+    hreflang: de
+    websiteTitle: 'Leben mit CMT'
+  -
+    title: English
+    enabled: true
+    locale: en_US
+    hreflang: en
+    base: /en/
+    websiteTitle: 'My life with CMT'
+    navigationTitle: EN
+    fallbackType: strict
+    fallbacks: ''
+    flag: en-us-gb
+    languageId: 1
+rootPageId: 18
+websiteTitle: ''

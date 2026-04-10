@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Brauer\Sitepackage\:
+    resource: '../Classes/*'
+
+  # DataProcessors müssen public sein, damit GeneralUtility::makeInstance()
+  # sie aus dem DI-Container abrufen kann.
+  Brauer\Sitepackage\DataProcessing\BlogListProcessor:
+    public: true
+
+  Brauer\Sitepackage\DataProcessing\BlogPageProcessor:
+    public: true
+
+  Brauer\Sitepackage\DataHandler\TocItemLabelEnricher:
+    public: true

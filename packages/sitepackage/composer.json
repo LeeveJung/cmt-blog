@@ -1,0 +1,23 @@
+{
+    "name": "brauer/sitepackage",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "homepage": "https://www.leben-mit-cmt.de",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "typo3/cms-core": "^14",
+        "typo3/cms-rte-ckeditor": "^14",
+        "typo3/cms-fluid-styled-content": "^14"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brauer\\Sitepackage\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "sitepackage"
+        }
+    }
+}

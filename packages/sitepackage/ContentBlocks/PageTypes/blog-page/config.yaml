@@ -1,0 +1,59 @@
+name: brauer/blog-page
+typeName: 1775660402
+prefixFields: true
+prefixType: vendor
+fields:
+  - identifier: publish_date
+    type: DateTime
+    format: date
+    dbType: date
+
+  - identifier: teaser_image
+    type: File
+    allowed: common-image-types
+    relationship: oneToOne
+    cropVariants:
+      card:
+        title: Teaser Card (16:9)
+        allowedAspectRatios:
+          landscape:
+            title: 16:9
+            value: 16 / 9
+      hero:
+        title: Hero (16:8)
+        allowedAspectRatios:
+          hero:
+            title: 16:8
+            value: 16 / 8
+      square:
+        title: Quadrat (1:1)
+        allowedAspectRatios:
+          square:
+            title: 1:1
+            value: 1 / 1
+
+  - identifier: is_featured
+    type: Checkbox
+
+  - identifier: reading_time
+    type: Number
+
+  - identifier: allow_comments
+    type: Checkbox
+    default: 1
+
+  - identifier: series_title
+    type: Text
+
+  - identifier: categories
+    useExistingField: true
+
+  - identifier: toc_items
+    type: Collection
+    labelField: label
+    fields:
+      - identifier: label
+        type: Text
+      - identifier: link
+        type: Link
+        required: true

@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns:t3="http://typo3.org/schemas/xliff" version="1.0">
+  <file t3:id="1557352034" source-language="en" datatype="plaintext" original="messages" date="2019-05-08T21:47:12Z" product-name="blog" target-language="de">
+    <header/>
+    <body>
+      <!-- General -->
+      <trans-unit id="general.message.configuration_error.title" xml:space="preserve" approved="yes">
+                <source>A possible configuration error was detected.</source>
+            <target state="final">Ein möglicher Konfigurationsfehler wurde erkannt.</target></trans-unit>
+      <trans-unit id="general.message.configuration_error.single_no_post" xml:space="preserve" approved="yes">
+                <source>No matching post could be obtained. Make sure that this plugin is only used on a post.</source>
+            <target state="final">Es konnte kein passender Artikel gefunden werden. Stellen Sie sicher, dass dieses Plugin nur für einen Artikel verwendet wird.</target></trans-unit>
+      <!-- Headline -->
+      <trans-unit id="headline.commentform" xml:space="preserve" approved="yes">
+                <source>Write comment</source>
+            <target state="final">Kommentar schreiben</target></trans-unit>
+      <trans-unit id="headline.comments" xml:space="preserve" approved="yes">
+                <source>Comments</source>
+            <target state="final">Kommentare</target></trans-unit>
+      <trans-unit id="headline.category" xml:space="preserve" approved="yes">
+                <source>Posts of category: %s</source>
+            <target state="final">Beiträge aus der Kategorie: %s</target></trans-unit>
+      <trans-unit id="headline.category.simple" xml:space="preserve" approved="yes">
+                <source>Category</source>
+            <target state="final">Kategorie</target></trans-unit>
+      <trans-unit id="headline.categories" xml:space="preserve" approved="yes">
+                <source>Categories</source>
+            <target state="final">Kategorien</target></trans-unit>
+      <trans-unit id="headline.archive" xml:space="preserve" approved="yes">
+                <source>Archive</source>
+            <target state="final">Archiv</target></trans-unit>
+      <trans-unit id="headline.recentcomments" xml:space="preserve" approved="yes">
+                <source>Recent comments</source>
+            <target state="final">Letzte Kommentare</target></trans-unit>
+      <trans-unit id="headline.recentposts" xml:space="preserve" approved="yes">
+                <source>Recent posts</source>
+            <target state="final">Letzte Blogbeiträge</target></trans-unit>
+      <trans-unit id="headline.author" xml:space="preserve" approved="yes">
+                <source>Posts by %s</source>
+            <target state="final">Beiträge von %s</target></trans-unit>
+      <trans-unit id="headline.author.simple" xml:space="preserve" approved="yes">
+                <source>Author</source>
+            <target state="final">Autor</target></trans-unit>
+      <trans-unit id="headline.authors" xml:space="preserve" approved="yes">
+                <source>Authors</source>
+            <target state="final">Autoren</target></trans-unit>
+      <trans-unit id="headline.tag" xml:space="preserve" approved="yes">
+                <source>Posts tagged with %s</source>
+            <target state="final">Beiträge verschlagwortet mit %s</target></trans-unit>
+      <trans-unit id="headline.tag.simple" xml:space="preserve" approved="yes">
+                <source>Tag</source>
+            <target state="final">Schlagwort</target></trans-unit>
+      <trans-unit id="headline.tags" xml:space="preserve" approved="yes">
+                <source>Tags</source>
+            <target state="final">Schlagworte</target></trans-unit>
+      <trans-unit id="headline.rssfeed" xml:space="preserve" approved="yes">
+                <source>RSS-Feeds</source>
+            <target state="final">RSS-Feeds</target></trans-unit>
+      <!-- Form -->
+      <trans-unit id="form.comment.name" xml:space="preserve" approved="yes">
+                <source>Name</source>
+            <target state="final">Name</target></trans-unit>
+      <trans-unit id="form.comment.email" xml:space="preserve" approved="yes">
+                <source>E-Mail</source>
+            <target state="final">E-Mail</target></trans-unit>
+      <trans-unit id="form.comment.url" xml:space="preserve" approved="yes">
+                <source>URL</source>
+            <target state="final">URL</target></trans-unit>
+      <trans-unit id="form.comment.comment" xml:space="preserve" approved="yes">
+                <source>Comment</source>
+            <target state="final">Kommentar</target></trans-unit>
+      <trans-unit id="form.comment.submit" xml:space="preserve" approved="yes">
+                <source>Submit</source>
+            <target state="final">Absenden</target></trans-unit>
+      <!-- Message -->
+      <trans-unit id="message.no_comments" xml:space="preserve" approved="yes">
+                <source>No Comments</source>
+            <target state="final">Keine Kommentare</target></trans-unit>
+      <trans-unit id="message.comment" xml:space="preserve" approved="yes">
+                <source>%s Comment</source>
+            <target state="final">%s Kommentar</target></trans-unit>
+      <trans-unit id="message.comments" xml:space="preserve" approved="yes">
+                <source>%s Comments</source>
+            <target state="final">%s Kommentare</target></trans-unit>
+      <trans-unit id="message.comments_closed" xml:space="preserve" approved="yes">
+                <source>Comments closed</source>
+            <target state="final">Kommentarfunktion deaktiviert</target></trans-unit>
+      <trans-unit id="message.addComment.error.title" xml:space="preserve" approved="yes">
+                <source>Comments not active</source>
+            <target state="final">Kommentare nicht aktiv</target></trans-unit>
+      <trans-unit id="message.addComment.error.text" xml:space="preserve" approved="yes">
+                <source>The comment function is disabled.</source>
+            <target state="final">Die Kommentarfunktion ist deaktiviert.</target></trans-unit>
+      <trans-unit id="message.addComment.success.title" xml:space="preserve" approved="yes">
+                <source>Comment added</source>
+            <target state="final">Kommentar hinzugefügt</target></trans-unit>
+      <trans-unit id="message.addComment.success.text" xml:space="preserve" approved="yes">
+                <source>Your comment was added successfully.</source>
+            <target state="final">Dein Kommentar wurde erfolgreich hinzugefügt.</target></trans-unit>
+      <trans-unit id="message.addComment.moderation.title" xml:space="preserve" approved="yes">
+                <source>Comment added</source>
+            <target state="final">Kommentar hinzugefügt</target></trans-unit>
+      <trans-unit id="message.addComment.moderation.text" xml:space="preserve" approved="yes">
+                <source>Your comment was added successfully and is now waiting for approval.</source>
+            <target state="final">Dein Kommentar wurde erfolgreich hinzugefügt und wartet auf Freigabe.</target></trans-unit>
+      <!-- Meta -->
+      <trans-unit id="meta.authors.author" xml:space="preserve" approved="yes">
+                <source>Author</source>
+            <target state="final">Autor</target></trans-unit>
+      <trans-unit id="meta.authors.authors" xml:space="preserve" approved="yes">
+                <source>Authors</source>
+            <target state="final">Autoren</target></trans-unit>
+      <trans-unit id="meta.categories.category" xml:space="preserve" approved="yes">
+                <source>Category</source>
+            <target state="final">Kategorie</target></trans-unit>
+      <trans-unit id="meta.categories.categories" xml:space="preserve" approved="yes">
+                <source>Categories</source>
+            <target state="final">Kategorien</target></trans-unit>
+      <trans-unit id="meta.tags.tag" xml:space="preserve" approved="yes">
+                <source>Tag</source>
+            <target state="final">Schlagwort</target></trans-unit>
+      <trans-unit id="meta.tags.tags" xml:space="preserve" approved="yes">
+                <source>Tags</source>
+            <target state="final">Schlagworte</target></trans-unit>
+      <trans-unit id="meta.published.published" xml:space="preserve" approved="yes">
+                <source>Published</source>
+            <target state="final">Publiziert</target></trans-unit>
+      <trans-unit id="meta.comments.comments" xml:space="preserve" approved="yes">
+                <source>Comments</source>
+            <target state="final">Kommentare</target></trans-unit>
+      <trans-unit id="meta.comments.has_comment" xml:space="preserve" approved="yes">
+                <source>%s Comment</source>
+            <target state="final">%s Kommentar</target></trans-unit>
+      <trans-unit id="meta.comments.has_comments" xml:space="preserve" approved="yes">
+                <source>%s Comments</source>
+            <target state="final">%s Kommentare</target></trans-unit>
+      <trans-unit id="meta.comments.start_conversation" xml:space="preserve" approved="yes">
+                <source>Start the Conversation</source>
+            <target state="final">Beginne eine Unterhaltung</target></trans-unit>
+      <trans-unit id="meta.comments.join_conversation" xml:space="preserve" approved="yes">
+                <source>Join the Conversation</source>
+            <target state="final">An der Unterhaltung teilnehmen</target></trans-unit>
+      <trans-unit id="meta.comments.view_conversation" xml:space="preserve" approved="yes">
+                <source>View the Conversation</source>
+            <target state="final">Unterhaltung ansehen</target></trans-unit>
+      <trans-unit id="meta.title.listPostsByDate" xml:space="preserve" approved="yes">
+                <source>All blog posts in ###MONTH_NAME### ###YEAR###</source>
+            <target state="final">Alle Blogbeiträge aus ###MONTH_NAME### ###YEAR###</target></trans-unit>
+      <trans-unit id="meta.description.listPostsByDate" xml:space="preserve" approved="yes">
+                <source>All blog posts ordered by date</source>
+            <target state="final">Alle Blogbeiträge nach Datum sortiert</target></trans-unit>
+      <!-- Author -->
+      <trans-unit id="author.aboutTheAuthor" xml:space="preserve" approved="yes">
+                <source>About the Author</source>
+            <target state="final">Über den Autor</target></trans-unit>
+      <trans-unit id="author.social.website" xml:space="preserve" approved="yes">
+                <source>Website</source>
+            <target state="final">Webseite</target></trans-unit>
+      <trans-unit id="author.social.twitter" xml:space="preserve" approved="yes">
+                <source>Twitter</source>
+            <target state="final">Twitter</target></trans-unit>
+      <trans-unit id="author.social.instagram" xml:space="preserve" approved="yes">
+                <source>Instagram</source>
+            <target state="final">Instagram</target></trans-unit>
+      <trans-unit id="author.social.linkedin" xml:space="preserve" approved="yes">
+                <source>LinkedIn</source>
+            <target state="final">LinkedIn</target></trans-unit>
+      <trans-unit id="author.social.xing" xml:space="preserve" approved="yes">
+                <source>Xing</source>
+            <target state="final">Xing</target></trans-unit>
+      <trans-unit id="author.more.posts" xml:space="preserve" approved="yes">
+                <source>More posts by this author</source>
+            <target state="final">Weitere Beiträge dieses Autors</target></trans-unit>
+      <!-- List -->
+      <trans-unit id="list.no_posts.title" xml:space="preserve" approved="yes">
+                <source>No blog posts</source>
+            <target state="final">Keine Blogbeiträge</target></trans-unit>
+      <trans-unit id="list.no_posts.message" xml:space="preserve" approved="yes">
+                <source>This list contains no blog posts.</source>
+            <target state="final">Die Liste enthält keine Blogbeiträge.</target></trans-unit>
+      <trans-unit id="list.backlink.authors" xml:space="preserve" approved="yes">
+                <source>Back to Authors</source>
+            <target state="final">Zurück zu den Autoren</target></trans-unit>
+      <trans-unit id="list.show.author" xml:space="preserve" approved="yes">
+                <source>Show Author</source>
+            <target state="final">Autor anzeigen</target></trans-unit>
+      <trans-unit id="list.backlink.categories" xml:space="preserve" approved="yes">
+                <source>Back to Categories</source>
+            <target state="final">Zurück zu den Kategorien</target></trans-unit>
+      <trans-unit id="list.show.category" xml:space="preserve" approved="yes">
+                <source>Show Category</source>
+            <target state="final">Kategorie anzeigen</target></trans-unit>
+      <trans-unit id="list.backlink.tags" xml:space="preserve" approved="yes">
+                <source>Back to Tags</source>
+            <target state="final">Zurück zu den Schlagworten</target></trans-unit>
+      <trans-unit id="list.show.tag" xml:space="preserve" approved="yes">
+                <source>Show Tag</source>
+            <target state="final">Schlagwort anzeigen</target></trans-unit>
+      <trans-unit id="list.backlink.archive" xml:space="preserve" approved="yes">
+                <source>Back to Archive</source>
+            <target state="final">Zurück zum Archiv</target></trans-unit>
+      <trans-unit id="list.show.archive" xml:space="preserve" approved="yes">
+                <source>Show Archive</source>
+            <target state="final">Archiv anzeigen</target></trans-unit>
+      <!-- Backend -->
+      <trans-unit id="backend.headline.setup_wizard" xml:space="preserve" approved="yes">
+                <source>SetupWizard</source>
+            <target state="final">Setup-Assistent</target></trans-unit>
+      <trans-unit id="backend.headline.posts" xml:space="preserve" approved="yes">
+                <source>Posts</source>
+            <target state="final">Beiträge</target></trans-unit>
+      <trans-unit id="backend.headline.comments" xml:space="preserve" approved="yes">
+                <source>Comments</source>
+            <target state="final">Kommentare</target></trans-unit>
+      <trans-unit id="backend.lead.blogs" xml:space="preserve" approved="yes">
+                <source>It looks like you have the following blog setups</source>
+            <target state="final">Es scheint, als hätten Sie die folgenden Blogs aufgesetzt</target></trans-unit>
+      <trans-unit id="backend.message.noblogs" xml:space="preserve" approved="yes">
+                <source>It looks like no blog setup exists in this instance.</source>
+            <target state="final">Offenbar ist kein Blog in dieser Instanz konfiguriert.</target></trans-unit>
+      <trans-unit id="backend.lead.posts" xml:space="preserve" approved="yes">
+                <source>The following table shows all the blog posts available in this installation. Use the filters and search to refine the results.</source>
+            <target state="final">Die folgende Tabelle zeigt alle Beiträge in dieser Installation. Benutzen Sie die Filter oder Suche um die Ergebnisse zu verfeinern.</target></trans-unit>
+      <trans-unit id="backend.message.noposts" xml:space="preserve" approved="yes">
+                <source>Oops, apparently there are no blog posts in this installation.</source>
+            <target state="final">Oha, anscheinend gibt es in dieser Installation keine Blog Beiträge.</target></trans-unit>
+      <trans-unit id="backend.message.nopost" xml:space="preserve" approved="yes">
+                <source>Post not available</source>
+            <target state="final">Beitrag ist nicht verfügbar.</target></trans-unit>
+      <trans-unit id="backend.lead.comments" xml:space="preserve" approved="yes">
+                <source>The following table shows blog comments available in this installation. Use the filters and search to refine the results.</source>
+            <target state="final">Die folgende Tabelle zeigt verfügbare Kommentare in dieser Installation. Benutzen Sie die Filter um das Ergebnis zu verfeinern.</target></trans-unit>
+      <trans-unit id="backend.message.nocomments" xml:space="preserve" approved="yes">
+                <source>Oops, apparently there are no blog comments in this view.</source>
+            <target state="final">Oha, anscheinend gibt es in dieser Ansicht keine Kommentare.</target></trans-unit>
+      <trans-unit id="backend.warning" xml:space="preserve" approved="yes">
+                <source>Warning</source>
+            <target state="final">Warnung</target></trans-unit>
+      <trans-unit id="backend.table.blog" xml:space="preserve" approved="yes">
+                <source>Blog</source>
+            <target state="final">Blog</target></trans-unit>
+      <trans-unit id="backend.table.articles" xml:space="preserve" approved="yes">
+                <source>Articles</source>
+            <target state="final">Artikel</target></trans-unit>
+      <trans-unit id="backend.table.actions" xml:space="preserve" approved="yes">
+                <source>Actions</source>
+            <target state="final">Aktionen</target></trans-unit>
+      <trans-unit id="backend.table.title" xml:space="preserve" approved="yes">
+                <source>Title</source>
+            <target state="final">Titel</target></trans-unit>
+      <trans-unit id="backend.table.author" xml:space="preserve" approved="yes">
+                <source>Authors</source>
+            <target state="final">Autoren</target></trans-unit>
+      <trans-unit id="backend.table.categories" xml:space="preserve" approved="yes">
+                <source>Categories</source>
+            <target state="final">Kategorien</target></trans-unit>
+      <trans-unit id="backend.table.tags" xml:space="preserve" approved="yes">
+                <source>Tags</source>
+            <target state="final">Schlagworte</target></trans-unit>
+      <trans-unit id="backend.table.comment" xml:space="preserve" approved="yes">
+                <source>Comment</source>
+            <target state="final">Kommentar</target></trans-unit>
+      <trans-unit id="backend.table.post" xml:space="preserve" approved="yes">
+                <source>Reply to post</source>
+            <target state="final">Antworte auf den Post</target></trans-unit>
+      <trans-unit id="backend.table.date" xml:space="preserve" approved="yes">
+                <source>Date</source>
+            <target state="final">Datum</target></trans-unit>
+      <trans-unit id="backend.table.hidden" xml:space="preserve" approved="yes">
+                <source>Hidden</source>
+            <target state="final">Verborgen</target></trans-unit>
+      <trans-unit id="backend.table.hidden.yes" xml:space="preserve" approved="yes">
+                <source>Yes</source>
+            <target state="final">Ja</target></trans-unit>
+      <trans-unit id="backend.table.hidden.no" xml:space="preserve" approved="yes">
+                <source>No</source>
+            <target state="final">Nein</target></trans-unit>
+      <trans-unit id="backend.comments.filter.all" xml:space="preserve" approved="yes">
+                <source>All</source>
+            <target state="final">Alle</target></trans-unit>
+      <trans-unit id="backend.comments.filter.pending" xml:space="preserve" approved="yes">
+                <source>Pending</source>
+            <target state="final">Ausstehend</target></trans-unit>
+      <trans-unit id="backend.comments.filter.approved" xml:space="preserve" approved="yes">
+                <source>Approved</source>
+            <target state="final">Genehmigt</target></trans-unit>
+      <trans-unit id="backend.comments.filter.declined" xml:space="preserve" approved="yes">
+                <source>Declined</source>
+            <target state="final">Abgelehnt</target></trans-unit>
+      <trans-unit id="backend.comments.filter.deleted" xml:space="preserve" approved="yes">
+                <source>Deleted</source>
+            <target state="final">Gelöscht</target></trans-unit>
+      <!-- Wizard -->
+      <trans-unit id="wizard.button.trigger" xml:space="preserve" approved="yes">
+                <source>Setup a new blog</source>
+            <target state="final">Einen neuen Blog aufsetzen</target></trans-unit>
+      <trans-unit id="wizard.button.cancel" xml:space="preserve" approved="yes">
+                <source>Cancel</source>
+            <target state="final">Abbrechen</target></trans-unit>
+      <trans-unit id="wizard.button.setup" xml:space="preserve" approved="yes">
+                <source>Setup</source>
+            <target state="final">Setup</target></trans-unit>
+      <trans-unit id="wizard.lead" xml:space="preserve" approved="yes">
+                <source>This Wizard will create a blog setup in your tree.</source>
+            <target state="final">Der Installationsassistent wird einen neuen Blog im Seitenbaum aufsetzen.</target></trans-unit>
+      <trans-unit id="wizard.description" xml:space="preserve" approved="yes">
+                <source>After click on the button below the tree will be created. If you see the success message, go to your page tree and maybe reload the tree to see the result.</source>
+            <target state="final">Nach dem Klick auf den Button unten wird der Seitenbaum erstellt. Sobald die Erfolgsmeldung zu sehen ist, gehen Sie zum Seitenbaum. Eventuell muss der Seitenbaum neu geladen werden, damit das Ergebnis sichtbar wird.</target></trans-unit>
+      <trans-unit id="wizard.headline.settings" xml:space="preserve" approved="yes">
+                <source>Settings</source>
+            <target state="final">Einstellungen</target></trans-unit>
+      <trans-unit id="wizard.label.title" xml:space="preserve" approved="yes">
+                <source>Title of the blog</source>
+            <target state="final">Titel des Blogs</target></trans-unit>
+      <trans-unit id="wizard.placeholder.title" xml:space="preserve" approved="yes">
+                <source>The title of your blog</source>
+            <target state="final">Der Titel Ihres Blogs</target></trans-unit>
+      <!-- Constant Editor -->
+      <trans-unit id="constantEditor.blog" xml:space="preserve" approved="yes">
+                <source>TYPO3 Blog</source>
+            <target state="final">TYPO3-Blog</target></trans-unit>
+      <trans-unit id="constantEditor.customcategory.post" xml:space="preserve" approved="yes">
+                <source>TYPO3 Blog: Post</source>
+            <target state="final">TYPO3 Blog: Artikel</target></trans-unit>
+      <trans-unit id="constantEditor.customcategory.list" xml:space="preserve" approved="yes">
+                <source>TYPO3 Blog: List</source>
+            <target state="final">TYPO3 Blog: Liste</target></trans-unit>
+      <trans-unit id="constantEditor.customcategory.teaser" xml:space="preserve" approved="yes">
+                <source>TYPO3 Blog: Teaser</source>
+            <target state="final">TYPO3 Blog: Teaser</target></trans-unit>
+      <trans-unit id="constantEditor.customcategory.standalone" xml:space="preserve" approved="yes">
+                <source>TYPO3 Blog: Standalone</source>
+            <target state="final">TYPO3 Blog: Standalone</target></trans-unit>
+      <trans-unit id="constantEditor.blog_100_uids" xml:space="preserve" approved="yes">
+                <source>Page ID settings</source>
+            <target state="final">SeitenID-Einstellungen</target></trans-unit>
+      <trans-unit id="constantEditor.blog_110_templates" xml:space="preserve" approved="yes">
+                <source>Templates</source>
+            <target state="final">Templates</target></trans-unit>
+      <trans-unit id="constantEditor.blog_120_lists" xml:space="preserve" approved="yes">
+                <source>Listings</source>
+            <target state="final">Auflistung</target></trans-unit>
+      <trans-unit id="constantEditor.blog_120_lists_archive" xml:space="preserve" approved="yes">
+                <source>Listings: Archive</source>
+            <target state="final">Listen: Archiv</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.post" xml:space="preserve" approved="yes">
+                <source>Post</source>
+            <target state="final">Artikel</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.post.featuredimage" xml:space="preserve" approved="yes">
+                <source>Featured Image</source>
+            <target state="final">Feature-Bild</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.post.header" xml:space="preserve" approved="yes">
+                <source>Post Header</source>
+            <target state="final">Artikel-Überschrift</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.post.footer" xml:space="preserve" approved="yes">
+                <source>Post Footer</source>
+            <target state="final">Artikel-Fußzeile</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.list.featuredimage" xml:space="preserve" approved="yes">
+                <source>Featured Image</source>
+            <target state="final">Feature-Bild</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.list.element" xml:space="preserve" approved="yes">
+                <source>Element</source>
+            <target state="final">Element</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.list.element.header" xml:space="preserve" approved="yes">
+                <source>Element Header</source>
+            <target state="final">Kopfzeile des Elements</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.list.element.footer" xml:space="preserve" approved="yes">
+                <source>Element Footer</source>
+            <target state="final">Fußzeile des Elements</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.teaser.element.header" xml:space="preserve" approved="yes">
+                <source>Element Header</source>
+            <target state="final">Element-Kopfzeile</target></trans-unit>
+      <trans-unit id="constantEditor.customsubcategory.teaser.element.footer" xml:space="preserve" approved="yes">
+                <source>Element Footer</source>
+            <target state="final">Element-Fußzeile</target></trans-unit>
+      <trans-unit id="constantEditor.blog_130_widgets" xml:space="preserve" approved="yes">
+                <source>Widgets</source>
+            <target state="final">Widgets</target></trans-unit>
+      <trans-unit id="constantEditor.blog_131_widgets_comments" xml:space="preserve" approved="yes">
+                <source>Widget: Comment</source>
+            <target state="final">Widget: Kommentar</target></trans-unit>
+      <trans-unit id="constantEditor.blog_132_widgets_recent_posts" xml:space="preserve" approved="yes">
+                <source>Widget: Recent posts</source>
+            <target state="final">Widget: Neueste Artikel</target></trans-unit>
+      <trans-unit id="constantEditor.blog_133_widgets_tags" xml:space="preserve" approved="yes">
+                <source>Widget: Tags</source>
+            <target state="final">Widget: Schlagworte</target></trans-unit>
+      <trans-unit id="constantEditor.blog_134_widgets_archive" xml:space="preserve" approved="yes">
+                <source>Widget: Archive</source>
+            <target state="final">Widget: Archiv</target></trans-unit>
+      <trans-unit id="constantEditor.blog_140_comments" xml:space="preserve" approved="yes">
+                <source>Comments</source>
+            <target state="final">Kommentare</target></trans-unit>
+      <trans-unit id="constantEditor.blog_150_authors" xml:space="preserve" approved="yes">
+                <source>Authors</source>
+            <target state="final">Autoren</target></trans-unit>
+      <trans-unit id="constantEditor.blog_160_notifications" xml:space="preserve" approved="yes">
+                <source>Notifications</source>
+            <target state="final">Benachrichtigungen</target></trans-unit>
+      <trans-unit id="constantEditor.view.templateRootPath" xml:space="preserve" approved="yes">
+                <source>Template Root Path: Path to templates folder</source>
+            <target state="final">Template Root Pfad: Pfad zum Template Ordner</target></trans-unit>
+      <trans-unit id="constantEditor.view.partialRootPaths" xml:space="preserve" approved="yes">
+                <source>Partial Root Path: Path to partial folder</source>
+            <target state="final">Partial Root Pfad: Pfad zum Partial Ordner</target></trans-unit>
+      <trans-unit id="constantEditor.view.layoutRootPaths" xml:space="preserve" approved="yes">
+                <source>Layout Root Path: Path to layout folder</source>
+            <target state="final">Layout Root Pfad: Pfad zum Layout Ordner</target></trans-unit>
+      <trans-unit id="constantEditor.view.widget.templateRootPath" xml:space="preserve" approved="yes">
+                <source>Widget-Template Root Path: Path to templates folder</source>
+            <target state="final">Widget-Template Root Pfad: Pfad zum Template Ordner</target></trans-unit>
+      <trans-unit id="constantEditor.view.emails.templateRootPath" xml:space="preserve" approved="yes">
+                <source>Email-Template Root Path: Path to templates folder</source>
+            <target state="final">Email-Template Root Pfad: Pfad zum Template Ordner</target></trans-unit>
+      <trans-unit id="constantEditor.view.emails.partialRootPaths" xml:space="preserve" approved="yes">
+                <source>Email-Partial Root Path: Path to partial folder</source>
+            <target state="final">Email-Partial Root Pfad: Pfad zum Partial Ordner</target></trans-unit>
+      <trans-unit id="constantEditor.view.emails.layoutRootPaths" xml:space="preserve" approved="yes">
+                <source>Email-Layout Root Path: Path to layout folder</source>
+            <target state="final">Email-Layout Root Pfad: Pfad zum Layout Ordner</target></trans-unit>
+      <trans-unit id="constantEditor.authorUid" xml:space="preserve" approved="yes">
+                <source>Author UID:Location of the "Blog: Author" plugin. Shows posts by author.</source>
+            <target state="final">Autoren-UID: Seite des "Blog: Autor" Plugin. Zeigt Beiträge von Autoren an.</target></trans-unit>
+      <trans-unit id="constantEditor.comments.active" xml:space="preserve" approved="yes">
+                <source>Enable Comments:Activate comments as a general feature</source>
+            <target state="final">Kommentare aktivieren: Kommentare überall aktivieren</target></trans-unit>
+      <trans-unit id="constantEditor.comments.features.urls" xml:space="preserve" approved="yes">
+                <source>Enable Urls:Activate the url field in the comment form and output the submitted url</source>
+            <target state="final">Aktiviere Urls:Aktiviere das Url-Feld im Kommentar-Formular und gib die eingereichte Url aus</target></trans-unit>
+      <trans-unit id="constantEditor.comments.moderation" xml:space="preserve" approved="yes">
+                <source>Comments moderation mode:0 = no moderation, 1 = moderation active, 2 = moderation only on first comment</source>
+            <target state="final">Kommentar Moderationsmodus: 0 = Keine Moderation, 1 = Moderation aktiv,  2 = Moderation nur beim ersten Kommentar</target></trans-unit>
+      <trans-unit id="constantEditor.comments.respectPostLanguageId" xml:space="preserve" approved="yes">
+                <source>Respect post_language_id:0 = show all comments also on translated posts, 1 = show only comments written in current language or language all (-1)</source>
+            <target state="final">Respektiere post_language_id: 0 = Zeige alle Kommentare auch auf übersetzten Beiträgen, 1 = zeige nur Kommentare, die in der aktuellen Sprache geschrieben wurden oder Sprache alle (-1)</target></trans-unit>
+      <trans-unit id="constantEditor.comments.date.format" xml:space="preserve" approved="yes">
+                <source>Date format:The format for the comments (default: %B %e, %Y).</source>
+            <target state="final">Datumsformat: Das Format für die Kommentare (Standard: %B %e, %Y).</target></trans-unit>
+      <trans-unit id="constantEditor.comments.google_recaptcha" xml:space="preserve" approved="yes">
+                <source>Google Recaptcha v2:Enable google recaptcha for comments?</source>
+            <target state="final">Google Recaptcha: Google Recaptcha für Kommentare aktivieren?</target></trans-unit>
+      <trans-unit id="constantEditor.comments.google_recaptcha.website_key" xml:space="preserve" approved="yes">
+                <source>Google Recaptcha Website-Key</source>
+            <target state="final">Google Recaptcha: Website-Schlüssel</target></trans-unit>
+      <trans-unit id="constantEditor.comments.google_recaptcha.secret_key" xml:space="preserve" approved="yes">
+                <source>Google Recaptcha Secrete-Key</source>
+            <target state="final">Google Recaptcha: Geheimer-Schlüssel</target></trans-unit>
+      <trans-unit id="constantEditor.comments.disqus" xml:space="preserve" approved="yes">
+                <source>Enable Disqus:Use disqus instead of internal comments?</source>
+            <target state="final">Disqus aktivieren: Disqus anstelle von internen Kommentaren verwenden?</target></trans-unit>
+      <trans-unit id="constantEditor.comments.disqus.shortname" xml:space="preserve" approved="yes">
+                <source>Disqus shortname:The shortname / forum id of your disqus setup.</source>
+            <target state="final">Disqus Kurzname: Der Kurzname / die Forum-ID Ihres Disqus-Setups.</target></trans-unit>
+      <trans-unit id="constantEditor.authors.avatar.provider.size" xml:space="preserve" approved="yes">
+                <source>Author Avatar Size:The size in px for the author avatar</source>
+            <target state="final">Autor Avatar Größe: Die Größe für den Autor Avatar in px</target></trans-unit>
+      <trans-unit id="constantEditor.authors.avatar.provider.default" xml:space="preserve" approved="yes">
+                <source>Author Avatar Default:The default image for an author avatar</source>
+            <target state="final">Autor Avatar Standard: Das Standardbild für einen Autor Avatar</target></trans-unit>
+      <trans-unit id="constantEditor.authors.avatar.provider.rating" xml:space="preserve" approved="yes">
+                <source>Define the gravatar rating for images: g = suitable for display on all websites with any audience type | pg = may contain rude gestures, provocatively dressed individuals, the lesser swear words, or mild violence | r = may contain such things as harsh profanity, intense violence, nudity, or hard drug use | x = may contain hardcore sexual imagery or extremely disturbing violence.The default image for an author avatar</source>
+            <target state="final">Definiere die Gravatarwertung für Bilder: g = geeignet für die Anzeige auf allen Webseiten mit beliebigem Publikumstyp | pg = kann unhöfliche Gesten enthalten, provokativ gekleidete Individuen, die geringeren schwörenden Worte, oder milde Gewalt | r = kann Dinge wie harte Profanität, intensive Gewalt, Nacktheit, enthalten oder harter Drogenkonsum | x = kann Hardcore sexuelle Bilder oder extrem störende Gewalt enthalten. er Standardbild für einen Autoren-Avatar</target></trans-unit>
+      <trans-unit id="constantEditor.blogUid" xml:space="preserve" approved="yes">
+                <source>List posts UID:Location of the "Blog: List of posts" plugin. This page UID is the root page for the blog. All blog post pages are located below this page.</source>
+            <target state="final">Blogeinträge UID:Ort des "Blog: Liste der Blogbeiträge"-Plug-Ins zeigen. Diese Seiten-UID ist die Wurzelseite des Blogs. Alle Blog-Seiten sind unter dieser Seite einsortiert.</target></trans-unit>
+      <trans-unit id="constantEditor.categoryUid" xml:space="preserve" approved="yes">
+                <source>List by category UID:Location of the "Blog: List by category" plugin. Shows all posts from one category.</source>
+            <target state="final">Kategorien UID:Ort des "Blog: Sortiert nach Kategorie"-Plug-Ins zeigen. Zeigt alle Blogbeiträge einer Kategorie.</target></trans-unit>
+      <trans-unit id="constantEditor.tagUid" xml:space="preserve" approved="yes">
+                <source>List by tags UID:Location of the "Blog: List by tags" plugin. Shows all posts from one tag.</source>
+            <target state="final">Schlagworte UID:Ort des "Blog: Sortiert nach Schlagworten"-Plug-Ins zeigen. Zeigt alle Artikel zu einem Schlagwort.</target></trans-unit>
+      <trans-unit id="constantEditor.archiveUid" xml:space="preserve" approved="yes">
+                <source>Archive UID:Location of the "Blog: Archive" plugin. Shows archived posts.</source>
+            <target state="final">Archiv UID: Ort des "Blog: Archiv"-Plugins. Zeigt archivierte Artikel.</target></trans-unit>
+      <trans-unit id="constantEditor.storagePid" xml:space="preserve" approved="yes">
+                <source>Storage folder:Storage folder of all categories and tags for this blog.</source>
+            <target state="final">Datensammlung: Datensammlung aller Kategorien und Schlagwörter dieses Blogs.</target></trans-unit>
+      <trans-unit id="constantEditor.senderName" xml:space="preserve" approved="yes">
+                <source>Sender name:Global sender name for notifications</source>
+            <target state="final">Absendername: Globaler Absendername für Benachrichtigungen</target></trans-unit>
+      <trans-unit id="constantEditor.senderMail" xml:space="preserve" approved="yes">
+                <source>Sender mail:Global sender email address for notifications</source>
+            <target state="final">Absender Email: Globale Absender-E-Mail-Adresse für Benachrichtigungen</target></trans-unit>
+      <trans-unit id="constantEditor.CommentAddedNotification.author" xml:space="preserve" approved="yes">
+                <source>Author notifications:Send notification to author of a blog post</source>
+            <target state="final">Autoren-Benachrichtigungen: Senden von Benachrichtigungen an den Autor eines Blogbeitrags</target></trans-unit>
+      <trans-unit id="constantEditor.CommentAddedNotification.admin" xml:space="preserve" approved="yes">
+                <source>Admin notifications:Send notification to admin of the blog</source>
+            <target state="final">Admin-Benachrichtigungen: Senden von Benachrichtigungen an den Admin des Blogs</target></trans-unit>
+      <trans-unit id="constantEditor.CommentAddedNotification.admin.email" xml:space="preserve" approved="yes">
+                <source>Admin mail:Global admin (receiver) email address for notifications</source>
+            <target state="final">Admin Email: Globale Admin-E-Mail-Adresse (Empfänger) für Benachrichtigungen</target></trans-unit>
+      <trans-unit id="constantEditor.post.featuredImage.width" xml:space="preserve" approved="yes">
+                <source>Width</source>
+            <target state="final">Breite</target></trans-unit>
+      <trans-unit id="constantEditor.post.featuredImage.height" xml:space="preserve" approved="yes">
+                <source>Height</source>
+            <target state="final">Höhe</target></trans-unit>
+      <trans-unit id="constantEditor.lists.featuredImage.width" xml:space="preserve" approved="yes">
+                <source>Width</source>
+            <target state="final">Breite</target></trans-unit>
+      <trans-unit id="constantEditor.lists.featuredImage.height" xml:space="preserve" approved="yes">
+                <source>Height</source>
+            <target state="final">Höhe</target></trans-unit>
+      <trans-unit id="constantEditor.lists.pagination.itemsPerPage" xml:space="preserve" approved="yes">
+                <source>Number of post that should be displayed per page</source>
+            <target state="final">Anzahl der Beiträge, die pro Seite angezeigt werden sollen</target></trans-unit>
+      <trans-unit id="constantEditor.lists.pagination.insertAbove" xml:space="preserve" approved="yes">
+                <source>Show the pagination above the posts</source>
+            <target state="final">Zeige die Paginierung über den Beiträgen</target></trans-unit>
+      <trans-unit id="constantEditor.lists.pagination.insertBelow" xml:space="preserve" approved="yes">
+                <source>Show the pagination below the posts</source>
+            <target state="final">Zeige die Paginierung unter den Beiträgen</target></trans-unit>
+      <trans-unit id="constantEditor.lists.pagination.maximumNumberOfLinks" xml:space="preserve" approved="yes">
+                <source>Maximum number of links in the pagination</source>
+            <target state="final">Maximale Anzahl von Links in der Paginierung</target></trans-unit>
+      <trans-unit id="constantEditor.lists.posts.maximumDisplayedItems" xml:space="preserve" approved="yes">
+                <source>Maximum displayed items:Maximum number of posts to be displayed (0 = no limit).</source>
+            <target state="final">Maximal angezeigte Elemente: Maximale Anzahl der anzuzeigenden Beiträge (0 = unbegrenzt).</target></trans-unit>
+      <trans-unit id="constantEditor.lists.posts.dateFormat" xml:space="preserve" approved="yes">
+                <source>Date format:The format for the list items (default: %d.%m.%Y).</source>
+            <target state="final">Datumsformat: Das Format für die Listenelemente (Standard: %d.%m.%Y).</target></trans-unit>
+      <trans-unit id="constantEditor.latestPosts.limit" xml:space="preserve" approved="yes">
+                <source>Limit:The limit of displayed items (default: 3).</source>
+            <target state="final">Limit: Das Limit der angezeigten Elemente (Standard: 3).</target></trans-unit>
+      <trans-unit id="constantEditor.relatedPosts.limit" xml:space="preserve" approved="yes">
+                <source>Limit:The limit of displayed items (default: 5).</source>
+            <target state="final">Limit: Das Limit der angezeigten Elemente (Standard: 5).</target></trans-unit>
+      <trans-unit id="constantEditor.relatedPosts.categoryMultiplier" xml:space="preserve" approved="yes">
+                <source>Category Multiplier:The multiplier for categories (default: 1).</source>
+            <target state="final">Kategorie-Multiplikator: Der Multiplikator für Kategorien (Standard: 1).</target></trans-unit>
+      <trans-unit id="constantEditor.relatedPosts.tagMultiplier" xml:space="preserve" approved="yes">
+                <source>Tag Multiplier:The multiplier for tags (default: 1).</source>
+            <target state="final">Schlagwort-Multiplikator: Der Multiplikator für Schlagworte (Standard: 1).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.comments.limit" xml:space="preserve" approved="yes">
+                <source>Limit:The limit of displayed items (default: 5).</source>
+            <target state="final">Limit: Das Limit der angezeigten Elemente (Standard: 5).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.recentposts.limit" xml:space="preserve" approved="yes">
+                <source>Limit:The limit of displayed items (default: 5).</source>
+            <target state="final">Limit: Das Limit der angezeigten Elemente (Standard: 5).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.tags.limit" xml:space="preserve" approved="yes">
+                <source>Limit:The limit of displayed items (default: 20).</source>
+            <target state="final">Limit: Das Limit der angezeigten Elemente (Standard: 20).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.tags.minSize" xml:space="preserve" approved="yes">
+                <source>Minimum size:The minimum size of the font (default: 100).</source>
+            <target state="final">Mindestgröße: Die Mindestgröße der Schriftart (Standard: 100).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.tags.maxSize" xml:space="preserve" approved="yes">
+                <source>Maximum size:The maximum size of the font (default: 200).</source>
+            <target state="final">Maximale Größe: Die maximale Größe der Schriftart (Standard: 200).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.archive.showCounter" xml:space="preserve" approved="yes">
+                <source>Show counter:If enabled, the count of posts is visible (default: 1).</source>
+            <target state="final">Zähler anzeigen: Wenn aktiviert, ist die Anzahl der Beiträge sichtbar (Standard: 1).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.archive.groupByYear" xml:space="preserve" approved="yes">
+                <source>Group by year:If enabled, the posts are grouped by year (default: 1).</source>
+            <target state="final">Gruppieren nach Jahr: Wenn aktiviert, werden die Beiträge nach Jahr gruppiert (Standard: 1).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.archive.groupByMonth" xml:space="preserve" approved="yes">
+                <source>Group by month:If enabled, the posts are grouped by year and month (default: 1).</source>
+            <target state="final">Gruppieren nach Monat: Wenn aktiviert, werden die Beiträge nach Jahr und Monat gruppiert (Standard: 1).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.archive.yearDateFormat" xml:space="preserve" approved="yes">
+                <source>Year format:The format of the year (default: %Y).</source>
+            <target state="final">Jahresformat: Das Format des Jahres (Standard: %Y).</target></trans-unit>
+      <trans-unit id="constantEditor.widgets.archive.monthDateFormat" xml:space="preserve" approved="yes">
+                <source>Month format:The format of the month (default: %B).</source>
+            <target state="final">Monatsformat: Das Format des Monats (Standard: %B).</target></trans-unit>
+      <trans-unit id="constantEditor.archive.showCounter" xml:space="preserve" approved="yes">
+                <source>Show counter:If enabled, the count of posts is visible (default: 1).</source>
+            <target state="final">Zähler anzeigen: Wenn aktiviert, ist die Anzahl der Beiträge sichtbar (Standard: 1).</target></trans-unit>
+      <trans-unit id="constantEditor.archive.yearDateFormat" xml:space="preserve" approved="yes">
+                <source>Year format:The format of the year (default: %Y).</source>
+            <target state="final">Jahresformat: Das Format des Jahres (Standard: %Y).</target></trans-unit>
+      <trans-unit id="constantEditor.archive.monthDateFormat" xml:space="preserve" approved="yes">
+                <source>Month format:The format of the month (default: %B).</source>
+            <target state="final">Monatsformat: Das Format des Monats (Standard: %B).</target></trans-unit>
+      <trans-unit id="constantEditor.meta.header.enable" xml:space="preserve" approved="yes">
+                <source>Display meta information in the header</source>
+            <target state="final">Meta-Informationen in der Kopfzeile anzeigen</target></trans-unit>
+      <trans-unit id="constantEditor.meta.footer.enable" xml:space="preserve" approved="yes">
+                <source>Display meta information in the footer</source>
+            <target state="final">Meta-Informationen in der Fußzeile anzeigen</target></trans-unit>
+      <trans-unit id="constantEditor.meta.modifier" xml:space="preserve" approved="yes">
+                <source>Meta information display style</source>
+            <target state="final">Meta-Informationen-Anzeigemodus</target></trans-unit>
+      <trans-unit id="constantEditor.meta.modifier.condensed" xml:space="preserve" approved="yes">
+                <source>Condensed</source>
+            <target state="final">Schmal</target></trans-unit>
+      <trans-unit id="constantEditor.meta.modifier.extended" xml:space="preserve" approved="yes">
+                <source>Extended</source>
+            <target state="final">Erweitert</target></trans-unit>
+      <trans-unit id="constantEditor.meta.modifier.simple" xml:space="preserve" approved="yes">
+                <source>Simple</source>
+            <target state="final">Einfach</target></trans-unit>
+      <trans-unit id="constantEditor.meta.elements.authors.enable" xml:space="preserve" approved="yes">
+                <source>Show authors in the meta section</source>
+            <target state="final">Autoren im Meta-Bereich anzeigen</target></trans-unit>
+      <trans-unit id="constantEditor.meta.elements.authors.avatar.enable" xml:space="preserve" approved="yes">
+                <source>Enable author avatars in the meta section</source>
+            <target state="final">Autoren-Avatare im Meta-Bereich aktivieren</target></trans-unit>
+      <trans-unit id="constantEditor.meta.elements.authors.avatar.size" xml:space="preserve" approved="yes">
+                <source>Size of the author avatars:The size in px for the author avatar</source>
+            <target state="final">Größe des Autor-Avatars:Die Größe in px für den Autor-Avatar</target></trans-unit>
+      <trans-unit id="constantEditor.meta.elements.categories.enable" xml:space="preserve" approved="yes">
+                <source>Show categories in the meta section</source>
+            <target state="final">Kategorien im Meta-Bereich anzeigen</target></trans-unit>
+      <trans-unit id="constantEditor.meta.elements.tags.enable" xml:space="preserve" approved="yes">
+                <source>Show tags in the meta section</source>
+            <target state="final">Schlagworte im Meta-Bereich anzeigen</target></trans-unit>
+      <trans-unit id="constantEditor.meta.elements.published.enable" xml:space="preserve" approved="yes">
+                <source>Show the publish date in the meta section</source>
+            <target state="final">Veröffentlichungsdatum im Meta-Bereich anzeigen</target></trans-unit>
+      <trans-unit id="constantEditor.meta.elements.published.format" xml:space="preserve" approved="yes">
+                <source>Published date format: Default: %d.%m.%Y</source>
+            <target state="final">Veröffentlichtungsdatumsformat: Standard: %d.%m.%Y</target></trans-unit>
+      <trans-unit id="constantEditor.meta.elements.comments.enable" xml:space="preserve" approved="yes">
+                <source>Show comments in the meta section</source>
+            <target state="final">Kommentare im Meta-Bereich anzeigen</target></trans-unit>
+      <!-- Backend PageLayout -->
+      <trans-unit id="pagelayout.section.authors" xml:space="preserve" approved="yes">
+                <source>Authors</source>
+            <target state="final">Autoren</target></trans-unit>
+      <trans-unit id="pagelayout.section.published" xml:space="preserve" approved="yes">
+                <source>Published</source>
+            <target state="final">Publiziert</target></trans-unit>
+      <trans-unit id="pagelayout.section.categories" xml:space="preserve" approved="yes">
+                <source>Categories</source>
+            <target state="final">Kategorien</target></trans-unit>
+      <trans-unit id="pagelayout.section.tags" xml:space="preserve" approved="yes">
+                <source>Tags</source>
+            <target state="final">Schlagworte</target></trans-unit>
+      <trans-unit id="pagelayout.section.featuredimage" xml:space="preserve" approved="yes">
+                <source>Featured Image</source>
+            <target state="final">Feature-Bild</target></trans-unit>
+      <trans-unit id="pagelayout.message.noauthor" xml:space="preserve" approved="yes">
+                <source>No author assigned.</source>
+            <target state="final">Kein Autor zugewiesen.</target></trans-unit>
+      <trans-unit id="pagelayout.message.nofeaturedimage" xml:space="preserve" approved="yes">
+                <source>No featured image assigned.</source>
+            <target state="final">Kein Feature-Bild zugewiesen.</target></trans-unit>
+      <trans-unit id="pagelayout.message.notabstractordescription" xml:space="preserve" approved="yes">
+                <source>No abstract or description is added for this post.</source>
+            <target state="final">Für diesen Beitrag wird keine Zusammenfassung oder Beschreibung hinzugefügt.</target></trans-unit>
+      <trans-unit id="pagelayout.button.post.edit" xml:space="preserve" approved="yes">
+                <source>Edit Post Meta-Data</source>
+            <target state="final">Post Meta-Daten bearbeiten</target></trans-unit>
+      <!-- Extension Configuration -->
+      <trans-unit id="extensionconfiguration.disablePageLayoutHeader" xml:space="preserve" approved="yes">
+                <source>Disable the page layout header: The page layout header shows additional information about blog posts in the TYPO3 page and list module.</source>
+            <target state="final">Deaktiviere den Seitenlayou-Header: Der Seitenlayout-Header zeigt zusätzliche Informationen über Blogbeiträge im TYPO3-Seiten- und Listenmodul an.</target></trans-unit>
+      <trans-unit id="extensionconfiguration.enableGravatarProxy" xml:space="preserve" approved="yes">
+                <source>Enables the proxying of gravatar images which means that calls to gravatar.com will be done server side instead of client side.</source>
+            <target state="final">Aktiviert das Proxieren von Gravatar-Bildern, was bedeutet, dass Aufrufe zu gravatar.com Serverseite statt Client-Seite durchgeführt werden.</target></trans-unit>
+      <!-- Feed -->
+      <trans-unit id="feed.title.listPostsByCategory" xml:space="preserve" approved="yes">
+                <source>Category RSS Feed</source>
+            <target state="final">Kategorie-RSS-Feed</target></trans-unit>
+      <trans-unit id="feed.description.listPostsByCategory" xml:space="preserve" approved="yes">
+                <source>Posts by category %s</source>
+            <target state="final">Blogbeiträge je Kategorie %s</target></trans-unit>
+      <trans-unit id="feed.title.listPostsByAuthor" xml:space="preserve" approved="yes">
+                <source>Author RSS Feed</source>
+            <target state="final">Autor RSS Feed</target></trans-unit>
+      <trans-unit id="feed.description.listPostsByAuthor" xml:space="preserve" approved="yes">
+                <source>Posts by author %s</source>
+            <target state="final">Beiträge des Autors %s</target></trans-unit>
+      <trans-unit id="feed.title.listPostsByDate" xml:space="preserve" approved="yes">
+                <source>Archive RSS Feed</source>
+            <target state="final">Archiv-RSS-Feed</target></trans-unit>
+      <trans-unit id="feed.description.listPostsByDate" xml:space="preserve" approved="yes">
+                <source>Posts by date: %s / %s</source>
+            <target state="final">Blogbeiträge nach Datum: %s / %s</target></trans-unit>
+      <trans-unit id="feed.title.listPostsByTag" xml:space="preserve" approved="yes">
+                <source>Tag RSS Feed</source>
+            <target state="final">Schlagwörter-RSS-Feed</target></trans-unit>
+      <trans-unit id="feed.description.listPostsByTag" xml:space="preserve" approved="yes">
+                <source>Posts by tag: %s</source>
+            <target state="final">Blogbeiträge nach Schlagwort: %s</target></trans-unit>
+      <trans-unit id="feed.title.listRecentPosts" xml:space="preserve" approved="yes">
+                <source>RSS Feed</source>
+            <target state="final">RSS-Feed</target></trans-unit>
+      <trans-unit id="feed.description.listRecentPosts" xml:space="preserve" approved="yes">
+                <source>Recent posts</source>
+            <target state="final">Letzte Blogbeiträge</target></trans-unit>
+      <!-- Label -->
+      <trans-unit id="label.blog" xml:space="preserve" approved="yes">
+                <source>Blog</source>
+            <target state="final">Blog</target></trans-unit>
+      <trans-unit id="label.all" xml:space="preserve" approved="yes">
+                <source>All</source>
+            <target state="final">Alle</target></trans-unit>
+      <trans-unit id="label.choose_blog" xml:space="preserve" approved="yes">
+                <source>Choose blog</source>
+            <target state="final">Blog auswählen</target></trans-unit>
+      <trans-unit id="label.required.field" xml:space="preserve" approved="yes">
+                <source>*</source>
+            <target state="final">*</target></trans-unit>
+      <trans-unit id="label.required.field.explanation" xml:space="preserve" approved="yes">
+                <source>These fields are required</source>
+            <target state="final">Diese Felder sind erforderlich</target></trans-unit>
+      <!-- Actions -->
+      <trans-unit id="action.approve" xml:space="preserve" approved="yes">
+                <source>Approve comment</source>
+            <target state="final">Kommentar genehmigen</target></trans-unit>
+      <trans-unit id="action.decline" xml:space="preserve" approved="yes">
+                <source>Decline comment</source>
+            <target state="final">Kommentar ablehnen</target></trans-unit>
+      <trans-unit id="action.delete" xml:space="preserve" approved="yes">
+                <source>Delete comment</source>
+            <target state="final">Kommentar löschen</target></trans-unit>
+      <trans-unit id="action.editComment" xml:space="preserve" approved="yes">
+                <source>Edit comment</source>
+            <target state="final">Kommentar bearbeiten</target></trans-unit>
+      <trans-unit id="action.multiple.approve" xml:space="preserve" approved="yes">
+                <source>Approve</source>
+            <target state="final">Genehmigen</target></trans-unit>
+      <trans-unit id="action.multiple.decline" xml:space="preserve" approved="yes">
+                <source>Decline</source>
+            <target state="final">Ablehnen</target></trans-unit>
+      <trans-unit id="action.multiple.delete" xml:space="preserve" approved="yes">
+                <source>Delete</source>
+            <target state="final">Löschen</target></trans-unit>
+      <!-- E-Mails -->
+      <trans-unit id="emails.CommentAddedNotification.subject" xml:space="preserve" approved="yes">
+                <source>A new comment was added to the post: %s</source>
+            <target state="final">Ein neuer Kommentar wurde dem Beitrag hinzugefügt: %s</target></trans-unit>
+      <trans-unit id="email.label.post" xml:space="preserve" approved="yes">
+                <source>Post</source>
+            <target state="final">Beitrag</target></trans-unit>
+      <trans-unit id="email.label.date" xml:space="preserve" approved="yes">
+                <source>Date</source>
+            <target state="final">Datum</target></trans-unit>
+      <trans-unit id="email.label.author" xml:space="preserve" approved="yes">
+                <source>Author</source>
+            <target state="final">Autor</target></trans-unit>
+      <trans-unit id="email.label.comment" xml:space="preserve" approved="yes">
+                <source>Comment</source>
+            <target state="final">Kommentar</target></trans-unit>
+      <!-- Widgets -->
+      <trans-unit id="widget.recentcomments.on" xml:space="preserve" approved="yes">
+                <source>on</source>
+            <target state="final">am</target></trans-unit>
+      <!-- Pagination -->
+      <trans-unit id="pagination.aria.label" xml:space="preserve" approved="yes">
+                <source>Page navigation</source>
+            <target state="final">Seitennavigation</target></trans-unit>
+      <trans-unit id="pagination.next" xml:space="preserve" approved="yes">
+                <source>Next</source>
+            <target state="final">Weiter</target></trans-unit>
+      <trans-unit id="pagination.previous" xml:space="preserve" approved="yes">
+                <source>Previous</source>
+            <target state="final">Zurück</target></trans-unit>
+      <trans-unit id="pagination.aria.current.page" xml:space="preserve" approved="yes">
+                <source>Current page, page %s</source>
+            <target state="final">Aktuelle Seite, Seite %s</target></trans-unit>
+      <trans-unit id="pagination.aria.goto.page" xml:space="preserve" approved="yes">
+                <source>Go to page %s</source>
+            <target state="final">Gehe zur Seite %s</target></trans-unit>
+      <trans-unit id="pagination.aria.goto.next" xml:space="preserve" approved="yes">
+                <source>Go to next page</source>
+            <target state="final">Nächste Seite</target></trans-unit>
+      <trans-unit id="pagination.aria.goto.previous" xml:space="preserve" approved="yes">
+                <source>Go to previous page</source>
+            <target state="final">Vorherige Seite</target></trans-unit>
+    </body>
+  </file>
+</xliff>

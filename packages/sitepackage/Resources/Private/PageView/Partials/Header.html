@@ -1,0 +1,46 @@
+<nav class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+    <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+        <div class="flex items-center">
+            <f:link.page pageUid="18">
+                <f:image src="EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png" class="h-12 w-auto transition-all" alt="cmt-logo" />
+            </f:link.page>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+            <ul class="flex items-center space-x-8">
+                <f:for as="item" each="{mainnavigation}">
+                    <li>
+                        <f:link.page pageUid="{item.data.uid}" class="{f:if(condition: '{item.active}', then: 'text-[#650009] dark:text-red-400 font-bold border-b-2 border-[#650009] pb-1 transition-colors duration-300', else: 'text-slate-600 dark:text-slate-400 font-medium hover:text-[#88161a] transition-colors duration-300')} ">
+                            {item.title}
+                        </f:link.page>
+                    </li>
+                </f:for>
+            </ul>
+            <ul class="flex items-center space-x-1 border-l border-slate-200 dark:border-slate-700 pl-6">
+                <f:for as="language" each="{languagenavigation}" iteration="i">
+                    <f:if condition="{i.isFirst} == 0">
+                        <li class="text-slate-300 dark:text-slate-600 select-none" aria-hidden="true">|</li>
+                    </f:if>
+                    <li>
+                        <f:if condition="{language.available}">
+                            <f:then>
+                                <a href="{language.link}"
+                                   hreflang="{language.hreflang}"
+                                   lang="{language.hreflang}"
+                                   title="{f:if(condition: '{language.active}', then: '{language.title} (aktuelle Sprache)', else: 'Zu {language.title} wechseln')}"
+                                   class="{f:if(condition: '{language.active}', then: 'text-[#650009] dark:text-red-400 font-bold', else: 'text-slate-500 dark:text-slate-400 hover:text-[#88161a] dark:hover:text-red-400')} text-sm font-medium uppercase tracking-wider transition-colors duration-300">
+                                    {language.navigationTitle}
+                                </a>
+                            </f:then>
+                            <f:else>
+                                <span class="text-slate-300 dark:text-slate-600 text-sm font-medium uppercase tracking-wider cursor-not-allowed"
+                                      title="{language.title}: Keine Übersetzung vorhanden">
+                                    {language.navigationTitle}
+                                </span>
+                            </f:else>
+                        </f:if>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </div>
+</nav>

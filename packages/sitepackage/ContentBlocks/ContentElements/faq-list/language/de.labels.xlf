@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="labels.xlf" source-language="en" target-language="de" date="2026-04-08T15:00:13+00:00" product-name="brauer/faq-list">
+    <header/>
+    <body>
+      <trans-unit id="title">
+        <source>FAQ List</source>
+        <target>FAQ-Liste</target>
+      </trans-unit>
+      <trans-unit id="description">
+        <source>Accordion-style FAQ with schema.org FAQPage markup.</source>
+        <target>FAQ als Akkordeon mit schema.org FAQPage-Auszeichnung.</target>
+      </trans-unit>
+      <trans-unit id="faq_items.label">
+        <source>FAQ Items</source>
+        <target>FAQ-Einträge</target>
+      </trans-unit>
+      <trans-unit id="faq_items.question.label">
+        <source>Question</source>
+        <target>Frage</target>
+      </trans-unit>
+      <trans-unit id="faq_items.answer.label">
+        <source>Answer</source>
+        <target>Antwort</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

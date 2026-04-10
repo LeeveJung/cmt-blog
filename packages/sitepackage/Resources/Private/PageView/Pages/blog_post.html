@@ -1,0 +1,82 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+<f:if condition="{blogSchemaJson}">
+    <script type="application/ld+json">{blogSchemaJson -> f:format.raw()}</script>
+</f:if>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <article class="lg:col-span-8 space-y-12">
+            <f:if condition="{blogTeaserImage.0}">
+                <figure class="mb-8">
+                    <div class="aspect-[16/8] overflow-hidden rounded-xl">
+                        <f:image image="{blogTeaserImage.0}" cropVariant="card" maxWidth="900" alt="{page.pageRecord.title}" class="w-full h-full object-cover" />
+                    </div>
+                    <f:if condition="{blogTeaserImage.0.description}">
+                        <figcaption class="mt-2 text-sm text-slate-500 font-sans text-right italic">
+                            <f:format.html>{blogTeaserImage.0.description}</f:format.html>
+                        </figcaption>
+                    </f:if>
+                </figure>
+            </f:if>
+            <f:render partial="Content" arguments="{records: content.main.records}"/>
+        </article>
+        <aside class="lg:col-span-4 space-y-12">
+            <section>
+                <div class="flex gap-4 rounded-xl border border-red-300 bg-red-50 p-6">
+                    <span class="material-symbols-outlined text-red-800 mt-0.5 shrink-0">warning</span>
+                    <div>
+                        <p class="text-sm font-bold text-red-800 uppercase tracking-wide mb-1">
+                            <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_post.disclaimer.title" />
+                        </p>
+                        <p class="text-base text-red-900 leading-relaxed">
+                            <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_post.disclaimer.text" />
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="mt-12 bg-white p-4 rounded-md border border-slate-300" aria-label="{f:translate(key: 'LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_post.sidebar.article_details')}">
+                <h3 class="text-base font-bold uppercase text-slate-600 mb-6 font-sans"><f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_post.sidebar.article_details" /></h3>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4 font-['Quicksand',sans-serif]">
+                        <span class="material-symbols-outlined text-[#650009]">calendar_today</span>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-0"><f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_post.sidebar.date" /></p>
+                            <time datetime="{f:format.date(date: blogPublishDate, format: 'Y-m-d')}" class="font-medium">
+                                {blogPublishDateFormatted}
+                            </time>
+                        </div>
+                    </div>
+                    <f:if condition="{blogCategories}">
+                        <div class="flex items-start gap-4 font-['Quicksand',sans-serif]">
+                            <span class="material-symbols-outlined text-[#650009]">category</span>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase mb-0"><f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_post.sidebar.category" /></p>
+                                <f:for each="{blogCategories}" as="category">
+                                    <p class="font-medium">{category.title}</p>
+                                </f:for>
+                            </div>
+                        </div>
+                    </f:if>
+                </div>
+            </section>
+            <f:if condition="{blogTocItems}">
+                <section class="sticky top-28" aria-label="Inhaltsverzeichnis">
+                    <div class="p-4 border border-slate-300 rounded-md">
+                        <h3 class="text-base font-bold uppercase text-slate-600 mb-6 font-sans"><f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_post.sidebar.toc" /></h3>
+                        <nav data-toc-nav class="flex flex-col gap-4 font-sans">
+                            <f:for each="{blogTocItems}" as="item">
+                                <f:link.typolink
+                                    parameter="{item.link}"
+                                    additionalAttributes="{data-toc-link: '1', data-active: 'false'}"
+                                    class="group transition-all text-base font-medium flex items-start gap-2 text-slate-700 hover:text-brand-500 data-[active=true]:text-brand-500 no-underline">
+                                    <span class="material-symbols-outlined text-lg leading-none mt-0.5 text-slate-300 group-hover:text-[#650009] group-data-[active=true]:text-[#650009] transition-colors">chevron_right</span>
+                                    {item.label}
+                                </f:link.typolink>
+                            </f:for>
+                        </nav>
+                    </div>
+                </section>
+            </f:if>
+        </aside>
+    </div>
+</f:section>

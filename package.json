@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.0.7",
+    "vite-plugin-auto-origin": "^2.0.2",
+    "vite-plugin-live-reload": "^3.1.0",
+    "vite-plugin-static-copy": "^4.0.1",
+    "vite-plugin-typo3": "^3.0.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/lora": "^5.2.8",
+    "@fontsource-variable/material-symbols-outlined": "^5.2.40",
+    "@fontsource-variable/nunito": "^5.2.7",
+    "@fontsource-variable/quicksand": "^5.2.10",
+    "@tailwindcss/vite": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"type: DateTime\\\\|type: File\\\\|type: Checkbox\\\\|type: Number\\\\|cropVariants\" /home/brauer/projects/cmt-blog/vendor/friendsoftypo3/content-blocks --include=*.yaml -l)",
+      "Bash(find /home/brauer/projects/cmt-blog/vendor/b13/container -name *.md -o -name *.rst)",
+      "Bash(php -r \":*)",
+      "Bash(grep -rn imageborder /home/brauer/projects/cmt-blog/vendor/typo3/ --include=*.php -l)",
+      "Bash(xargs cat:*)",
+      "Bash(php -r ' $tca = include '\\\\''/home/brauer/projects/cmt-blog/var/cache/code/core/tca_base_b1cd8ba5587fee1a.php'\\\\''; $cols = array_keys\\($tca['\\\\''brauer_toc_items'\\\\'']['\\\\''columns'\\\\''] ?? []\\); echo implode\\('\\\\'', '\\\\'', $cols\\); ')",
+      "Bash(php vendor/bin/typo3 dbal:sql \"SELECT uid, label, link, foreign_table_parent_uid FROM brauer_toc_items LIMIT 5\")",
+      "Bash(mysql:*)",
+      "Bash(npm install:*)",
+      "Bash(npm list:*)",
+      "Bash(npm run:*)",
+      "Bash(npm uninstall:*)"
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+##############
+#### PAGE ####
+##############
+
+
+
+page = PAGE
+page {
+    typeNum = 0
+    shortcutIcon = EXT:sitepackage/Resources/Public/Icons/favicon.ico
+
+    bodyTagAdd = class="flex flex-col min-h-screen"
+
+    10 = PAGEVIEW
+    10 {
+        paths {
+            0 = EXT:sitepackage/Resources/Private/PageView/
+            1 = {$page.pageview.paths}
+        }
+        dataProcessing {
+            10 = files
+            10 {
+                references.fieldName = media
+            }
+            20 = menu
+            20 {
+                levels = 2
+                includeSpacer = 1
+                as = mainnavigation
+            }
+            30 = page-content
+
+            40 = menu
+            40 {
+                special = directory
+                special.value = 23
+                as = footernavigation
+            }
+
+            70 = language-menu
+            70 {
+                languages = auto
+                as = languagenavigation
+            }
+        }
+    }
+
+    meta {
+        viewport = {$page.meta.viewport}
+        robots = {$page.meta.robots}
+        apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
+
+        X-UA-Compatible = {$page.meta.compatible}
+        X-UA-Compatible {
+            attribute = http-equiv
+        }
+    }
+
+    includeCSSLibs {
+
+    }
+
+    includeCSS {
+        bootstrap >
+    }
+
+    includeJSLibs {
+
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+        bootstrap >
+    }
+
+    includeJSFooter {
+
+    }
+}
+
+[traverse(page, "doktype") == 1775660402]
+page.10.dataProcessing {
+    50 = files
+    50 {
+        references {
+            table = pages
+            fieldName = brauer_teaser_image
+        }
+        as = blogTeaserImage
+    }
+    60 = Brauer\Sitepackage\DataProcessing\BlogPageProcessor
+}
+[END]
+

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="labels.xlf" source-language="en" target-language="de" date="2026-04-09T00:00:00+00:00" product-name="brauer/article-link">
+    <header/>
+    <body>
+      <trans-unit id="title">
+        <source>Article Link</source>
+        <target>Artikel-Verweis</target>
+      </trans-unit>
+      <trans-unit id="description">
+        <source>Cross-reference to another article with an optional introductory text.</source>
+        <target>Querverweis auf einen anderen Artikel mit optionalem Einleitungstext.</target>
+      </trans-unit>
+      <trans-unit id="intro_text.label">
+        <source>Introductory text</source>
+        <target>Einleitungstext</target>
+      </trans-unit>
+      <trans-unit id="intro_text.description">
+        <source>Text shown before the article title, e.g. "Further information can be found in the article".</source>
+        <target>Text vor dem Artikeltitel, z.B. „Weitere Informationen findest du im Artikel".</target>
+      </trans-unit>
+      <trans-unit id="page.label">
+        <source>Linked article</source>
+        <target>Verlinkter Artikel</target>
+      </trans-unit>
+      <trans-unit id="page.description">
+        <source>Select the article page to link to.</source>
+        <target>Wähle die zu verlinkende Artikel-Seite aus.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

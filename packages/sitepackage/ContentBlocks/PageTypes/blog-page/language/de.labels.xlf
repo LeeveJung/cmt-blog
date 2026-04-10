@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="labels.xlf" source-language="en" target-language="de" date="2026-04-08T15:00:13+00:00" product-name="brauer/blog-page">
+    <header/>
+    <body>
+      <trans-unit id="title">
+        <source>Blog Page</source>
+        <target>Blog-Seite</target>
+      </trans-unit>
+      <trans-unit id="publish_date.label">
+        <source>Publish Date</source>
+        <target>Veröffentlichungsdatum</target>
+      </trans-unit>
+      <trans-unit id="publish_date.description">
+        <source>The date displayed to readers as the publication date. Independent of the technical creation date.</source>
+        <target>Das Datum, das Lesern als Veröffentlichungsdatum angezeigt wird. Unabhängig vom technischen Erstellungsdatum.</target>
+      </trans-unit>
+      <trans-unit id="teaser_image.label">
+        <source>Teaser Image</source>
+        <target>Teaserbild</target>
+      </trans-unit>
+      <trans-unit id="teaser_image.description">
+        <source>Image shown in blog listing views. Use the crop variants to define the visible area for 16:9 (card) and 1:1 (square) formats.</source>
+        <target>Bild für die Blog-Listenansicht. Über die Zuschnitt-Varianten kann der sichtbare Bereich für 16:9 (Karte) und 1:1 (Quadrat) festgelegt werden.</target>
+      </trans-unit>
+      <trans-unit id="is_featured.label">
+        <source>Featured Post</source>
+        <target>Hervorgehobener Beitrag</target>
+      </trans-unit>
+      <trans-unit id="is_featured.description">
+        <source>Marks this post as featured. Can be used to highlight it on the blog overview page.</source>
+        <target>Markiert diesen Beitrag als hervorgehoben. Kann genutzt werden, um ihn auf der Blog-Übersichtsseite besonders darzustellen.</target>
+      </trans-unit>
+      <trans-unit id="reading_time.label">
+        <source>Reading Time (minutes)</source>
+        <target>Lesezeit (Minuten)</target>
+      </trans-unit>
+      <trans-unit id="reading_time.description">
+        <source>Estimated reading time in minutes. Displayed to readers as an orientation.</source>
+        <target>Geschätzte Lesezeit in Minuten. Wird Lesern als Orientierung angezeigt.</target>
+      </trans-unit>
+      <trans-unit id="allow_comments.label">
+        <source>Allow Comments</source>
+        <target>Kommentare erlauben</target>
+      </trans-unit>
+      <trans-unit id="allow_comments.description">
+        <source>Enable or disable the comment section for this post.</source>
+        <target>Kommentarfunktion für diesen Beitrag aktivieren oder deaktivieren.</target>
+      </trans-unit>
+      <trans-unit id="series_title.label">
+        <source>Series Title</source>
+        <target>Serientitel</target>
+      </trans-unit>
+      <trans-unit id="series_title.description">
+        <source>If this post is part of a series, enter the series name here (e.g. "CMT Diagnosis, Part 1 of 3").</source>
+        <target>Falls dieser Beitrag Teil einer Serie ist, hier den Seriennamen eintragen (z.B. „CMT-Diagnose, Teil 1 von 3").</target>
+      </trans-unit>
+      <trans-unit id="toc_items.label">
+        <source>Table of Contents</source>
+        <target>Inhaltsverzeichnis</target>
+      </trans-unit>
+      <trans-unit id="toc_items.label.label">
+        <source>Label</source>
+        <target>Bezeichnung</target>
+      </trans-unit>
+      <trans-unit id="toc_items.label.description">
+        <source>Display text for this entry. If left empty, the header of the linked content element is used automatically.</source>
+        <target>Anzeigetext für diesen Eintrag. Wenn leer, wird automatisch die Überschrift des verlinkten Content-Elements verwendet.</target>
+      </trans-unit>
+      <trans-unit id="toc_items.link.label">
+        <source>Link</source>
+        <target>Link</target>
+      </trans-unit>
+      <trans-unit id="toc_items.link.description">
+        <source>Select the target using the link browser, e.g. a content element anchor on this page.</source>
+        <target>Ziel über den LinkBrowser auswählen, z.B. einen Inhaltsblock-Anker auf dieser Seite.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

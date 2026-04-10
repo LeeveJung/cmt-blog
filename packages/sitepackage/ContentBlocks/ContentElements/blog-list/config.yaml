@@ -1,0 +1,12 @@
+name: brauer/blog-list
+prefixFields: true
+prefixType: vendor
+fields:
+  - identifier: header
+    useExistingField: true
+
+  - identifier: max_items
+    type: Number
+
+  - identifier: overview_link
+    type: Link

@@ -1,0 +1,22 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:vite="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
+>
+
+<f:render partial="Header" arguments="{_all}"  />
+
+<main class="pt-24 flex-1">
+    <div class="max-w-7xl mx-auto px-6">
+        <f:render section="Main" />
+    </div>
+</main>
+
+<f:render partial="Footer" arguments="{_all}" />
+
+<vite:asset
+    entry="EXT:sitepackage/Resources/Private/Frontend/app.js"
+    manifest="EXT:sitepackage/Resources/Public/Frontend/.vite/manifest.json"
+    priority="1"
+    scriptTagAttributes="{ type: 'module' }"
+    useNonce="1"
+/>

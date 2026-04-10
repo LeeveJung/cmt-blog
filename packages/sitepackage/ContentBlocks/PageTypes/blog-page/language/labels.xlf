@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="labels.xlf" source-language="en" date="2026-04-08T15:00:13+00:00" product-name="brauer/blog-page">
+    <header/>
+    <body>
+      <trans-unit id="title">
+        <source>Blog Page</source>
+      </trans-unit>
+      <trans-unit id="publish_date.label">
+        <source>Publish Date</source>
+      </trans-unit>
+      <trans-unit id="publish_date.description">
+        <source>The date displayed to readers as the publication date. Independent of the technical creation date.</source>
+      </trans-unit>
+      <trans-unit id="teaser_image.label">
+        <source>Teaser Image</source>
+      </trans-unit>
+      <trans-unit id="teaser_image.description">
+        <source>Image shown in blog listing views. Use the crop variants to define the visible area for 16:9 (card) and 1:1 (square) formats.</source>
+      </trans-unit>
+      <trans-unit id="is_featured.label">
+        <source>Featured Post</source>
+      </trans-unit>
+      <trans-unit id="is_featured.description">
+        <source>Marks this post as featured. Can be used to highlight it on the blog overview page.</source>
+      </trans-unit>
+      <trans-unit id="reading_time.label">
+        <source>Reading Time (minutes)</source>
+      </trans-unit>
+      <trans-unit id="reading_time.description">
+        <source>Estimated reading time in minutes. Displayed to readers as an orientation.</source>
+      </trans-unit>
+      <trans-unit id="allow_comments.label">
+        <source>Allow Comments</source>
+      </trans-unit>
+      <trans-unit id="allow_comments.description">
+        <source>Enable or disable the comment section for this post.</source>
+      </trans-unit>
+      <trans-unit id="series_title.label">
+        <source>Series Title</source>
+      </trans-unit>
+      <trans-unit id="series_title.description">
+        <source>If this post is part of a series, enter the series name here (e.g. "CMT Diagnosis, Part 1 of 3").</source>
+      </trans-unit>
+      <trans-unit id="toc_items.label">
+        <source>Table of Contents</source>
+      </trans-unit>
+      <trans-unit id="toc_items.label.label">
+        <source>Label</source>
+      </trans-unit>
+      <trans-unit id="toc_items.label.description">
+        <source>Display text for this entry. If left empty, the header of the linked content element is used automatically.</source>
+      </trans-unit>
+      <trans-unit id="toc_items.link.label">
+        <source>Link</source>
+      </trans-unit>
+      <trans-unit id="toc_items.link.description">
+        <source>Select the target using the link browser, e.g. a content element anchor on this page.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

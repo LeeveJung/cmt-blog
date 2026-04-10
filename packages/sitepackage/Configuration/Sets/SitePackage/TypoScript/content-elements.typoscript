@@ -1,0 +1,32 @@
+##############################################
+#### Blog-Liste (Aktuelle Beiträge)       ####
+#### CType: brauer_bloglist               ####
+##############################################
+# Content Blocks generiert den Basis-Rendering-Block automatisch.
+# Hier hängen wir nur den DataProcessor ein.
+tt_content.brauer_bloglist.dataProcessing {
+    10 = Brauer\Sitepackage\DataProcessing\BlogListProcessor
+}
+
+##############################################
+#### Container: Bild & Text (Grid)        ####
+##############################################
+tt_content.brauer-image-text-grid < lib.contentElement
+tt_content.brauer-image-text-grid {
+    templateName = ImageTextGrid
+    templateRootPaths {
+        10 = EXT:sitepackage/Resources/Private/ContentElements/Templates/
+    }
+    dataProcessing {
+        100 = B13\Container\DataProcessing\ContainerProcessor
+        100 {
+            colPos = 200
+            as = imageColumn
+        }
+        101 = B13\Container\DataProcessing\ContainerProcessor
+        101 {
+            colPos = 201
+            as = textColumn
+        }
+    }
+}

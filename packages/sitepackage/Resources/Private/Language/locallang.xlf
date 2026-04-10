@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2026-04-07UTC16:15:560">
+        <header>
+            <authorName>Christoph</authorName>
+            <authorEmail>homerjay2007@gmail.com</authorEmail>
+        </header>
+        <body>
+            <trans-unit id="blog_post.disclaimer.title">
+                <source>Important!</source>
+            </trans-unit>
+            <trans-unit id="blog_post.disclaimer.text">
+                <source>This article does not replace medical advice. If you have health concerns or new symptoms, always consult a qualified medical professional.</source>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.article_details">
+                <source>Article Details</source>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.category">
+                <source>Category</source>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.toc">
+                <source>Contents</source>
+            </trans-unit>
+            <trans-unit id="blog_list.overview_link">
+                <source>View all posts</source>
+            </trans-unit>
+            <trans-unit id="footer.disclaimer">
+                <source>&lt;strong&gt;Medical disclaimer:&lt;/strong&gt; The content on this site is for informational purposes only and does not replace medical diagnosis. For health concerns, always consult a qualified medical professional.</source>
+            </trans-unit>
+            <trans-unit id="footer.nav.navigation">
+                <source>Navigation</source>
+            </trans-unit>
+            <trans-unit id="footer.nav.legal">
+                <source>Legal</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

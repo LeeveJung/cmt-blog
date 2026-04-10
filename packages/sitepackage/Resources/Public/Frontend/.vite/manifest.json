@@ -1,0 +1,68 @@
+{
+  "node_modules/@fontsource-variable/lora/files/lora-cyrillic-ext-wght-normal.woff2": {
+    "file": "assets/lora-cyrillic-ext-wght-normal-YcVxMP-u.woff2",
+    "src": "node_modules/@fontsource-variable/lora/files/lora-cyrillic-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/lora/files/lora-cyrillic-wght-normal.woff2": {
+    "file": "assets/lora-cyrillic-wght-normal-UWPuZLjM.woff2",
+    "src": "node_modules/@fontsource-variable/lora/files/lora-cyrillic-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/lora/files/lora-latin-ext-wght-normal.woff2": {
+    "file": "assets/lora-latin-ext-wght-normal-C2Wlntb9.woff2",
+    "src": "node_modules/@fontsource-variable/lora/files/lora-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/lora/files/lora-latin-wght-normal.woff2": {
+    "file": "assets/lora-latin-wght-normal-BiLcIKcI.woff2",
+    "src": "node_modules/@fontsource-variable/lora/files/lora-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/lora/files/lora-math-wght-normal.woff2": {
+    "file": "assets/lora-math-wght-normal-sOy7rEfW.woff2",
+    "src": "node_modules/@fontsource-variable/lora/files/lora-math-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/lora/files/lora-symbols-wght-normal.woff2": {
+    "file": "assets/lora-symbols-wght-normal-DQ5VrUkH.woff2",
+    "src": "node_modules/@fontsource-variable/lora/files/lora-symbols-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/lora/files/lora-vietnamese-wght-normal.woff2": {
+    "file": "assets/lora-vietnamese-wght-normal-CfJ7gtf3.woff2",
+    "src": "node_modules/@fontsource-variable/lora/files/lora-vietnamese-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/material-symbols-outlined/files/material-symbols-outlined-latin-wght-normal.woff2": {
+    "file": "assets/material-symbols-outlined-latin-wght-normal-D1dNdAhJ.woff2",
+    "src": "node_modules/@fontsource-variable/material-symbols-outlined/files/material-symbols-outlined-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/quicksand/files/quicksand-latin-ext-wght-normal.woff2": {
+    "file": "assets/quicksand-latin-ext-wght-normal-CrJ75Ewg.woff2",
+    "src": "node_modules/@fontsource-variable/quicksand/files/quicksand-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/quicksand/files/quicksand-latin-wght-normal.woff2": {
+    "file": "assets/quicksand-latin-wght-normal-Buj9m_3d.woff2",
+    "src": "node_modules/@fontsource-variable/quicksand/files/quicksand-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/quicksand/files/quicksand-vietnamese-wght-normal.woff2": {
+    "file": "assets/quicksand-vietnamese-wght-normal-ei70gACF.woff2",
+    "src": "node_modules/@fontsource-variable/quicksand/files/quicksand-vietnamese-wght-normal.woff2"
+  },
+  "packages/sitepackage/Resources/Private/Frontend/app.js": {
+    "file": "assets/app-CaFjY5ey.js",
+    "name": "app",
+    "src": "packages/sitepackage/Resources/Private/Frontend/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-DGUPxmAv.css"
+    ],
+    "assets": [
+      "assets/quicksand-vietnamese-wght-normal-ei70gACF.woff2",
+      "assets/quicksand-latin-ext-wght-normal-CrJ75Ewg.woff2",
+      "assets/quicksand-latin-wght-normal-Buj9m_3d.woff2",
+      "assets/lora-cyrillic-ext-wght-normal-YcVxMP-u.woff2",
+      "assets/lora-cyrillic-wght-normal-UWPuZLjM.woff2",
+      "assets/lora-math-wght-normal-sOy7rEfW.woff2",
+      "assets/lora-symbols-wght-normal-DQ5VrUkH.woff2",
+      "assets/lora-vietnamese-wght-normal-CfJ7gtf3.woff2",
+      "assets/lora-latin-ext-wght-normal-C2Wlntb9.woff2",
+      "assets/lora-latin-wght-normal-BiLcIKcI.woff2",
+      "assets/material-symbols-outlined-latin-wght-normal-D1dNdAhJ.woff2"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+name: brauer/faq-list
+prefixFields: true
+prefixType: vendor
+fields:
+  - identifier: header
+    useExistingField: true
+
+  - identifier: faq_items
+    type: Collection
+    labelField: question
+    fields:
+      - identifier: question
+        type: Text
+        required: true
+
+      - identifier: answer
+        type: Textarea
+        enableRichtext: true
+        required: true

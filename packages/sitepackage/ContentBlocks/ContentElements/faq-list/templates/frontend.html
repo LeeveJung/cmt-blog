@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<section aria-labelledby="faq-list-title" class="mb-8" id="c{data.uid}">
+    <f:if condition="{data.header}">
+        <h2 id="faq-list-title">{data.header}</h2>
+    </f:if>
+
+    <f:if condition="{data.faq_items}">
+        <div class="space-y-2">
+            <f:for each="{data.faq_items}" as="item">
+                <details class="group border border-slate-200 rounded-lg">
+                    <summary class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 font-semibold text-slate-900 marker:content-none hover:text-brand-500">
+                        {item.question}
+                        <span class="shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </span>
+                    </summary>
+                    <div class="px-5 py-5 pt-1 text-slate-600">
+                        <f:format.stripTags>{item.answer}</f:format.stripTags>
+                    </div>
+                </details>
+            </f:for>
+        </div>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    <f:for each="{data.faq_items}" as="item" iteration="iter">
+                    {
+                        "@type": "Question",
+                        "name": "<f:format.raw>{item.question -> f:format.htmlspecialchars()}</f:format.raw>",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "<f:format.raw>{item.answer -> f:format.stripTags() -> f:format.htmlspecialchars()}</f:format.raw>"
+                        }
+                    }<f:if condition="{iter.isLast} == false">,</f:if>
+                    </f:for>
+                ]
+            }
+        </script>
+    </f:if>
+</section>
+
+</html>
