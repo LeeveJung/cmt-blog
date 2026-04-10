@@ -1,8 +1,29 @@
+# OS / Editor
 .DS_Store
 .idea
 nbproject
+
+# TYPO3
 /var/*
 !/var/labels
 /vendor
 /public/*
 !/public/.htaccess
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Frontend build output
+/node_modules
+/packages/sitepackage/Resources/Public/Frontend/
+
+# SSH keys
+id_ed25519_private
+id_ed25519_private.pub
+*.pem
+*.key
+
+# Claude Code
+/.claude

@@ -19,7 +19,7 @@
 
 @layer components {
     p.lead {
-        @apply text-[20px] leading-relaxed;
+        @apply text-lg md:text-xl leading-relaxed;
     }
 }
 
@@ -30,7 +30,11 @@
     }
 
     body {
-        @apply font-sans text-black text-lg;
+        @apply font-sans text-black text-base md:text-lg;
+    }
+
+    #CookiebotWidget:not(.CookiebotWidget-inactive) {
+        @apply bottom-30 md:bottom-10 md:left-10;
     }
 
     .material-symbols-outlined {

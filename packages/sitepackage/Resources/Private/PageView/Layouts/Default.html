@@ -3,9 +3,48 @@
     xmlns:vite="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
 >
 
+<f:asset.script identifier="GCM" priority="1" data="{cookieconsent: 'ignore'}">
+    <!-- Google Consent Mode -->
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+    dataLayer.push(arguments)
+    }
+    gtag("consent", "default", {
+    ad_personalization: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    analytics_storage: "denied",
+    functionality_storage: "denied",
+    personalization_storage: "denied",
+    security_storage: "granted",
+    wait_for_update: 2000
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", true);
+    <!-- End Google Consent Mode-->
+</f:asset.script>
+
+<f:asset.script identifier="GTM" priority="1" data="{cookieconsent: 'ignore'}">
+    <!-- Google Tag Manager -->
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WDZD9P6K');
+    <!-- End Google Tag Manager -->
+</f:asset.script>
+
+<f:asset.script
+    identifier="CookieBot" priority="1" data="{cbid: '81a94bf2-0603-4361-ac46-e81b15800bfa', consentmode-defaults: 'disabled'}"
+    type="text/javascript" id="Cookiebot" src="https://consent.cookiebot.com/uc.js" blockingmode="auto"
+>
+</f:asset.script>
+
+
+
 <f:render partial="Header" arguments="{_all}"  />
 
-<main class="pt-24 flex-1">
+<main class="pt-12 md:pt-24 flex-1">
     <div class="max-w-7xl mx-auto px-6">
         <f:render section="Main" />
     </div>

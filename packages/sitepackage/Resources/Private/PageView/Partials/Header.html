@@ -1,21 +1,21 @@
 <nav class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
-    <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center w-full px-6 py-2 md:py-4 max-w-7xl mx-auto">
         <div class="flex items-center">
             <f:link.page pageUid="18">
-                <f:image src="EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png" class="h-12 w-auto transition-all" alt="cmt-logo" />
+                <f:image src="EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png" class="h-8 md:h-12 w-auto transition-all" alt="cmt-logo" />
             </f:link.page>
         </div>
-        <div class="hidden md:flex items-center space-x-8">
-            <ul class="flex items-center space-x-8">
+        <div class="flex items-center md:space-x-8">
+            <ul class="hidden md:flex items-center md:space-x-8">
                 <f:for as="item" each="{mainnavigation}">
                     <li>
-                        <f:link.page pageUid="{item.data.uid}" class="{f:if(condition: '{item.active}', then: 'text-[#650009] dark:text-red-400 font-bold border-b-2 border-[#650009] pb-1 transition-colors duration-300', else: 'text-slate-600 dark:text-slate-400 font-medium hover:text-[#88161a] transition-colors duration-300')} ">
+                        <f:link.page pageUid="{item.data.uid}" class="hover:no-underline {f:if(condition: '{item.active}', then: 'text-[#650009] dark:text-red-400 font-bold border-b-2 border-[#650009] pb-1 transition-colors duration-300', else: 'text-slate-600 dark:text-slate-400 font-medium hover:text-[#88161a] transition-colors duration-300')} ">
                             {item.title}
                         </f:link.page>
                     </li>
                 </f:for>
             </ul>
-            <ul class="flex items-center space-x-1 border-l border-slate-200 dark:border-slate-700 pl-6">
+            <ul class="hidden md:flex items-center space-x-1 border-l border-slate-200 dark:border-slate-700 pl-6">
                 <f:for as="language" each="{languagenavigation}" iteration="i">
                     <f:if condition="{i.isFirst} == 0">
                         <li class="text-slate-300 dark:text-slate-600 select-none" aria-hidden="true">|</li>
@@ -41,6 +41,46 @@
                     </li>
                 </f:for>
             </ul>
+            <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5" aria-label="Menü öffnen" aria-expanded="false">
+                <span class="block w-6 h-0.5 bg-slate-700 dark:bg-slate-300 rounded-full transition-all duration-300 origin-center"></span>
+                <span class="block w-6 h-0.5 bg-slate-700 dark:bg-slate-300 rounded-full transition-all duration-300"></span>
+                <span class="block w-6 h-0.5 bg-slate-700 dark:bg-slate-300 rounded-full transition-all duration-300 origin-center"></span>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden grid transition-all duration-300 ease-in-out" style="grid-template-rows: 0fr; opacity: 0;">
+        <div class="overflow-hidden">
+            <div class="px-6 pb-10 pt-7 flex flex-col gap-6 border-t border-slate-200 dark:border-slate-800">
+                <ul class="flex flex-col gap-5">
+                    <f:for as="item" each="{mainnavigation}">
+                        <li>
+                            <f:link.page pageUid="{item.data.uid}" class="hover:no-underline text-lg {f:if(condition: '{item.active}', then: 'text-[#650009] dark:text-red-400 font-bold', else: 'text-slate-600 dark:text-slate-400 font-medium hover:text-[#88161a]')} transition-colors duration-300">
+                                {item.title}
+                            </f:link.page>
+                        </li>
+                    </f:for>
+                </ul>
+                <ul class="flex items-center gap-2 border-t border-slate-200 dark:border-slate-800 pt-4">
+                    <f:for as="language" each="{languagenavigation}" iteration="i">
+                        <f:if condition="{i.isFirst} == 0">
+                            <li class="text-slate-300 dark:text-slate-600 select-none" aria-hidden="true">|</li>
+                        </f:if>
+                        <li>
+                            <f:if condition="{language.available}">
+                                <f:then>
+                                    <a href="{language.link}" hreflang="{language.hreflang}" lang="{language.hreflang}"
+                                       class="{f:if(condition: '{language.active}', then: 'text-[#650009] dark:text-red-400 font-bold', else: 'text-slate-500 dark:text-slate-400 hover:text-[#88161a] dark:hover:text-red-400')} text-sm font-medium uppercase tracking-wider transition-colors duration-300">
+                                        {language.navigationTitle}
+                                    </a>
+                                </f:then>
+                                <f:else>
+                                    <span class="text-slate-300 dark:text-slate-600 text-sm font-medium uppercase tracking-wider cursor-not-allowed">{language.navigationTitle}</span>
+                                </f:else>
+                            </f:if>
+                        </li>
+                    </f:for>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
