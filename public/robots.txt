@@ -1,0 +1,15 @@
+User-agent: *
+
+# TYPO3 Backend & System
+Disallow: /typo3/
+Disallow: /typo3temp/
+Disallow: /_assets_install/
+
+# TYPO3 interne URL-Parameter (erzeugen Duplicate Content)
+Disallow: /*?id=
+Disallow: /*?eID=
+Disallow: /*?type=
+Disallow: /*&type=
+
+Sitemap: https://www.leben-mit-cmt.de/sitemap.xml
+Sitemap: https://www.leben-mit-cmt.de/en/sitemap.xml
