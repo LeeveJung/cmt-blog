@@ -9,7 +9,7 @@
             <f:if condition="{blogTeaserImage.0}">
                 <figure class="mb-8">
                     <div class="aspect-[16/8] overflow-hidden rounded-xl">
-                        <f:image image="{blogTeaserImage.0}" cropVariant="card" maxWidth="900" alt="{page.pageRecord.title}" class="w-full h-full object-cover" />
+                        <f:image image="{blogTeaserImage.0}" cropVariant="card" maxWidth="900" alt="{page.pageRecord.title}" class="w-full h-full object-cover" fileExtension="webp" additionalAttributes="{fetchpriority: 'high', loading: 'eager'}" />
                     </div>
                     <f:if condition="{blogTeaserImage.0.description}">
                         <figcaption class="mt-2 text-sm text-slate-500 font-sans text-right italic">
