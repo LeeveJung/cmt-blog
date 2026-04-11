@@ -62,6 +62,7 @@ page {
 
     includeCSS {
         bootstrap >
+        nscomment_FontAwesomeCss >
     }
 
     includeJSLibs {
@@ -69,7 +70,7 @@ page {
     }
 
     includeJS {
-
+        nscomment_Minjs >
     }
 
     includeJSFooterlibs {
@@ -77,7 +78,7 @@ page {
     }
 
     includeJSFooter {
-
+        nscomment_CustomJS >
     }
 }
 

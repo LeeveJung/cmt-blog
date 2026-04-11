@@ -13,7 +13,7 @@
                         <article class="flex flex-col h-full bg-white rounded-xl overflow-hidden border border-zinc-200 group-hover:border-zinc-500 transition-all duration-300">
                             <f:if condition="{post.teaser_image}">
                                 <div class="aspect-video overflow-hidden">
-                                    <f:image image="{post.teaser_image}" maxWidth="800" height="360" alt="{post.title}" class="w-full h-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    <f:image image="{post.teaser_image}" maxWidth="800" height="360" fileExtension="webp" fetchpriority="high" alt="{post.title}" class="w-full h-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300" />
                                 </div>
                             </f:if>
 
