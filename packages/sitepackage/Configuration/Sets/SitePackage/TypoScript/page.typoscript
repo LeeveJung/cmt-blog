@@ -9,6 +9,17 @@ page {
     typeNum = 0
     shortcutIcon = EXT:sitepackage/Resources/Public/Icons/favicon.ico
 
+    headerData {
+        10 = TEXT
+        10.value = <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        20 = TEXT
+        20.value = <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        30 = TEXT
+        30.value = <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        40 = TEXT
+        40.value = <link rel="manifest" href="/site.webmanifest">
+    }
+
     bodyTagAdd = class="flex flex-col min-h-screen"
 
     10 = PAGEVIEW
