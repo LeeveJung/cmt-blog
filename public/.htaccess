@@ -273,6 +273,10 @@ AddDefaultCharset utf-8
 	# Enable URL rewriting
 	RewriteEngine On
 
+	# Redirect non-www to www
+	RewriteCond %{HTTP_HOST} ^leben-mit-cmt\.de$ [NC]
+	RewriteRule ^(.*)$ https://www.leben-mit-cmt.de/$1 [R=301,L]
+
 	# Store the current location in an environment variable CWD to use
 	# mod_rewrite in .htaccess files without knowing the RewriteBase
 	RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
