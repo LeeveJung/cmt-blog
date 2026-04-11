@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9832df1ea849dd17886b61cab7db3b50",
+    "content-hash": "7fe2a0b0d8568b6a6b1144a0d1d35c8b",
     "packages": [
         {
             "name": "b13/container",
@@ -1594,58 +1594,6 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.7.0"
             },
             "time": "2025-12-06T11:56:16+00:00"
-        },
-        {
-            "name": "nitsan/ns-comments",
-            "version": "14.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nitsan-technologies/ns_comments.git",
-                "reference": "46a9c113d089e1b35ed429465a4498a6d2c34c4d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nitsan-technologies/ns_comments/zipball/46a9c113d089e1b35ed429465a4498a6d2c34c4d",
-                "reference": "46a9c113d089e1b35ed429465a4498a6d2c34c4d",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "^12 || ^13 || ^14"
-            },
-            "replace": {
-                "typo3-ter/ns-comments": "self.version"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "web-dir": ".Build/public",
-                    "extension-key": "ns_comments",
-                    "cms-package-dir": "{$vendor-dir}/typo3/cms"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Nitsan\\NsComments\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "TYPO3 Page Comments - The TYPO3 Comment Extension simplifies the process for visitors to leave comments on your website's published pages. It utilizes nested comments to create a user-friendly experience. Admins receive email notifications, allowing them to easily manage comments either through email or the backend.",
-            "homepage": "https://t3planet.com/typo3-page-comment-extension",
-            "keywords": [
-                "T3Planet",
-                "TYPO3 CMS",
-                "blog",
-                "comments",
-                "news"
-            ],
-            "support": {
-                "issues": "https://github.com/nitsan-technologies/ns_comments/issues",
-                "source": "https://github.com/nitsan-technologies/ns_comments/tree/14.0.0"
-            },
-            "time": "2026-02-19T10:03:50+00:00"
         },
         {
             "name": "opis/json-schema",
