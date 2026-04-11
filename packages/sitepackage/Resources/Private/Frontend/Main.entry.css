@@ -87,7 +87,7 @@
         @apply text-2xl mb-2;
     }
 
-    article h2 {
+    h2 {
         @apply pl-4 border-l-4 border-brand-500;
     }
 
