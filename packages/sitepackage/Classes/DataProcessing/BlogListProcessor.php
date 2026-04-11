@@ -31,7 +31,9 @@ final class BlogListProcessor implements DataProcessorInterface
     ): array {
         $maxItems = (int)($cObj->data['brauer_max_items'] ?? 0);
 
-        $locale = (string)($cObj->getRequest()->getAttribute('language')?->getLocale() ?? 'de_DE');
+        $language = $cObj->getRequest()->getAttribute('language');
+        $languageId = $language?->getLanguageId() ?? 0;
+        $locale = (string)($language?->getLocale() ?? 'de_DE');
 
         $qb = $this->connectionPool->getQueryBuilderForTable('pages');
         $qb->getRestrictions()
@@ -53,6 +55,35 @@ final class BlogListProcessor implements DataProcessorInterface
         }
 
         $rows = $qb->executeQuery()->fetchAllAssociative();
+
+        if ($languageId > 0 && !empty($rows)) {
+            $defaultUids = array_column($rows, 'uid');
+            $qbOverlay = $this->connectionPool->getQueryBuilderForTable('pages');
+            $qbOverlay->getRestrictions()
+                ->removeAll()
+                ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
+                ->add(GeneralUtility::makeInstance(HiddenRestriction::class));
+
+            $overlayRows = $qbOverlay
+                ->select('l10n_parent', 'title', 'description')
+                ->from('pages')
+                ->where(
+                    $qbOverlay->expr()->eq('sys_language_uid', $qbOverlay->createNamedParameter($languageId, Connection::PARAM_INT)),
+                    $qbOverlay->expr()->in('l10n_parent', $qbOverlay->createNamedParameter($defaultUids, Connection::PARAM_INT_ARRAY)),
+                )
+                ->executeQuery()
+                ->fetchAllAssociative();
+
+            $overlaysByParent = array_column($overlayRows, null, 'l10n_parent');
+
+            foreach ($rows as &$row) {
+                if (isset($overlaysByParent[$row['uid']])) {
+                    $row['title'] = $overlaysByParent[$row['uid']]['title'];
+                    $row['description'] = $overlaysByParent[$row['uid']]['description'];
+                }
+            }
+            unset($row);
+        }
 
         foreach ($rows as &$row) {
             $files = $this->fileRepository->findByRelation('pages', 'brauer_teaser_image', $row['uid']);
