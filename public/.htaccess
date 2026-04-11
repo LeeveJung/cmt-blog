@@ -384,3 +384,14 @@ FileETag None
 
 
 # Add your own rules here.
+
+
+
+### Begin: 301 Redirects ###
+
+Redirect 301 /diagnose-und-vererbung-bei-charcot-marie-tooth-so-wird-die-erkrankung-erkannt https://www.leben-mit-cmt.de/cmt-diagnose-vererbung
+Redirect 301 /therapie-und-behandlungsmoeglichkeiten-bei-charcot-marie-tooth https://www.leben-mit-cmt.de/cmt-therapie
+Redirect 301 /was-ist-charcot-marie-tooth-ursachen-symptome-und-verlauf https://www.leben-mit-cmt.de/charcot-marie-tooth-erklaert
+Redirect 301 /cmt2a-forschung-asha-sarm1 https://www.leben-mit-cmt.de/cmt2a-forschung-sarm1
+
+### End: 301 Redirects ###
