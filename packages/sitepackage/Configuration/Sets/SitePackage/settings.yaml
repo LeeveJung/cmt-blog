@@ -27,3 +27,9 @@ config:
   prefixLocalAnchors: 'all'
   headerComment: 'build by get.typo3.org/sitepackage'
   sendCacheHeaders: '1'
+
+author:
+  name: 'Christoph Brauer'
+  description: 'Ich bin Christoph Brauer, lebe mit Charcot-Marie-Tooth und schreibe auf leben-mit-cmt.de über meinen Alltag mit der Erkrankung.'
+  instagramUrl: 'https://www.instagram.com/leben_mit_cmt/'
+  knowsAbout: 'Charcot-Marie-Tooth,Hereditäre Neuropathie,Leben mit chronischer Erkrankung'

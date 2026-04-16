@@ -114,3 +114,11 @@ page.10.dataProcessing {
 }
 [END]
 
+# Person-Schema nur auf der Über-mich-Seite (DE).
+# Falls eine EN-Übersetzung mit eigenem Slug entsteht, zweite Condition ergänzen.
+[traverse(page, "slug") == "/ueber-mich"]
+page.10.dataProcessing {
+    90 = Brauer\Sitepackage\DataProcessing\AboutPageProcessor
+}
+[END]
+

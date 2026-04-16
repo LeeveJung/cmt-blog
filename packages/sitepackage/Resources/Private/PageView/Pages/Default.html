@@ -1,6 +1,9 @@
 <f:layout name="Default" />
 
 <f:section name="Main">
+    <f:if condition="{personSchemaJson}">
+        <f:render partial="SchemaOrg/Person" arguments="{personSchemaJson: personSchemaJson}" />
+    </f:if>
     <div class="space-y-12">
         <f:render partial="Content" arguments="{records: content.main.records}"/>
     </div>
