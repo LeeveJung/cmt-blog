@@ -42,6 +42,10 @@
 
 
 
+<f:if condition="{websiteSchemaJson}">
+    <f:render partial="SchemaOrg/WebSite" arguments="{websiteSchemaJson: websiteSchemaJson}" />
+</f:if>
+
 <f:render partial="Header" arguments="{_all}"  />
 
 <main class="pt-12 md:pt-24 flex-1">

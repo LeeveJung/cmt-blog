@@ -18,5 +18,8 @@ services:
   Brauer\Sitepackage\DataProcessing\AboutPageProcessor:
     public: true
 
+  Brauer\Sitepackage\DataProcessing\WebSiteProcessor:
+    public: true
+
   Brauer\Sitepackage\DataHandler\TocItemLabelEnricher:
     public: true

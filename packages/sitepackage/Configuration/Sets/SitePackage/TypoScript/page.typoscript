@@ -29,6 +29,9 @@ page {
             1 = {$page.pageview.paths}
         }
         dataProcessing {
+            5 = Brauer\Sitepackage\DataProcessing\WebSiteProcessor
+            5.websiteDescription = {$website.description}
+
             10 = files
             10 {
                 references.fieldName = media
