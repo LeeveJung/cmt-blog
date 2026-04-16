@@ -45,7 +45,6 @@ final class BlogPageProcessor implements DataProcessorInterface
             $cObj->getRequest()->getAttribute('language'),
             $pageRecord,
             $dateObj,
-            $processedData['blogCategories'],
             $processedData['blogTeaserImage'][0] ?? null,
         );
 
@@ -57,7 +56,6 @@ final class BlogPageProcessor implements DataProcessorInterface
         \TYPO3\CMS\Core\Site\Entity\SiteLanguage $siteLanguage,
         array $pageRecord,
         \DateTimeImmutable $publishDate,
-        array $categories,
         mixed $teaserImage,
     ): string {
         $baseUrl = rtrim((string)$site->getBase(), '/');
@@ -103,8 +101,8 @@ final class BlogPageProcessor implements DataProcessorInterface
             $schema['image'] = $imageObject;
         }
 
-        if (!empty($categories)) {
-            $schema['keywords'] = implode(', ', array_column($categories, 'title'));
+        if (!empty($pageRecord['keywords'])) {
+            $schema['keywords'] = $pageRecord['keywords'];
         }
 
         return (string)json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);

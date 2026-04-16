@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:brauer="http://typo3.org/ns/Brauer/Sitepackage/ViewHelpers" data-namespace-typo3-fluid="true">
 
 <section aria-labelledby="faq-list-title" class="mb-8" id="c{data.uid}">
     <f:if condition="{data.header}">
@@ -24,24 +24,7 @@
             </f:for>
         </div>
 
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    <f:for each="{data.faq_items}" as="item" iteration="iter">
-                    {
-                        "@type": "Question",
-                        "name": "<f:format.raw>{item.question -> f:format.htmlspecialchars()}</f:format.raw>",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "<f:format.raw>{item.answer -> f:format.stripTags() -> f:format.htmlspecialchars()}</f:format.raw>"
-                        }
-                    }<f:if condition="{iter.isLast} == false">,</f:if>
-                    </f:for>
-                ]
-            }
-        </script>
+        <script type="application/ld+json"><brauer:faqSchema items="{data.faq_items}" /></script>
     </f:if>
 </section>
 
