@@ -28,11 +28,12 @@ final class BlogPageProcessor implements DataProcessorInterface
         $locale = (string)($cObj->getRequest()->getAttribute('language')?->getLocale() ?? 'de_DE');
         $formatter = new \IntlDateFormatter($locale, \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
 
+        $berlinTz = new \DateTimeZone('Europe/Berlin');
         $publishDate = $pageRecord['brauer_publish_date'] ?? '';
         if (!empty($publishDate) && $publishDate !== '0000-00-00') {
-            $dateObj = new \DateTimeImmutable($publishDate);
+            $dateObj = new \DateTimeImmutable($publishDate, $berlinTz);
         } else {
-            $dateObj = (new \DateTimeImmutable())->setTimestamp((int)$pageRecord['crdate']);
+            $dateObj = (new \DateTimeImmutable('@' . (int)$pageRecord['crdate']))->setTimezone($berlinTz);
         }
 
         $processedData['blogPublishDate'] = $dateObj;
@@ -45,6 +46,7 @@ final class BlogPageProcessor implements DataProcessorInterface
             $cObj->getRequest()->getAttribute('language'),
             $pageRecord,
             $dateObj,
+            (string)($processorConfiguration['authorName'] ?? ''),
             $processedData['blogTeaserImage'][0] ?? null,
         );
 
@@ -56,10 +58,20 @@ final class BlogPageProcessor implements DataProcessorInterface
         \TYPO3\CMS\Core\Site\Entity\SiteLanguage $siteLanguage,
         array $pageRecord,
         \DateTimeImmutable $publishDate,
+        string $authorName,
         mixed $teaserImage,
     ): string {
         $baseUrl = rtrim((string)$site->getBase(), '/');
         $articleUrl = $baseUrl . '/' . ltrim($pageRecord['slug'] ?? '', '/');
+        $berlinTz = new \DateTimeZone('Europe/Berlin');
+        $personUrl = $baseUrl . '/ueber-mich';
+
+        $person = [
+            '@type' => 'Person',
+            '@id' => $personUrl . '#person',
+            'name' => $authorName,
+            'url' => $personUrl,
+        ];
 
         $schema = [
             '@context' => 'https://schema.org',
@@ -68,14 +80,10 @@ final class BlogPageProcessor implements DataProcessorInterface
             'headline' => $pageRecord['title'] ?? '',
             'mainEntityOfPage' => $articleUrl,
             'inLanguage' => $siteLanguage->getHreflang(),
-            'datePublished' => $publishDate->format('Y-m-d'),
-            'dateModified' => (new \DateTimeImmutable())->setTimestamp((int)($pageRecord['tstamp'] ?? 0))->format('Y-m-d'),
-            'author' => [
-                '@id' => $baseUrl . '/ueber-mich#person',
-            ],
-            'publisher' => [
-                '@id' => $baseUrl . '/ueber-mich#person',
-            ],
+            'datePublished' => $publishDate->setTimezone($berlinTz)->format('c'),
+            'dateModified' => (new \DateTimeImmutable('@' . (int)($pageRecord['tstamp'] ?? 0)))->setTimezone($berlinTz)->format('c'),
+            'author' => $person,
+            'publisher' => $person,
             'isPartOf' => [
                 '@id' => $baseUrl . '/#website',
             ],

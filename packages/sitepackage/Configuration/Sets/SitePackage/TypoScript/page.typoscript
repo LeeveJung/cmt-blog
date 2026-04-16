@@ -114,6 +114,7 @@ page.10.dataProcessing {
         as = blogTeaserImage
     }
     60 = Brauer\Sitepackage\DataProcessing\BlogPageProcessor
+    60.authorName = {$author.name}
 }
 [END]
 
