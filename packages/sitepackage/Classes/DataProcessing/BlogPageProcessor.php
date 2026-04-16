@@ -38,6 +38,7 @@ final class BlogPageProcessor implements DataProcessorInterface
 
         $processedData['blogPublishDate'] = $dateObj;
         $processedData['blogPublishDateFormatted'] = $formatter->format($dateObj);
+        $processedData['blogAuthorName'] = (string)($processorConfiguration['authorName'] ?? '');
         $processedData['blogCategories'] = $this->fetchCategories((int)$pageRecord['uid']);
         $langUid = $cObj->getRequest()->getAttribute('language')?->getLanguageId() ?? 0;
         $processedData['blogTocItems'] = $this->fetchTocItems((int)$pageRecord['uid'], $langUid);

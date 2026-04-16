@@ -1,0 +1,12 @@
+<div class="author-byline flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500 font-sans mb-8">
+    <a href="{f:uri.page(pageUid: 19, absolute: 0)}" rel="author" class="font-semibold text-slate-700 hover:text-[#650009] no-underline transition-colors">{authorName}</a>
+    <span aria-hidden="true">·</span>
+    <time datetime="{f:format.date(date: publishDate, format: 'Y-m-d')}">{publishDateFormatted}</time>
+    <f:if condition="{categories}">
+        <span aria-hidden="true">·</span>
+        <f:for each="{categories}" as="category" iteration="i">
+            <f:if condition="{i.isFirst -> f:format.raw()}"><f:else><span aria-hidden="true">,</span> </f:else></f:if>
+            <span>{category.title}</span>
+        </f:for>
+    </f:if>
+</div>
