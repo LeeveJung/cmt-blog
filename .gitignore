@@ -26,6 +26,7 @@ nbproject
 # Frontend build output
 /node_modules
 /packages/sitepackage/Resources/Public/Frontend/
+!/packages/sitepackage/Resources/Public/Frontend/assets/*.woff2
 
 # SSH keys
 id_ed25519_private
