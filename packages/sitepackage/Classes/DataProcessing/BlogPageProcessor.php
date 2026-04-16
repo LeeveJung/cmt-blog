@@ -42,6 +42,7 @@ final class BlogPageProcessor implements DataProcessorInterface
         $processedData['blogTocItems'] = $this->fetchTocItems((int)$pageRecord['uid'], $langUid);
         $processedData['blogSchemaJson'] = $this->buildSchemaJson(
             $cObj->getRequest()->getAttribute('site'),
+            $cObj->getRequest()->getAttribute('language'),
             $pageRecord,
             $dateObj,
             $processedData['blogCategories'],
@@ -53,25 +54,32 @@ final class BlogPageProcessor implements DataProcessorInterface
 
     private function buildSchemaJson(
         \TYPO3\CMS\Core\Site\Entity\Site $site,
+        \TYPO3\CMS\Core\Site\Entity\SiteLanguage $siteLanguage,
         array $pageRecord,
         \DateTimeImmutable $publishDate,
         array $categories,
         mixed $teaserImage,
     ): string {
         $baseUrl = rtrim((string)$site->getBase(), '/');
-        $siteName = $site->getConfiguration()['websiteTitle'] ?? '';
+        $articleUrl = $baseUrl . '/' . ltrim($pageRecord['slug'] ?? '', '/');
 
         $schema = [
             '@context' => 'https://schema.org',
-            '@type' => 'Article',
+            '@type' => 'BlogPosting',
+            '@id' => $articleUrl . '#article',
             'headline' => $pageRecord['title'] ?? '',
-            'url' => $baseUrl . '/' . ltrim($pageRecord['slug'] ?? '', '/'),
+            'mainEntityOfPage' => $articleUrl,
+            'inLanguage' => $siteLanguage->getHreflang(),
             'datePublished' => $publishDate->format('Y-m-d'),
             'dateModified' => (new \DateTimeImmutable())->setTimestamp((int)($pageRecord['tstamp'] ?? 0))->format('Y-m-d'),
+            'author' => [
+                '@id' => $baseUrl . '/ueber-mich#person',
+            ],
             'publisher' => [
-                '@type' => 'Organization',
-                'name' => $siteName,
-                'url' => $baseUrl,
+                '@id' => $baseUrl . '/ueber-mich#person',
+            ],
+            'isPartOf' => [
+                '@id' => $baseUrl . '/#website',
             ],
         ];
 
@@ -80,10 +88,19 @@ final class BlogPageProcessor implements DataProcessorInterface
         }
 
         if ($teaserImage !== null) {
-            $schema['image'] = [
+            $imageObject = [
                 '@type' => 'ImageObject',
-                'url' => $baseUrl . $teaserImage->getPublicUrl(),
+                'url' => $baseUrl . '/' . ltrim($teaserImage->getPublicUrl(), '/'),
             ];
+            $width = (int)$teaserImage->getProperty('width');
+            $height = (int)$teaserImage->getProperty('height');
+            if ($width > 0) {
+                $imageObject['width'] = $width;
+            }
+            if ($height > 0) {
+                $imageObject['height'] = $height;
+            }
+            $schema['image'] = $imageObject;
         }
 
         if (!empty($categories)) {
