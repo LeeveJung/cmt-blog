@@ -3,24 +3,21 @@
         <ol itemscope itemtype="https://schema.org/BreadcrumbList"
             class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm font-sans text-slate-500 dark:text-slate-400">
             <f:for each="{breadcrumb}" as="item" iteration="i">
-                <f:variable name="absoluteUrl">{f:uri.page(pageUid: item.data.uid, absolute: 1)}</f:variable>
                 <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"
                     class="flex items-center gap-x-1.5">
                     <f:if condition="{i.isLast}">
                         <f:then>
-                            <span itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                                <meta itemprop="id" content="{absoluteUrl}" />
-                                <span itemprop="name" aria-current="page"
-                                      class="text-slate-700 dark:text-slate-300 font-medium truncate max-w-[240px]">
-                                    {item.title}
-                                </span>
+                            <span itemprop="name" aria-current="page"
+                                  class="text-slate-700 dark:text-slate-300 font-medium truncate max-w-[240px]">
+                                {item.title}
                             </span>
                         </f:then>
                         <f:else>
-                            <a href="{absoluteUrl}"
-                               itemprop="item" itemscope itemtype="https://schema.org/Thing"
+                            <a itemscope itemtype="https://schema.org/WebPage"
+                               itemprop="item"
+                               itemid="{f:uri.page(pageUid: item.data.uid, absolute: 1)}"
+                               href="{item.link}"
                                class="text-[#650009] dark:text-red-400 hover:underline transition-colors duration-200 truncate max-w-[180px]">
-                                <meta itemprop="id" content="{absoluteUrl}" />
                                 <span itemprop="name">{item.title}</span>
                             </a>
                             <span aria-hidden="true" class="text-slate-300 dark:text-slate-600 select-none">/</span>
