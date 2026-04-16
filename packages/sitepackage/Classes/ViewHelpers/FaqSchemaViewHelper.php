@@ -24,8 +24,8 @@ final class FaqSchemaViewHelper extends AbstractViewHelper
 
         $mainEntity = [];
         foreach ($items as $item) {
-            $question = trim(strip_tags((string)($item['question'] ?? '')));
-            $answer = trim(strip_tags((string)($item['answer'] ?? '')));
+            $question = trim(strip_tags((string)($item->get('question') ?? '')));
+            $answer = trim(strip_tags((string)($item->get('answer') ?? '')));
             if ($question === '' || $answer === '') {
                 continue;
             }
