@@ -44,12 +44,12 @@
     "src": "node_modules/@fontsource-variable/quicksand/files/quicksand-vietnamese-wght-normal.woff2"
   },
   "packages/sitepackage/Resources/Private/Frontend/app.js": {
-    "file": "assets/app-CaFjY5ey.js",
+    "file": "assets/app-BGhJCv68.js",
     "name": "app",
     "src": "packages/sitepackage/Resources/Private/Frontend/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-DGUPxmAv.css"
+      "assets/app-C27dL-kh.css"
     ],
     "assets": [
       "assets/quicksand-vietnamese-wght-normal-ei70gACF.woff2",
