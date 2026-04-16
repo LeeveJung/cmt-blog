@@ -4,11 +4,16 @@ declare(strict_types=1);
 
 namespace Brauer\Sitepackage\DataProcessing;
 
+use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 final class AboutPageProcessor implements DataProcessorInterface
 {
+    public function __construct(
+        private readonly ResourceFactory $resourceFactory,
+    ) {}
+
     public function process(
         ContentObjectRenderer $cObj,
         array $contentObjectConfiguration,
@@ -16,33 +21,52 @@ final class AboutPageProcessor implements DataProcessorInterface
         array $processedData
     ): array {
         $site = $cObj->getRequest()->getAttribute('site');
-        $settings = $site->getSettings();
         $baseUrl = rtrim((string)$site->getBase(), '/');
 
         $pageRecord = $cObj->data;
         $pageUrl = $baseUrl . '/' . ltrim($pageRecord['slug'] ?? 'ueber-mich', '/');
 
-        $knowsAboutRaw = $settings->get('author.knowsAbout', '');
-        $knowsAbout = array_values(array_filter(array_map('trim', explode(',', (string)$knowsAboutRaw))));
+        // Values come from TypoScript configuration (constants resolved from settings.yaml)
+        $name = (string)($processorConfiguration['authorName'] ?? '');
+        $description = (string)($processorConfiguration['authorDescription'] ?? '');
+        $instagramUrl = (string)($processorConfiguration['authorInstagramUrl'] ?? '');
+        $knowsAboutRaw = (string)($processorConfiguration['authorKnowsAbout'] ?? '');
 
-        $instagramUrl = (string)$settings->get('author.instagramUrl', '');
+        $knowsAbout = array_values(array_filter(array_map('trim', explode(',', $knowsAboutRaw))));
         $sameAs = array_values(array_filter([$instagramUrl]));
 
         $schema = [
             '@context' => 'https://schema.org',
             '@type' => 'Person',
             '@id' => $pageUrl . '#person',
-            'name' => (string)$settings->get('author.name', ''),
+            'name' => $name,
             'url' => $pageUrl,
-            'description' => (string)$settings->get('author.description', ''),
+            'description' => $description,
             'sameAs' => $sameAs,
             'knowsAbout' => $knowsAbout,
-            // TODO: add 'image' once portrait photo FAL UID is known.
-            // 'image' => [
-            //     '@type' => 'ImageObject',
-            //     'url'   => $baseUrl . '/path/to/portrait.jpg',
-            // ],
         ];
+
+        $imageFalUid = (int)($processorConfiguration['authorImageFalUid'] ?? 0);
+        if ($imageFalUid > 0) {
+            try {
+                $file = $this->resourceFactory->getFileObject($imageFalUid);
+                $imageObject = [
+                    '@type' => 'ImageObject',
+                    'url' => $baseUrl . '/' . ltrim($file->getPublicUrl(), '/'),
+                ];
+                $width = (int)$file->getProperty('width');
+                $height = (int)$file->getProperty('height');
+                if ($width > 0) {
+                    $imageObject['width'] = $width;
+                }
+                if ($height > 0) {
+                    $imageObject['height'] = $height;
+                }
+                $schema['image'] = $imageObject;
+            } catch (\Throwable) {
+                // File not found – schema remains without image rather than breaking the page
+            }
+        }
 
         $processedData['personSchemaJson'] = (string)json_encode(
             $schema,
