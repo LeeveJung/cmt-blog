@@ -36,6 +36,12 @@
             <trans-unit id="footer.nav.legal">
                 <source>Legal</source>
             </trans-unit>
+            <trans-unit id="article_link.quote.open">
+                <source>&#x201C;</source>
+            </trans-unit>
+            <trans-unit id="article_link.quote.close">
+                <source>&#x201D;</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -8,9 +8,7 @@
             <f:if condition="{data.brauer_intro_text}">
                 {data.brauer_intro_text}&nbsp;
             </f:if>
-            <f:link.page pageUid="{linkedPage.uid}" rel="related" additionalAttributes="{itemprop: 'relatedLink'}" class="font-bold text-primary hover:underline">
-                „{linkedPage.title}"
-            </f:link.page>
+            <f:link.page pageUid="{linkedPage.uid}" rel="related" additionalAttributes="{itemprop: 'relatedLink'}" class="font-bold text-primary hover:underline"><f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:article_link.quote.open" />{linkedPage.title}<f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:article_link.quote.close" /></f:link.page>
         </p>
     </aside>
 </f:if>

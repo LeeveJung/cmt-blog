@@ -46,6 +46,14 @@
                 <source>Legal</source>
                 <target>Rechtliches</target>
             </trans-unit>
+            <trans-unit id="article_link.quote.open">
+                <source>&#x201C;</source>
+                <target>&#x201E;</target>
+            </trans-unit>
+            <trans-unit id="article_link.quote.close">
+                <source>&#x201D;</source>
+                <target>&#x201C;</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
