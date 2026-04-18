@@ -74,7 +74,8 @@ final class BlogPageProcessor implements DataProcessorInterface
         mixed $teaserImage,
     ): string {
         $baseUrl = rtrim((string)$site->getBase(), '/');
-        $articleUrl = $baseUrl . '/' . ltrim($pageRecord['slug'] ?? '', '/');
+        $langBase = rtrim((string)$siteLanguage->getBase(), '/');
+        $articleUrl = $langBase . '/' . ltrim($pageRecord['slug'] ?? '', '/');
         $berlinTz = new \DateTimeZone('Europe/Berlin');
         $personUrl = $baseUrl . '/ueber-mich';
 
