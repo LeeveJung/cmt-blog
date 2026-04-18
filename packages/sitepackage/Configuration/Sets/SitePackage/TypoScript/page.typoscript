@@ -133,6 +133,9 @@ page.10.dataProcessing {
     }
     60 = Brauer\Sitepackage\DataProcessing\BlogPageProcessor
     60.authorName = {$author.name}
+    60.aboutPageUid = {$author.aboutPageUid}
+    60.authorInstagramUrl = {$author.instagramUrl}
+    60.authorImageFalUid = {$author.imageFalUid}
 }
 [END]
 

@@ -90,6 +90,30 @@
                 <source>Table of contents</source>
                 <target>Inhaltsverzeichnis</target>
             </trans-unit>
+            <trans-unit id="authorBox.label">
+                <source>About the author</source>
+                <target>Über den Autor</target>
+            </trans-unit>
+            <trans-unit id="authorBox.description">
+                <source>Has been living with Charcot-Marie-Tooth, type 2, for a few years. Works in IT and writes on leben-mit-cmt.de about everyday life with the condition. Shares personal experiences and carefully researched information here.</source>
+                <target>Lebt seit einigen Jahren mit Charcot-Marie-Tooth, Typ 2. Arbeitet im IT-Bereich und schreibt auf leben-mit-cmt.de über den Alltag mit der Erkrankung. Hier teilt er persönliche Erfahrungen und sorgfältig recherchierte Informationen.</target>
+            </trans-unit>
+            <trans-unit id="authorBox.aboutLink">
+                <source>More about me</source>
+                <target>Mehr über mich</target>
+            </trans-unit>
+            <trans-unit id="authorBox.updated">
+                <source>Last updated on</source>
+                <target>Zuletzt aktualisiert am</target>
+            </trans-unit>
+            <trans-unit id="authorBox.disclaimer">
+                <source>This article does not replace medical advice.</source>
+                <target>Dieser Artikel ersetzt keine ärztliche Beratung.</target>
+            </trans-unit>
+            <trans-unit id="authorBox.imageAlt">
+                <source>Portrait of Christoph Brauer</source>
+                <target>Porträtfoto von Christoph Brauer</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

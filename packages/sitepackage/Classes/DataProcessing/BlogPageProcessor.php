@@ -42,7 +42,12 @@ final class BlogPageProcessor implements DataProcessorInterface
 
         $processedData['blogPublishDate'] = $dateObj;
         $processedData['blogPublishDateFormatted'] = $formatter->format($dateObj);
+        $processedData['blogModifiedDate'] = $modifiedDate;
+        $processedData['blogModifiedDateFormatted'] = $formatter->format($modifiedDate);
         $processedData['blogAuthorName'] = $authorName;
+        $processedData['blogAboutPageUid'] = (int)($processorConfiguration['aboutPageUid'] ?? 19);
+        $processedData['blogAuthorInstagramUrl'] = (string)($processorConfiguration['authorInstagramUrl'] ?? '');
+        $processedData['blogAuthorImage'] = $this->fetchAuthorImage((int)($processorConfiguration['authorImageFalUid'] ?? 0));
         $processedData['blogCategories'] = $this->fetchCategories((int)$pageRecord['uid']);
         $langUid = $cObj->getRequest()->getAttribute('language')?->getLanguageId() ?? 0;
         $processedData['blogTocItems'] = $this->fetchTocItems((int)$pageRecord['uid'], $langUid);
@@ -229,6 +234,18 @@ final class BlogPageProcessor implements DataProcessorInterface
         }
 
         return 0;
+    }
+
+    private function fetchAuthorImage(int $falUid): mixed
+    {
+        if ($falUid <= 0) {
+            return null;
+        }
+        try {
+            return GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class)->getFileObject($falUid);
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     private function fetchCategories(int $pageUid): array

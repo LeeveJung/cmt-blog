@@ -20,6 +20,7 @@
             </f:if>
             <f:render partial="Article/AuthorByline" arguments="{authorName: blogAuthorName, publishDate: blogPublishDate, publishDateFormatted: blogPublishDateFormatted, categories: blogCategories}" />
             <f:render partial="Content" arguments="{records: content.main.records}"/>
+            <f:render partial="Article/AuthorBox" arguments="{_all}" />
         </article>
         <aside class="lg:col-span-4 space-y-12">
             <section>

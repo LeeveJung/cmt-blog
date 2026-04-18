@@ -69,6 +69,24 @@
             <trans-unit id="blog_post.sidebar.toc.label">
                 <source>Table of contents</source>
             </trans-unit>
+            <trans-unit id="authorBox.label">
+                <source>About the author</source>
+            </trans-unit>
+            <trans-unit id="authorBox.description">
+                <source>Has been living with Charcot-Marie-Tooth, type 2, for a few years. Works in IT and writes on leben-mit-cmt.de about everyday life with the condition. Shares personal experiences and carefully researched information here.</source>
+            </trans-unit>
+            <trans-unit id="authorBox.aboutLink">
+                <source>More about me</source>
+            </trans-unit>
+            <trans-unit id="authorBox.updated">
+                <source>Last updated on</source>
+            </trans-unit>
+            <trans-unit id="authorBox.disclaimer">
+                <source>This article does not replace medical advice.</source>
+            </trans-unit>
+            <trans-unit id="authorBox.imageAlt">
+                <source>Portrait of Christoph Brauer</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

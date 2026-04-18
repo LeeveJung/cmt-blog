@@ -1,0 +1,49 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<aside class="mt-4 border border-brand-500 rounded-xl overflow-hidden" aria-label="{f:translate(key: 'LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.label')}">
+    <div class="p-6 sm:p-8">
+        <p class="text-xs font-sans font-semibold uppercase tracking-wider text-slate-500 mb-5">
+            <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.label" />
+        </p>
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            <div class="shrink-0">
+                <f:link.page pageUid="{blogAboutPageUid}" class="block w-24 h-24 overflow-hidden">
+                    <f:if condition="{blogAuthorImage}">
+                        <f:image image="{blogAuthorImage}" width="192c" height="192c" fileExtension="webp" class="w-24 h-24 object-cover rounded-full" alt="{f:translate(key: 'LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.imageAlt')}" />
+                    </f:if>
+                </f:link.page>
+            </div>
+            <div class="text-center sm:text-left">
+                <h3 class="text-lg font-bold mb-2">
+                    <f:link.page pageUid="{blogAboutPageUid}" rel="author" class="text-slate-900 hover:text-[#650009] no-underline transition-colors">
+                        {blogAuthorName}
+                    </f:link.page>
+                </h3>
+                <p class="text-base text-slate-600 leading-relaxed mb-4">
+                    <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.description" />
+                </p>
+                <div class="flex items-center justify-center sm:justify-start gap-3 font-sans">
+                    <f:link.page pageUid="{blogAboutPageUid}" class="inline-flex items-center gap-1 text-sm font-semibold text-[#650009] hover:text-[#88161a] no-underline transition-colors">
+                        <span class="material-symbols-outlined text-base leading-none" aria-hidden="true">arrow_forward</span>
+                        <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.aboutLink" />
+                    </f:link.page>
+                    <span aria-hidden="true" class="text-slate-300">·</span>
+                    <a href="{blogAuthorInstagramUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm font-semibold text-[#650009] hover:text-[#88161a] no-underline transition-colors">
+                        <span class="material-symbols-outlined text-base leading-none" aria-hidden="true">open_in_new</span>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-200 flex items-center gap-1.5 text-sm text-slate-500 font-sans">
+            <span class="material-symbols-outlined text-base leading-none" aria-hidden="true">update</span>
+            <span>
+                <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.updated" />
+                <time datetime="{f:format.date(date: blogModifiedDate, format: 'Y-m-d')}">{blogModifiedDateFormatted}</time>.
+                <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.disclaimer" />
+            </span>
+        </div>
+    </div>
+</aside>
+
+</html>
