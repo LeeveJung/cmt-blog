@@ -42,6 +42,33 @@
             <trans-unit id="article_link.quote.close">
                 <source>&#x201D;</source>
             </trans-unit>
+            <trans-unit id="breadcrumb.nav.label">
+                <source>Breadcrumb navigation</source>
+            </trans-unit>
+            <trans-unit id="header.menu.toggle">
+                <source>Open menu</source>
+            </trans-unit>
+            <trans-unit id="header.language.active.de">
+                <source>German (current language)</source>
+            </trans-unit>
+            <trans-unit id="header.language.active.en">
+                <source>English (current language)</source>
+            </trans-unit>
+            <trans-unit id="header.language.switch.de">
+                <source>Switch to German</source>
+            </trans-unit>
+            <trans-unit id="header.language.switch.en">
+                <source>Switch to English</source>
+            </trans-unit>
+            <trans-unit id="header.language.unavailable.de">
+                <source>German: No translation available</source>
+            </trans-unit>
+            <trans-unit id="header.language.unavailable.en">
+                <source>English: No translation available</source>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.toc.label">
+                <source>Table of contents</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

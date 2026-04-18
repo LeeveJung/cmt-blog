@@ -54,6 +54,42 @@
                 <source>&#x201D;</source>
                 <target>&#x201C;</target>
             </trans-unit>
+            <trans-unit id="breadcrumb.nav.label">
+                <source>Breadcrumb navigation</source>
+                <target>Brotkrumennavigation</target>
+            </trans-unit>
+            <trans-unit id="header.menu.toggle">
+                <source>Open menu</source>
+                <target>Menü öffnen</target>
+            </trans-unit>
+            <trans-unit id="header.language.active.de">
+                <source>German (current language)</source>
+                <target>Deutsch (aktuelle Sprache)</target>
+            </trans-unit>
+            <trans-unit id="header.language.active.en">
+                <source>English (current language)</source>
+                <target>Englisch (aktuelle Sprache)</target>
+            </trans-unit>
+            <trans-unit id="header.language.switch.de">
+                <source>Switch to German</source>
+                <target>Zu Deutsch wechseln</target>
+            </trans-unit>
+            <trans-unit id="header.language.switch.en">
+                <source>Switch to English</source>
+                <target>Zu Englisch wechseln</target>
+            </trans-unit>
+            <trans-unit id="header.language.unavailable.de">
+                <source>German: No translation available</source>
+                <target>Deutsch: Keine Übersetzung vorhanden</target>
+            </trans-unit>
+            <trans-unit id="header.language.unavailable.en">
+                <source>English: No translation available</source>
+                <target>Englisch: Keine Übersetzung vorhanden</target>
+            </trans-unit>
+            <trans-unit id="blog_post.sidebar.toc.label">
+                <source>Table of contents</source>
+                <target>Inhaltsverzeichnis</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Brauer\Sitepackage\DataProcessing;
 
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
@@ -21,10 +23,12 @@ final class AboutPageProcessor implements DataProcessorInterface
         array $processedData
     ): array {
         $site = $cObj->getRequest()->getAttribute('site');
+        $siteLanguage = $cObj->getRequest()->getAttribute('language');
         $baseUrl = rtrim((string)$site->getBase(), '/');
+        $langBase = rtrim((string)$siteLanguage->getBase(), '/');
 
         $pageRecord = $cObj->data;
-        $pageUrl = $baseUrl . '/' . ltrim($pageRecord['slug'] ?? 'ueber-mich', '/');
+        $pageUrl = $langBase . '/' . ltrim($pageRecord['slug'] ?? 'ueber-mich', '/');
 
         // Values come from TypoScript configuration (constants resolved from settings.yaml)
         $name = (string)($processorConfiguration['authorName'] ?? '');
@@ -54,21 +58,23 @@ final class AboutPageProcessor implements DataProcessorInterface
             'knowsAbout' => $knowsAbout,
         ];
 
+        $imageAlt = (string)($processorConfiguration['authorImageAlt'] ?? '');
         $imageFalUid = (int)($processorConfiguration['authorImageFalUid'] ?? 0);
+        $ogImageUrl = '';
+        $ogImageWidth = 0;
+        $ogImageHeight = 0;
         if ($imageFalUid > 0) {
             try {
                 $file = $this->resourceFactory->getFileObject($imageFalUid);
-                $imageObject = [
-                    '@type' => 'ImageObject',
-                    'url' => $baseUrl . '/' . ltrim($file->getPublicUrl(), '/'),
-                ];
-                $width = (int)$file->getProperty('width');
-                $height = (int)$file->getProperty('height');
-                if ($width > 0) {
-                    $imageObject['width'] = $width;
+                $ogImageUrl = $baseUrl . '/' . ltrim($file->getPublicUrl(), '/');
+                $ogImageWidth = (int)$file->getProperty('width');
+                $ogImageHeight = (int)$file->getProperty('height');
+                $imageObject = ['@type' => 'ImageObject', 'url' => $ogImageUrl];
+                if ($ogImageWidth > 0) {
+                    $imageObject['width'] = $ogImageWidth;
                 }
-                if ($height > 0) {
-                    $imageObject['height'] = $height;
+                if ($ogImageHeight > 0) {
+                    $imageObject['height'] = $ogImageHeight;
                 }
                 $schema['image'] = $imageObject;
             } catch (\Throwable) {
@@ -80,6 +86,21 @@ final class AboutPageProcessor implements DataProcessorInterface
             $schema,
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
         );
+
+        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+        if ($ogImageUrl !== '') {
+            $subProps = ['alt' => $imageAlt];
+            if ($ogImageWidth > 0) {
+                $subProps['width'] = (string)$ogImageWidth;
+            }
+            if ($ogImageHeight > 0) {
+                $subProps['height'] = (string)$ogImageHeight;
+            }
+            $pageRenderer->setMetaTag('property', 'og:image', $ogImageUrl, $subProps);
+        }
+        $pageRenderer->setMetaTag('property', 'profile:first_name', 'Christoph');
+        $pageRenderer->setMetaTag('property', 'profile:last_name', 'Brauer');
+        $pageRenderer->setMetaTag('property', 'profile:username', 'leben_mit_cmt');
 
         return $processedData;
     }

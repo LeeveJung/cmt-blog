@@ -35,7 +35,11 @@ website:
 author:
   name: 'Christoph Brauer'
   description: 'Ich bin Christoph Brauer, Webentwickler aus Bonn. Ich lebe mit Charcot-Marie-Tooth und schreibe auf leben-mit-cmt.de über meinen Alltag mit der Erkrankung.'
+  descriptionEn: "I'm Christoph Brauer, a web developer from Bonn, Germany. I live with Charcot-Marie-Tooth and write about my everyday life with the condition on leben-mit-cmt.de."
   instagramUrl: 'https://www.instagram.com/leben_mit_cmt/'
   linkedInUrl: 'https://www.linkedin.com/in/christoph-brauer-13ba751b6/'
   knowsAbout: 'Hereditäre Neuropathie,Leben mit chronischer Erkrankung,Fußheberorthesen,Barrierefreies Webdesign'
+  knowsAboutEn: 'Hereditary neuropathy,Living with chronic illness,Ankle-foot orthoses,Web accessibility'
+  imageAlt: 'Porträtfoto von Christoph Brauer, Autor von leben-mit-cmt.de'
+  imageAltEn: 'Portrait of Christoph Brauer, author of leben-mit-cmt.de'
   imageFalUid: '4'

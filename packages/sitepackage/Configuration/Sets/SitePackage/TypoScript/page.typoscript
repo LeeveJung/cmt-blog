@@ -146,9 +146,8 @@ page.meta.og:site_name = My life with CMT
 page.meta.og:type = article
 [END]
 
-# Person-Schema nur auf der Über-mich-Seite (DE).
-# Falls eine EN-Übersetzung mit eigenem Slug entsteht, zweite Condition ergänzen.
-[traverse(page, "slug") == "/ueber-mich"]
+[traverse(page, "slug") == "/ueber-mich" || traverse(page, "slug") == "/about-me"]
+page.meta.og:type = profile
 page.10.dataProcessing {
     90 = Brauer\Sitepackage\DataProcessing\AboutPageProcessor
     90.authorName = {$author.name}
@@ -157,6 +156,13 @@ page.10.dataProcessing {
     90.authorLinkedInUrl = {$author.linkedInUrl}
     90.authorKnowsAbout = {$author.knowsAbout}
     90.authorImageFalUid = {$author.imageFalUid}
+    90.authorImageAlt = {$author.imageAlt}
 }
+[END]
+
+[siteLanguage("hreflang") == "en" && (traverse(page, "slug") == "/ueber-mich" || traverse(page, "slug") == "/about-me")]
+page.10.dataProcessing.90.authorDescription = {$author.descriptionEn}
+page.10.dataProcessing.90.authorKnowsAbout = {$author.knowsAboutEn}
+page.10.dataProcessing.90.authorImageAlt = {$author.imageAltEn}
 [END]
 

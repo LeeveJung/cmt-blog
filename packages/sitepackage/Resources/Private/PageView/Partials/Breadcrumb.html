@@ -1,5 +1,5 @@
 <f:if condition="{breadcrumb -> f:count()} > 1">
-    <nav aria-label="Brotkrumennavigation" class="mb-6">
+    <nav aria-label="{f:translate(key: 'LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:breadcrumb.nav.label')}" class="mb-6">
         <ol itemscope itemtype="https://schema.org/BreadcrumbList"
             class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm font-sans text-slate-500 dark:text-slate-400">
             <f:for each="{breadcrumb}" as="item" iteration="i">
