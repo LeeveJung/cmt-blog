@@ -50,7 +50,7 @@ final class AboutPageProcessor implements DataProcessorInterface
         $schema = [
             '@context' => 'https://schema.org',
             '@type' => 'Person',
-            '@id' => $pageUrl . '#person',
+            '@id' => $baseUrl . '/ueber-mich#person',
             'name' => $name,
             'url' => $pageUrl,
             'description' => $description,
