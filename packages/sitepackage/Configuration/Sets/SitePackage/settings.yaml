@@ -30,6 +30,7 @@ config:
 
 website:
   description: 'Erfahrungsblog zum Leben mit Charcot-Marie-Tooth (CMT) - persönliche Einblicke, Alltagstipps und Hintergrundwissen zu dieser seltenen Nervenerkrankung.'
+  descriptionEn: 'A personal blog about living with Charcot-Marie-Tooth (CMT) – insights, everyday tips, and background knowledge on this rare nerve disease.'
 
 author:
   name: 'Christoph Brauer'

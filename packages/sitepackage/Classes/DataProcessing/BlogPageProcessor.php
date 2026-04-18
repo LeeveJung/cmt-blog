@@ -7,6 +7,8 @@ namespace Brauer\Sitepackage\DataProcessing;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\LinkHandling\LinkService;
+use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
@@ -35,10 +37,12 @@ final class BlogPageProcessor implements DataProcessorInterface
         } else {
             $dateObj = (new \DateTimeImmutable('@' . (int)$pageRecord['crdate']))->setTimezone($berlinTz);
         }
+        $modifiedDate = (new \DateTimeImmutable('@' . (int)($pageRecord['tstamp'] ?? 0)))->setTimezone($berlinTz);
+        $authorName = (string)($processorConfiguration['authorName'] ?? '');
 
         $processedData['blogPublishDate'] = $dateObj;
         $processedData['blogPublishDateFormatted'] = $formatter->format($dateObj);
-        $processedData['blogAuthorName'] = (string)($processorConfiguration['authorName'] ?? '');
+        $processedData['blogAuthorName'] = $authorName;
         $processedData['blogCategories'] = $this->fetchCategories((int)$pageRecord['uid']);
         $langUid = $cObj->getRequest()->getAttribute('language')?->getLanguageId() ?? 0;
         $processedData['blogTocItems'] = $this->fetchTocItems((int)$pageRecord['uid'], $langUid);
@@ -47,9 +51,15 @@ final class BlogPageProcessor implements DataProcessorInterface
             $cObj->getRequest()->getAttribute('language'),
             $pageRecord,
             $dateObj,
-            (string)($processorConfiguration['authorName'] ?? ''),
+            $modifiedDate,
+            $authorName,
             $processedData['blogTeaserImage'][0] ?? null,
         );
+
+        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+        $pageRenderer->setMetaTag('property', 'article:published_time', $dateObj->format('c'));
+        $pageRenderer->setMetaTag('property', 'article:modified_time', $modifiedDate->format('c'));
+        $pageRenderer->setMetaTag('property', 'article:author', $authorName);
 
         return $processedData;
     }
@@ -59,6 +69,7 @@ final class BlogPageProcessor implements DataProcessorInterface
         \TYPO3\CMS\Core\Site\Entity\SiteLanguage $siteLanguage,
         array $pageRecord,
         \DateTimeImmutable $publishDate,
+        \DateTimeImmutable $modifiedDate,
         string $authorName,
         mixed $teaserImage,
     ): string {
@@ -82,7 +93,7 @@ final class BlogPageProcessor implements DataProcessorInterface
             'mainEntityOfPage' => $articleUrl,
             'inLanguage' => $siteLanguage->getHreflang(),
             'datePublished' => $publishDate->setTimezone($berlinTz)->format('c'),
-            'dateModified' => (new \DateTimeImmutable('@' . (int)($pageRecord['tstamp'] ?? 0)))->setTimezone($berlinTz)->format('c'),
+            'dateModified' => $modifiedDate->format('c'),
             'author' => $person,
             'publisher' => $person,
             'isPartOf' => [

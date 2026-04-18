@@ -23,6 +23,7 @@ nbproject
 .env.local
 .env.*.local
 
+
 # Frontend build output
 /node_modules
 /packages/sitepackage/Resources/Public/Frontend/

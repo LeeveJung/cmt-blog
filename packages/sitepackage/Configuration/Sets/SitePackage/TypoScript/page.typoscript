@@ -75,6 +75,24 @@ page {
         X-UA-Compatible {
             attribute = http-equiv
         }
+
+        og:locale = de_DE
+        og:locale {
+            attribute = property
+        }
+
+        og:type = website
+        og:type {
+            attribute = property
+        }
+
+        og:url.data = getIndpEnv:TYPO3_REQUEST_URL
+        og:url.attribute = property
+
+        og:site_name = Leben mit CMT
+        og:site_name {
+            attribute = property
+        }
     }
 
     includeCSSLibs {
@@ -116,6 +134,16 @@ page.10.dataProcessing {
     60 = Brauer\Sitepackage\DataProcessing\BlogPageProcessor
     60.authorName = {$author.name}
 }
+[END]
+
+[siteLanguage("hreflang") == "en"]
+page.10.dataProcessing.5.websiteDescription = {$website.descriptionEn}
+page.meta.og:locale = en_US
+page.meta.og:site_name = My life with CMT
+[END]
+
+[traverse(page, "doktype") == 1775660402]
+page.meta.og:type = article
 [END]
 
 # Person-Schema nur auf der Über-mich-Seite (DE).
