@@ -30,10 +30,18 @@ final class AboutPageProcessor implements DataProcessorInterface
         $name = (string)($processorConfiguration['authorName'] ?? '');
         $description = (string)($processorConfiguration['authorDescription'] ?? '');
         $instagramUrl = (string)($processorConfiguration['authorInstagramUrl'] ?? '');
+        $linkedInUrl = (string)($processorConfiguration['authorLinkedInUrl'] ?? '');
         $knowsAboutRaw = (string)($processorConfiguration['authorKnowsAbout'] ?? '');
 
-        $knowsAbout = array_values(array_filter(array_map('trim', explode(',', $knowsAboutRaw))));
-        $sameAs = array_values(array_filter([$instagramUrl]));
+        $cmtThing = [
+            '@type' => 'Thing',
+            'name' => 'Charcot-Marie-Tooth disease',
+            'sameAs' => 'https://en.wikipedia.org/wiki/Charcot%E2%80%93Marie%E2%80%93Tooth_disease',
+        ];
+        $knowsAboutStrings = array_values(array_filter(array_map('trim', explode(',', $knowsAboutRaw))));
+        $knowsAbout = [$cmtThing, ...$knowsAboutStrings];
+
+        $sameAs = array_values(array_filter([$instagramUrl, $linkedInUrl]));
 
         $schema = [
             '@context' => 'https://schema.org',

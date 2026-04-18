@@ -154,6 +154,7 @@ page.10.dataProcessing {
     90.authorName = {$author.name}
     90.authorDescription = {$author.description}
     90.authorInstagramUrl = {$author.instagramUrl}
+    90.authorLinkedInUrl = {$author.linkedInUrl}
     90.authorKnowsAbout = {$author.knowsAbout}
     90.authorImageFalUid = {$author.imageFalUid}
 }
