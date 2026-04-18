@@ -19,9 +19,9 @@ nbproject
 !/public/android-chrome-512x512.png
 
 # Environment
-.env
-.env.local
-.env.*.local
+/.env
+/.env.local
+/.env.*.local
 
 
 # Frontend build output

@@ -27,6 +27,8 @@ if (\TYPO3\CMS\Core\Core\Environment::getContext()->isProduction()) {
                 'transport_smtp_encrypt' => getenv('MAIL_SMTP_ENCRYPT') ?: '',
                 'transport_smtp_username' => getenv('MAIL_SMTP_USER') ?: '',
                 'transport_smtp_password' => getenv('MAIL_SMTP_PASSWORD') ?: '',
+                'defaultMailFromAddress' => getenv('MAIL_FROM_ADDRESS') ?: '',
+                'defaultMailFromName'    => getenv('MAIL_FROM_NAME') ?: '',
             ],
             'SYS' => [
                 'trustedHostsPattern' => getenv('TYPO3_TRUSTED_HOSTS') ?: '.*',
