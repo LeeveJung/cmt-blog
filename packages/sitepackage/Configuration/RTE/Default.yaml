@@ -8,6 +8,19 @@ processing:
         tags:
             i:
                 remap: em
+            a:
+                allowedAttribs:
+                    - href
+                    - title
+                    - class
+                    - target
+                    - rel
+                    - data-htmlarea-external
+
+buttons:
+    link:
+        relAttribute:
+            enabled: true
 
 editor:
     config:
