@@ -93,6 +93,8 @@ page {
         og:site_name {
             attribute = property
         }
+
+        google-adsense-account = ca-pub-8613567874930176
     }
 
     includeCSSLibs {
