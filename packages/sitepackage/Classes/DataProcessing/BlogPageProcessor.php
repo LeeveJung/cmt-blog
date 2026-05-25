@@ -48,8 +48,8 @@ final class BlogPageProcessor implements DataProcessorInterface
         $processedData['blogAboutPageUid'] = (int)($processorConfiguration['aboutPageUid'] ?? 19);
         $processedData['blogAuthorInstagramUrl'] = (string)($processorConfiguration['authorInstagramUrl'] ?? '');
         $processedData['blogAuthorImage'] = $this->fetchAuthorImage((int)($processorConfiguration['authorImageFalUid'] ?? 0));
-        $processedData['blogCategories'] = $this->fetchCategories((int)$pageRecord['uid']);
         $langUid = $cObj->getRequest()->getAttribute('language')?->getLanguageId() ?? 0;
+        $processedData['blogCategories'] = $this->fetchCategories((int)$pageRecord['uid'], $langUid);
         $processedData['blogTocItems'] = $this->fetchTocItems((int)$pageRecord['uid'], $langUid);
         $processedData['blogSchemaJson'] = $this->buildSchemaJson(
             $cObj->getRequest()->getAttribute('site'),
@@ -248,14 +248,19 @@ final class BlogPageProcessor implements DataProcessorInterface
         }
     }
 
-    private function fetchCategories(int $pageUid): array
+    private function fetchCategories(int $pageUid, int $langUid): array
     {
         $qb = $this->connectionPool->getQueryBuilderForTable('sys_category_record_mm');
 
         return $qb
-            ->select('cat.uid', 'cat.title')
+            ->select('cat.uid')
+            ->addSelectLiteral('COALESCE(tr.title, cat.title) AS title')
             ->from('sys_category_record_mm', 'mm')
             ->join('mm', 'sys_category', 'cat', $qb->expr()->eq('cat.uid', 'mm.uid_local'))
+            ->leftJoin('cat', 'sys_category', 'tr', $qb->expr()->and(
+                $qb->expr()->eq('tr.l10n_parent', 'cat.uid'),
+                $qb->expr()->eq('tr.sys_language_uid', $qb->createNamedParameter($langUid, Connection::PARAM_INT)),
+            ))
             ->where(
                 $qb->expr()->eq('mm.uid_foreign', $qb->createNamedParameter($pageUid, Connection::PARAM_INT)),
                 $qb->expr()->eq('mm.tablenames', $qb->createNamedParameter('pages')),
