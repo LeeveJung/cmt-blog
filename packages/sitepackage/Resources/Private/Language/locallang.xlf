@@ -87,6 +87,9 @@
             <trans-unit id="authorBox.imageAlt">
                 <source>Portrait of Christoph Brauer</source>
             </trans-unit>
+            <trans-unit id="footer.support">
+                <source>Support me!</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -114,6 +114,10 @@
                 <source>Portrait of Christoph Brauer</source>
                 <target>Porträtfoto von Christoph Brauer</target>
             </trans-unit>
+            <trans-unit id="footer.support">
+                <source>Support me!</source>
+                <target>Unterstütze mich!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
