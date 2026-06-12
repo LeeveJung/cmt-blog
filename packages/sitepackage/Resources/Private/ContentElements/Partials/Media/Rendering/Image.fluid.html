@@ -2,7 +2,7 @@
 <img
     class="image-embed-item"
     srcset="{f:uri.image(image: file, maxWidth: 400)} 400w, {f:uri.image(image: file, maxWidth: 700)} 700w, {f:uri.image(image: file, maxWidth: 900)} 900w, {f:uri.image(image: file, maxWidth: 1200)} 1200w"
-    sizes="(max-width: 1280px) calc(100vw - 3rem), 1232px"
+    sizes="(max-width: {dimensions.width}px) 100vw, {dimensions.width}px"
     src="{f:uri.image(image: file, maxWidth: 1200)}"
     width="{dimensions.width}"
     height="{dimensions.height}"
