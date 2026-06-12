@@ -24,7 +24,8 @@
                                         src="{f:uri.image(image: post.teaser_image, width: '400', fileExtension: 'webp')}"
                                         srcset="{f:uri.image(image: post.teaser_image, width: '400', fileExtension: 'webp')} 400w, {f:uri.image(image: post.teaser_image, width: '640', fileExtension: 'webp')} 640w, {f:uri.image(image: post.teaser_image, width: '800', fileExtension: 'webp')} 800w, {f:uri.image(image: post.teaser_image, width: '1232', fileExtension: 'webp')} 1232w"
                                         sizes="(min-width: 1280px) 616px, (min-width: 768px) 50vw, 100vw"
-                                        loading="lazy" decoding="async"
+                                        loading="{f:if(condition: post.teaser_image.properties.tx_sitepackage_loading, then: post.teaser_image.properties.tx_sitepackage_loading, else: 'lazy')}" decoding="async"
+                                        <f:if condition="{post.teaser_image.properties.tx_sitepackage_fetchpriority}">fetchpriority="{post.teaser_image.properties.tx_sitepackage_fetchpriority}"</f:if>
                                         alt="{post.title}"
                                         class="w-full h-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300" />
                                 </div>

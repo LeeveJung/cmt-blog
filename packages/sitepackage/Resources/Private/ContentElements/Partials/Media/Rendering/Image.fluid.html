@@ -8,7 +8,8 @@
     height="{dimensions.height}"
     alt="{file.alternative}"
     title="{file.title}"
-    loading="{settings.media.lazyLoading}"
+    loading="{f:if(condition: file.properties.tx_sitepackage_loading, then: file.properties.tx_sitepackage_loading, else: settings.media.lazyLoading)}"
     decoding="{settings.media.imageDecoding}"
+    <f:if condition="{file.properties.tx_sitepackage_fetchpriority}">fetchpriority="{file.properties.tx_sitepackage_fetchpriority}"</f:if>
 />
 </html>
