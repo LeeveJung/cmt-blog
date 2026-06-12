@@ -22,8 +22,8 @@
                                 <div class="aspect-video overflow-hidden">
                                     <img
                                         src="{f:uri.image(image: post.teaser_image, width: '400', fileExtension: 'webp')}"
-                                        srcset="{f:uri.image(image: post.teaser_image, width: '400', fileExtension: 'webp')} 400w, {f:uri.image(image: post.teaser_image, width: '540', fileExtension: 'webp')} 540w, {f:uri.image(image: post.teaser_image, width: '640', fileExtension: 'webp')} 640w, {f:uri.image(image: post.teaser_image, width: '730', fileExtension: 'webp')} 730w, {f:uri.image(image: post.teaser_image, width: '940', fileExtension: 'webp')} 940w, {f:uri.image(image: post.teaser_image, width: '1232', fileExtension: 'webp')} 1232w"
-                                        sizes="(min-width: 1280px) 616px, (min-width: 768px) calc((100vw - 48px) / 2), 100vw"
+                                        srcset="{f:uri.image(image: post.teaser_image, width: '420', fileExtension: 'webp')} 420w, {f:uri.image(image: post.teaser_image, width: '540', fileExtension: 'webp')} 540w, {f:uri.image(image: post.teaser_image, width: '640', fileExtension: 'webp')} 640w, {f:uri.image(image: post.teaser_image, width: '730', fileExtension: 'webp')} 730w, {f:uri.image(image: post.teaser_image, width: '940', fileExtension: 'webp')} 940w, {f:uri.image(image: post.teaser_image, width: '1232', fileExtension: 'webp')} 1232w"
+                                        sizes="(min-width: 1280px) 606px, (min-width: 768px) calc((100vw - 68px) / 2), calc(100vw - 50px)"
                                         loading="{f:if(condition: post.teaser_image.properties.tx_sitepackage_loading, then: post.teaser_image.properties.tx_sitepackage_loading, else: 'lazy')}" decoding="async"
                                         <f:if condition="{post.teaser_image.properties.tx_sitepackage_fetchpriority}">fetchpriority="{post.teaser_image.properties.tx_sitepackage_fetchpriority}"</f:if>
                                         alt="{post.title}"
