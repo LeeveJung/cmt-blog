@@ -3,7 +3,14 @@
 
 <section class="max-w-7xl mx-auto py-12 md:py-20">
     <f:if condition="{data.header}">
-        <h1 class="mb-12">{data.header}</h1>
+        <f:if condition="{data.header_layout} == 1">
+            <f:then>
+                <h1 class="mb-12">{data.header}</h1>
+            </f:then>
+            <f:else>
+                <h2 class="mb-12">{data.header}</h2>
+            </f:else>
+        </f:if>
     </f:if>
     <f:if condition="{blogPosts}">
         <f:then>
