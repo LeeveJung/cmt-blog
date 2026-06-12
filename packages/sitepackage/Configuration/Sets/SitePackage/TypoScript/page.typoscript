@@ -21,9 +21,9 @@ page {
 
         # Prioritäres Laden der selbst gehosteten Fonts (parallel zum CSS, kein Ketten-Delay).
         50 = TEXT
-        50.value = <link rel="preload" as="font" type="font/woff2" crossorigin href="/_assets/7e46a4498a380df20bebdbea75cdcbe5/Frontend/fonts/quicksand-latin-wght-normal.woff2">
+        50.value = <link rel="preload" as="font" type="font/woff2" crossorigin href="/_assets/7e46a4498a380df20bebdbea75cdcbe5/Fonts/quicksand-latin-wght-normal.woff2">
         60 = TEXT
-        60.value = <link rel="preload" as="font" type="font/woff2" crossorigin href="/_assets/7e46a4498a380df20bebdbea75cdcbe5/Frontend/fonts/lora-latin-wght-normal.woff2">
+        60.value = <link rel="preload" as="font" type="font/woff2" crossorigin href="/_assets/7e46a4498a380df20bebdbea75cdcbe5/Fonts/lora-latin-wght-normal.woff2">
     }
 
     bodyTagAdd = class="flex flex-col min-h-screen"
