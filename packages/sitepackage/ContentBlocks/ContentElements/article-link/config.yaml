@@ -2,6 +2,9 @@ name: brauer/article-link
 prefixFields: true
 prefixType: vendor
 fields:
+  - identifier: header
+    useExistingField: true
+
   - identifier: intro_text
     type: Text
     default: "Weitere Informationen findest du im Artikel"
