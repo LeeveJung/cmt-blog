@@ -27,7 +27,7 @@
         <aside class="lg:col-span-4 space-y-12">
             <section>
                 <div class="flex gap-4 rounded-xl border border-red-300 bg-red-50 p-6">
-                    <span class="material-symbols-outlined text-red-800 mt-0.5 shrink-0">warning</span>
+                    <f:render partial="Icon" arguments="{name: 'warning', class: 'text-2xl text-red-800 mt-0.5'}" />
                     <div>
                         <p class="text-sm font-bold text-red-800 uppercase tracking-wide mb-1">
                             <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_post.disclaimer.title" />
@@ -48,7 +48,7 @@
                                     parameter="{item.link}"
                                     additionalAttributes="{data-toc-link: '1', data-active: 'false'}"
                                     class="group transition-all text-base font-medium flex items-start gap-2 text-slate-700 hover:text-brand-500 data-[active=true]:text-brand-500 no-underline">
-                                    <span class="material-symbols-outlined text-lg leading-none mt-0.5 text-slate-300 group-hover:text-[#650009] group-data-[active=true]:text-[#650009] transition-colors">chevron_right</span>
+                                    <f:render partial="Icon" arguments="{name: 'chevron_right', class: 'text-lg mt-0.5 text-slate-300 group-hover:text-[#650009] group-data-[active=true]:text-[#650009] transition-colors'}" />
                                     {item.label}
                                 </f:link.typolink>
                             </f:for>

@@ -24,24 +24,24 @@
                 </p>
                 <div class="flex items-center justify-center sm:justify-start gap-3 font-sans">
                     <f:link.page pageUid="{blogAboutPageUid}" class="inline-flex items-center gap-1 text-sm font-semibold text-[#650009] hover:text-[#88161a] no-underline transition-colors">
-                        <span class="material-symbols-outlined text-base leading-none" aria-hidden="true">arrow_forward</span>
+                        <f:render partial="Icon" arguments="{name: 'arrow_forward', class: 'text-base'}" />
                         <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.aboutLink" />
                     </f:link.page>
                     <span aria-hidden="true" class="text-slate-300">·</span>
                     <a href="{blogAuthorInstagramUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm font-semibold text-[#650009] hover:text-[#88161a] no-underline transition-colors">
-                        <span class="material-symbols-outlined text-base leading-none" aria-hidden="true">open_in_new</span>
+                        <f:render partial="Icon" arguments="{name: 'open_in_new', class: 'text-base'}" />
                         Instagram
                     </a>
                     <span aria-hidden="true" class="text-slate-300">·</span>
                     <a rel="noopener noreferrer nofollow" href="https://ko-fi.com/lebenmitcmt" target="_blank" class="inline-flex items-center gap-1 text-sm font-semibold text-[#650009] hover:text-[#88161a] no-underline transition-colors">
-                        <span class="material-symbols-outlined text-base leading-none" aria-hidden="true">open_in_new</span>
+                        <f:render partial="Icon" arguments="{name: 'open_in_new', class: 'text-base'}" />
                         <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:footer.support" />
                     </a>
                 </div>
             </div>
         </div>
         <div class="mt-6 pt-4 border-t border-slate-200 flex items-center gap-1.5 text-sm text-slate-500 font-sans">
-            <span class="material-symbols-outlined text-base leading-none" aria-hidden="true">update</span>
+            <f:render partial="Icon" arguments="{name: 'update', class: 'text-base'}" />
             <span>
                 <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.updated" />
                 <time datetime="{f:format.date(date: blogModifiedDate, format: 'Y-m-d')}">{blogModifiedDateFormatted}</time>.
