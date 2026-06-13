@@ -81,6 +81,13 @@ page {
     }
 
     meta {
+        # Fallback-Meta-Description: nutzt die Seiteneigenschaft, sonst die Website-Beschreibung.
+        description = TEXT
+        description {
+            data = page:description
+            ifEmpty.value = {$website.description}
+        }
+
         viewport = {$page.meta.viewport}
         robots = {$page.meta.robots}
         apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
@@ -157,6 +164,7 @@ page.10.dataProcessing {
 
 [siteLanguage("hreflang") == "en"]
 page.10.dataProcessing.5.websiteDescription = {$website.descriptionEn}
+page.meta.description.ifEmpty.value = {$website.descriptionEn}
 page.meta.og:locale = en_US
 page.meta.og:site_name = My life with CMT
 [END]
