@@ -110,6 +110,19 @@ page {
         og:url.data = getIndpEnv:TYPO3_REQUEST_URL
         og:url.attribute = property
 
+        # og:title nutzt den SEO-Title, sonst den normalen Seitentitel.
+        og:title.data = page:seo_title // page:title
+        og:title.attribute = property
+
+        # og:image: Default ist das Logo (absolute URL). Blog-Posts überschreiben mit dem Teaserbild (s.u.).
+        og:image.attribute = property
+        og:image.cObject = TEXT
+        og:image.cObject.typolink {
+            parameter = EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png
+            forceAbsoluteUrl = 1
+            returnLast = url
+        }
+
         og:site_name = Leben mit CMT
         og:site_name {
             attribute = property
@@ -171,6 +184,30 @@ page.meta.og:site_name = My life with CMT
 
 [traverse(page, "doktype") == 1775660402]
 page.meta.og:type = article
+
+# Blog-Posts: og:image aus dem Teaserbild, sonst Fallback auf das Logo.
+page.meta.og:image.cObject >
+page.meta.og:image.cObject = FILES
+page.meta.og:image.cObject {
+    references {
+        table = pages
+        fieldName = brauer_teaser_image
+    }
+    maxItems = 1
+    renderObj = TEXT
+    renderObj.typolink {
+        parameter = t3://file?uid={file:current:uid}
+        parameter.insertData = 1
+        forceAbsoluteUrl = 1
+        returnLast = url
+    }
+}
+page.meta.og:image.ifEmpty.cObject = TEXT
+page.meta.og:image.ifEmpty.cObject.typolink {
+    parameter = EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png
+    forceAbsoluteUrl = 1
+    returnLast = url
+}
 [END]
 
 [traverse(page, "slug") == "/ueber-mich" || traverse(page, "slug") == "/about-me"]
