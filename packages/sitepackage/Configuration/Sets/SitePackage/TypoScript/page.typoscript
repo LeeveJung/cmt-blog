@@ -82,11 +82,8 @@ page {
 
     meta {
         # Fallback-Meta-Description: nutzt die Seiteneigenschaft, sonst die Website-Beschreibung.
-        description = TEXT
-        description {
-            data = page:description
-            ifEmpty.value = {$website.description}
-        }
+        description.data = page:description
+        description.ifEmpty = {$website.description}
 
         viewport = {$page.meta.viewport}
         robots = {$page.meta.robots}
@@ -116,11 +113,14 @@ page {
 
         # og:image: Default ist das Logo (absolute URL). Blog-Posts überschreiben mit dem Teaserbild (s.u.).
         og:image.attribute = property
-        og:image.cObject = TEXT
-        og:image.cObject.typolink {
-            parameter = EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png
-            forceAbsoluteUrl = 1
-            returnLast = url
+        og:image.cObject = COA
+        og:image.cObject {
+            # Host ohne abschließenden Slash (IMG_RESOURCE liefert Pfad mit führendem Slash).
+            10 = TEXT
+            10.data = getIndpEnv:TYPO3_SITE_URL
+            10.substring = 0,-1
+            20 = IMG_RESOURCE
+            20.file = EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png
         }
 
         og:site_name = Leben mit CMT
@@ -177,7 +177,7 @@ page.10.dataProcessing {
 
 [siteLanguage("hreflang") == "en"]
 page.10.dataProcessing.5.websiteDescription = {$website.descriptionEn}
-page.meta.description.ifEmpty.value = {$website.descriptionEn}
+page.meta.description.ifEmpty = {$website.descriptionEn}
 page.meta.og:locale = en_US
 page.meta.og:site_name = My life with CMT
 [END]
@@ -194,19 +194,25 @@ page.meta.og:image.cObject {
         fieldName = brauer_teaser_image
     }
     maxItems = 1
-    renderObj = TEXT
-    renderObj.typolink {
-        parameter = t3://file?uid={file:current:uid}
-        parameter.insertData = 1
-        forceAbsoluteUrl = 1
-        returnLast = url
+    renderObj = COA
+    renderObj {
+        10 = TEXT
+        10.data = getIndpEnv:TYPO3_SITE_URL
+        10.substring = 0,-1
+        20 = IMG_RESOURCE
+        20.file.import.data = file:current:uid
+        20.file.treatIdAsReference = 1
+        20.file.width = 1200c
+        20.file.height = 630c
     }
 }
-page.meta.og:image.ifEmpty.cObject = TEXT
-page.meta.og:image.ifEmpty.cObject.typolink {
-    parameter = EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png
-    forceAbsoluteUrl = 1
-    returnLast = url
+page.meta.og:image.ifEmpty.cObject = COA
+page.meta.og:image.ifEmpty.cObject {
+    10 = TEXT
+    10.data = getIndpEnv:TYPO3_SITE_URL
+    10.substring = 0,-1
+    20 = IMG_RESOURCE
+    20.file = EXT:sitepackage/Resources/Public/Images/cmt-logo_2026.png
 }
 [END]
 
