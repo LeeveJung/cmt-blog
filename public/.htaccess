@@ -273,7 +273,26 @@ AddDefaultCharset utf-8
 	# Enable URL rewriting
 	RewriteEngine On
 
-	# Redirect non-www to www
+	# --- Begin: Custom 301 redirects (URL consolidation) ---
+	# These run BEFORE the non-www->www host normalization and emit the
+	# absolute canonical www target with [L], so every match resolves in a
+	# SINGLE hop regardless of the incoming host (no redirect chains).
+	# The query string is preserved automatically (no '?' in substitution).
+
+	# Old long slugs -> short slugs
+	RewriteRule ^therapie-und-behandlungsmoeglichkeiten-bei-charcot-marie-tooth/?$ https://www.leben-mit-cmt.de/cmt-therapie [R=301,L]
+	RewriteRule ^diagnose-und-vererbung-bei-charcot-marie-tooth-so-wird-die-erkrankung-erkannt/?$ https://www.leben-mit-cmt.de/cmt-diagnose-vererbung [R=301,L]
+	RewriteRule ^was-ist-charcot-marie-tooth-ursachen-symptome-und-verlauf/?$ https://www.leben-mit-cmt.de/charcot-marie-tooth-erklaert [R=301,L]
+
+	# SARM1 variant consolidation (canonical: /cmt2a-forschung-sarm1)
+	RewriteRule ^cmt2a-forschung-asha-sarm1/?$ https://www.leben-mit-cmt.de/cmt2a-forschung-sarm1 [R=301,L]
+
+	# Erroneous /blog/ segment removal (MFN2 research articles)
+	RewriteRule ^blog/cmt2a-forschung-mfn2/?$ https://www.leben-mit-cmt.de/cmt2a-forschung-mfn2 [R=301,L]
+	RewriteRule ^en/blog/cmt2a-research-mfn2/?$ https://www.leben-mit-cmt.de/en/cmt2a-research-mfn2 [R=301,L]
+	# --- End: Custom 301 redirects ---
+
+	# Redirect non-www to www (path and query preserved)
 	RewriteCond %{HTTP_HOST} ^leben-mit-cmt\.de$ [NC]
 	RewriteRule ^(.*)$ https://www.leben-mit-cmt.de/$1 [R=301,L]
 
@@ -387,11 +406,7 @@ FileETag None
 
 
 
-### Begin: 301 Redirects ###
-
-Redirect 301 /diagnose-und-vererbung-bei-charcot-marie-tooth-so-wird-die-erkrankung-erkannt https://www.leben-mit-cmt.de/cmt-diagnose-vererbung
-Redirect 301 /therapie-und-behandlungsmoeglichkeiten-bei-charcot-marie-tooth https://www.leben-mit-cmt.de/cmt-therapie
-Redirect 301 /was-ist-charcot-marie-tooth-ursachen-symptome-und-verlauf https://www.leben-mit-cmt.de/charcot-marie-tooth-erklaert
-Redirect 301 /cmt2a-forschung-asha-sarm1 https://www.leben-mit-cmt.de/cmt2a-forschung-sarm1
-
-### End: 301 Redirects ###
+### 301 Redirects ###
+# Moved into the mod_rewrite block above (see "Custom 301 redirects").
+# Do NOT add mod_alias `Redirect` directives here: mixing mod_alias with the
+# mod_rewrite non-www->www rule produces 2-hop redirect chains.
