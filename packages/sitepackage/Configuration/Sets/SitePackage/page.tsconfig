@@ -1,5 +1,8 @@
 @import './PageTsConfig/BackendLayouts/'
 
+# Enable Yoast SEO analysis for the blog-page Content Block doktype
+module.tx_yoastseo.allowedDoktypes := addToList(1775660402)
+
 RTE {
     default {
         preset = sitepackage
