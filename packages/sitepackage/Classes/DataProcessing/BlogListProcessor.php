@@ -76,11 +76,15 @@ final class BlogListProcessor implements DataProcessorInterface
 
             $overlaysByParent = array_column($overlayRows, null, 'l10n_parent');
 
+            // only keep posts that are actually translated into the current language
+            $rows = array_values(array_filter(
+                $rows,
+                static fn(array $row): bool => isset($overlaysByParent[$row['uid']])
+            ));
+
             foreach ($rows as &$row) {
-                if (isset($overlaysByParent[$row['uid']])) {
-                    $row['title'] = $overlaysByParent[$row['uid']]['title'];
-                    $row['description'] = $overlaysByParent[$row['uid']]['description'];
-                }
+                $row['title'] = $overlaysByParent[$row['uid']]['title'];
+                $row['description'] = $overlaysByParent[$row['uid']]['description'];
             }
             unset($row);
         }
