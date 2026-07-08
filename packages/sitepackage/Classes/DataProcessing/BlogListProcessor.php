@@ -41,53 +41,43 @@ final class BlogListProcessor implements DataProcessorInterface
             ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
             ->add(GeneralUtility::makeInstance(HiddenRestriction::class));
 
-        $qb->select('uid', 'title', 'description', 'brauer_publish_date', 'crdate', 'slug')
-            ->from('pages')
-            ->where(
-                $qb->expr()->eq('doktype', $qb->createNamedParameter(self::BLOG_PAGE_DOKTYPE, Connection::PARAM_INT)),
-                $qb->expr()->eq('sys_language_uid', $qb->createNamedParameter(0, Connection::PARAM_INT)),
-            )
-            ->orderBy('brauer_publish_date', 'DESC')
-            ->addOrderBy('crdate', 'DESC');
+        if ($languageId > 0) {
+            // join the default-language page to its translation so the limit is
+            // applied only to posts that actually have a translation, otherwise
+            // an untranslated post among the top N would shrink the result below maxItems
+            $qb->select('d.uid', 'o.title', 'o.description', 'd.brauer_publish_date', 'd.crdate', 'd.slug')
+                ->from('pages', 'd')
+                ->join(
+                    'd',
+                    'pages',
+                    'o',
+                    (string)$qb->expr()->and(
+                        $qb->expr()->eq('o.l10n_parent', $qb->quoteIdentifier('d.uid')),
+                        $qb->expr()->eq('o.sys_language_uid', $qb->createNamedParameter($languageId, Connection::PARAM_INT)),
+                    )
+                )
+                ->where(
+                    $qb->expr()->eq('d.doktype', $qb->createNamedParameter(self::BLOG_PAGE_DOKTYPE, Connection::PARAM_INT)),
+                    $qb->expr()->eq('d.sys_language_uid', $qb->createNamedParameter(0, Connection::PARAM_INT)),
+                )
+                ->orderBy('d.brauer_publish_date', 'DESC')
+                ->addOrderBy('d.crdate', 'DESC');
+        } else {
+            $qb->select('uid', 'title', 'description', 'brauer_publish_date', 'crdate', 'slug')
+                ->from('pages')
+                ->where(
+                    $qb->expr()->eq('doktype', $qb->createNamedParameter(self::BLOG_PAGE_DOKTYPE, Connection::PARAM_INT)),
+                    $qb->expr()->eq('sys_language_uid', $qb->createNamedParameter(0, Connection::PARAM_INT)),
+                )
+                ->orderBy('brauer_publish_date', 'DESC')
+                ->addOrderBy('crdate', 'DESC');
+        }
 
         if ($maxItems > 0) {
             $qb->setMaxResults($maxItems);
         }
 
         $rows = $qb->executeQuery()->fetchAllAssociative();
-
-        if ($languageId > 0 && !empty($rows)) {
-            $defaultUids = array_column($rows, 'uid');
-            $qbOverlay = $this->connectionPool->getQueryBuilderForTable('pages');
-            $qbOverlay->getRestrictions()
-                ->removeAll()
-                ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
-                ->add(GeneralUtility::makeInstance(HiddenRestriction::class));
-
-            $overlayRows = $qbOverlay
-                ->select('l10n_parent', 'title', 'description')
-                ->from('pages')
-                ->where(
-                    $qbOverlay->expr()->eq('sys_language_uid', $qbOverlay->createNamedParameter($languageId, Connection::PARAM_INT)),
-                    $qbOverlay->expr()->in('l10n_parent', $qbOverlay->createNamedParameter($defaultUids, Connection::PARAM_INT_ARRAY)),
-                )
-                ->executeQuery()
-                ->fetchAllAssociative();
-
-            $overlaysByParent = array_column($overlayRows, null, 'l10n_parent');
-
-            // only keep posts that are actually translated into the current language
-            $rows = array_values(array_filter(
-                $rows,
-                static fn(array $row): bool => isset($overlaysByParent[$row['uid']])
-            ));
-
-            foreach ($rows as &$row) {
-                $row['title'] = $overlaysByParent[$row['uid']]['title'];
-                $row['description'] = $overlaysByParent[$row['uid']]['description'];
-            }
-            unset($row);
-        }
 
         foreach ($rows as &$row) {
             $files = $this->fileRepository->findByRelation('pages', 'brauer_teaser_image', $row['uid']);
