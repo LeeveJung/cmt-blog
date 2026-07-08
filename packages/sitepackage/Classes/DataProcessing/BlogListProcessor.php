@@ -93,7 +93,7 @@ final class BlogListProcessor implements DataProcessorInterface
             $formatter = new \IntlDateFormatter($locale, \IntlDateFormatter::LONG, \IntlDateFormatter::NONE);
             $row['display_date_formatted'] = $formatter->format($dateObj);
 
-            $row['categories'] = $this->fetchCategories($row['uid']);
+            $row['categories'] = $this->fetchCategories($row['uid'], $languageId);
         }
         unset($row);
 
@@ -102,14 +102,19 @@ final class BlogListProcessor implements DataProcessorInterface
         return $processedData;
     }
 
-    private function fetchCategories(int $pageUid): array
+    private function fetchCategories(int $pageUid, int $langUid): array
     {
         $qb = $this->connectionPool->getQueryBuilderForTable('sys_category_record_mm');
 
         return $qb
-            ->select('cat.uid', 'cat.title')
+            ->select('cat.uid')
+            ->addSelectLiteral('COALESCE(tr.title, cat.title) AS title')
             ->from('sys_category_record_mm', 'mm')
             ->join('mm', 'sys_category', 'cat', $qb->expr()->eq('cat.uid', 'mm.uid_local'))
+            ->leftJoin('cat', 'sys_category', 'tr', $qb->expr()->and(
+                $qb->expr()->eq('tr.l10n_parent', 'cat.uid'),
+                $qb->expr()->eq('tr.sys_language_uid', $qb->createNamedParameter($langUid, Connection::PARAM_INT)),
+            ))
             ->where(
                 $qb->expr()->eq('mm.uid_foreign', $qb->createNamedParameter($pageUid, Connection::PARAM_INT)),
                 $qb->expr()->eq('mm.tablenames', $qb->createNamedParameter('pages')),
