@@ -1,0 +1,22 @@
+# Normalize all text files to LF in the repository and in the working tree.
+# DDev commands and shell scripts run inside Linux containers and break on CRLF.
+* text=auto eol=lf
+
+# Shell scripts must always be LF, regardless of detection.
+# Note: .ddev/commands/ carries its own DDev-generated .gitattributes,
+# which takes precedence over any rule set here.
+*.sh text eol=lf
+
+# Binary files: never touch line endings, never diff as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pdf binary
+*.zip binary
