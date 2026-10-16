@@ -111,6 +111,11 @@ page {
         og:title.data = page:seo_title // page:title
         og:title.attribute = property
 
+        # og:description nutzt das OG-Feld, sonst die Seitenbeschreibung, sonst die Website-Beschreibung.
+        og:description.data = page:og_description // page:description
+        og:description.ifEmpty = {$website.description}
+        og:description.attribute = property
+
         # og:image: Default ist das Logo (absolute URL). Blog-Posts überschreiben mit dem Teaserbild (s.u.).
         og:image.attribute = property
         og:image.cObject = COA
@@ -178,6 +183,7 @@ page.10.dataProcessing {
 [siteLanguage("hreflang") == "en"]
 page.10.dataProcessing.5.websiteDescription = {$website.descriptionEn}
 page.meta.description.ifEmpty = {$website.descriptionEn}
+page.meta.og:description.ifEmpty = {$website.descriptionEn}
 page.meta.og:locale = en_US
 page.meta.og:site_name = My life with CMT
 [END]
