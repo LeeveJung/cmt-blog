@@ -95,7 +95,7 @@ final class BlogPageProcessor implements DataProcessorInterface
             '@context' => 'https://schema.org',
             '@type' => 'BlogPosting',
             '@id' => $articleUrl . '#article',
-            'headline' => $pageRecord['title'] ?? '',
+            'headline' => ($pageRecord['seo_title'] ?? '') ?: ($pageRecord['title'] ?? ''),
             'mainEntityOfPage' => $articleUrl,
             'inLanguage' => $siteLanguage->getHreflang(),
             'datePublished' => $publishDate->setTimezone($berlinTz)->format('c'),
