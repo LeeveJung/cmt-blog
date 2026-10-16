@@ -117,7 +117,9 @@ page {
         og:description.attribute = property
 
         # og:image: Default ist das Logo (absolute URL). Blog-Posts überschreiben mit dem Teaserbild (s.u.).
+        # Ist das OG-Bild-Feld gepflegt, gibt EXT:seo das Bild aus; sonst entstünde ein zweites og:image.
         og:image.attribute = property
+        og:image.if.isFalse.field = og_image
         og:image.cObject = COA
         og:image.cObject {
             # Host ohne abschließenden Slash (IMG_RESOURCE liefert Pfad mit führendem Slash).
@@ -224,6 +226,8 @@ page.meta.og:image.ifEmpty.cObject {
 
 [traverse(page, "slug") == "/ueber-mich" || traverse(page, "slug") == "/about-me"]
 page.meta.og:type = profile
+# og:image (Porträt) setzt der AboutPageProcessor; das Logo-Fallback würde ein zweites og:image erzeugen.
+page.meta.og:image >
 page.10.dataProcessing {
     90 = Brauer\Sitepackage\DataProcessing\AboutPageProcessor
     90.authorName = {$author.name}
