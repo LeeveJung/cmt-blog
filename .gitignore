@@ -4,6 +4,7 @@
 nbproject
 
 # TYPO3
+/data/
 /var/*
 !/var/labels
 /vendor
