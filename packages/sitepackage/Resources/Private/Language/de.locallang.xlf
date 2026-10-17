@@ -12,7 +12,7 @@
             </trans-unit>
             <trans-unit id="blog_post.disclaimer.text">
                 <source>This article does not replace medical advice. If you have health concerns or new symptoms, always consult a qualified medical professional.</source>
-                <target>Dieser Beitrag ersetzt keine ärztliche Beratung. Bei gesundheitlichen Fragen oder neuen Symptomen solltest du dich immer an Fachärztinnen und Fachärzte wenden.</target>
+                <target>Dieser Beitrag ersetzt keine ärztliche Beratung. Bei gesundheitlichen Fragen oder neuen Symptomen solltest du dich immer an an medizinisches Fachpersonal wenden.</target>
             </trans-unit>
             <trans-unit id="blog_post.sidebar.article_details">
                 <source>Article Details</source>
@@ -36,7 +36,7 @@
             </trans-unit>
             <trans-unit id="footer.disclaimer">
                 <source>&lt;strong&gt;Medical disclaimer:&lt;/strong&gt; The content on this site is for informational purposes only and does not replace medical diagnosis. For health concerns, always consult a qualified medical professional.</source>
-                <target>&lt;strong&gt;Medizinischer Disclaimer:&lt;/strong&gt; Die Inhalte dieser Seite dienen der Information und ersetzen keine ärztliche Diagnose. Bitte konsultieren Sie bei gesundheitlichen Fragen stets qualifiziertes Fachpersonal.</target>
+                <target>&lt;strong&gt;Medizinischer Disclaimer:&lt;/strong&gt; Die Inhalte dieser Seite dienen der Information und ersetzen keine ärztliche Diagnose. Bei gesundheitlichen Fragen wende dich bitte immer an qualifiziertes Fachpersonal.</target>
             </trans-unit>
             <trans-unit id="footer.nav.navigation">
                 <source>Navigation</source>
