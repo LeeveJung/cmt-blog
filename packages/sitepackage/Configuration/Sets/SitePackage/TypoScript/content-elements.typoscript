@@ -27,6 +27,11 @@ tt_content.brauer-image-text-grid {
         101 {
             colPos = 201
             as = textColumn
+            # Bilder der Kinder für das Hero-Layout (layout = 3) direkt bereitstellen.
+            dataProcessing {
+                10 = files
+                10.references.fieldName = assets
+            }
         }
     }
 }

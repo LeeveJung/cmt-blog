@@ -37,9 +37,122 @@
     unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
+@font-face {
+    font-family: 'Lora Variable';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 400 700;
+    src: url('/_assets/7e46a4498a380df20bebdbea75cdcbe5/Fonts/lora-latin-wght-italic.woff2') format('woff2-variations');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
 @layer components {
     p.lead {
         @apply text-lg md:text-xl leading-relaxed;
+    }
+
+    /* Hero der Startseite: Container "Bild & Text (Grid)" mit Layout "Hero" (layout = 3).
+       Desktop ab 960px zweispaltig, darunter steht die Foto-Karte über der Überschrift. */
+    .hero {
+        /* <main> hält bereits Abstand zum fixen Header (mobil 0px, ab md 16px).
+           Unten kein Padding: space-y-12 und das Padding der Folgesektion reichen aus. */
+        padding-block: 48px 0;
+
+        @media (width >= 640px) {
+            padding-top: 72px;
+        }
+
+        @media (width >= 960px) {
+            padding-top: 80px;
+        }
+    }
+
+    .hero__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+
+        @media (width >= 960px) {
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 80px;
+            align-items: center;
+        }
+    }
+
+    .hero__title {
+        @apply font-serif font-bold text-slate-900;
+        margin: 0;
+        font-size: clamp(48px, 6vw, 84px);
+        line-height: 1.02;
+        letter-spacing: -0.01em;
+    }
+
+    .hero__name {
+        @apply block italic text-brand-500;
+    }
+
+    .hero__text {
+        @apply font-sans border-t border-stone-200;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px 40px;
+        margin-top: 28px;
+        padding-top: 28px;
+        font-size: 17px;
+        line-height: 1.7;
+        text-wrap: pretty;
+
+        /* Tablet: zweispaltig, solange jede Spalte mindestens 260px breit ist. */
+        @media (width >= 640px) {
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+        }
+
+        @media (width >= 960px) {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+
+        & p {
+            margin: 0;
+            font-size: inherit;
+            line-height: inherit;
+        }
+    }
+
+    /* Foto als Polaroid-Karte; die Drehung ist rein dekorativ. */
+    .hero__card {
+        @apply bg-white;
+        order: -1;
+        justify-self: start;
+        width: 100%;
+        max-width: 220px;
+        margin: 0;
+        padding: 12px 12px 18px;
+        box-shadow: 0 18px 40px rgba(60, 30, 20, .16);
+        transform: rotate(2deg);
+
+        @media (width >= 640px) {
+            max-width: 260px;
+        }
+
+        @media (width >= 960px) {
+            order: 0;
+            max-width: none;
+        }
+    }
+
+    .hero__image {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 4.6;
+        object-fit: cover;
+    }
+
+    .hero__caption {
+        @apply text-center text-stone-600;
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 1.4;
     }
 }
 

@@ -90,6 +90,9 @@
             <trans-unit id="footer.support">
                 <source>Support me!</source>
             </trans-unit>
+            <trans-unit id="hero.caption">
+                <source>Christoph, living with CMT</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

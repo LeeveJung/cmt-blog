@@ -118,6 +118,10 @@
                 <source>Support me!</source>
                 <target>Unterstütze mich!</target>
             </trans-unit>
+            <trans-unit id="hero.caption">
+                <source>Christoph, living with CMT</source>
+                <target>Christoph, lebt mit CMT</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

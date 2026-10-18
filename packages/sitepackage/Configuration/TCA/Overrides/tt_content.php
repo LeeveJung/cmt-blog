@@ -37,6 +37,8 @@ $GLOBALS['TCA']['tt_content']['types']['brauer-image-text-grid']['columnsOverrid
             ['label' => '70% Bild / 30% Text', 'value' => 0],
             ['label' => '30% Bild / 70% Text', 'value' => 1],
             ['label' => '50% Bild / 50% Text', 'value' => 2],
+            // Linke Spalte: Überschrift (H1) + Text, rechte Spalte: erstes Bild als Polaroid-Karte.
+            ['label' => 'Hero (Startseite): Überschrift + Text links, Foto rechts', 'value' => 3],
         ],
     ],
 ];

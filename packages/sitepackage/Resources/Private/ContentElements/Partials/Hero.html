@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<section class="hero" id="c{data.uid}">
+    <div class="hero__grid">
+        <div class="hero__intro">
+            <f:for each="{intro}" as="element">
+                <f:if condition="{element.header}">
+                    <f:comment>Letztes Wort der Überschrift (der Name) wird als zweite Zeile hervorgehoben.</f:comment>
+                    <h1 class="hero__title"><f:for each="{element.header -> f:split(separator: ' ')}" as="word" iteration="w"><f:if condition="{w.isLast}"><f:then><em class="hero__name">{word}</em></f:then><f:else>{word} </f:else></f:if></f:for></h1>
+                </f:if>
+                <f:if condition="{element.bodytext}">
+                    <div class="hero__text">
+                        <f:format.html>{element.bodytext}</f:format.html>
+                    </div>
+                </f:if>
+            </f:for>
+        </div>
+        <f:for each="{media}" as="element">
+            <f:for each="{element.files}" as="file" iteration="i">
+                <f:if condition="{i.isFirst}">
+                    <figure class="hero__card">
+                        <img
+                            class="hero__image"
+                            srcset="{f:uri.image(image: file, width: '300c', height: '345c')} 300w, {f:uri.image(image: file, width: '600c', height: '690c')} 600w, {f:uri.image(image: file, width: '880c', height: '1012c')} 880w"
+                            sizes="(min-width: 960px) 276px, (min-width: 640px) 236px, 196px"
+                            src="{f:uri.image(image: file, width: '600c', height: '690c')}"
+                            width="600"
+                            height="690"
+                            alt="{f:if(condition: file.alternative, then: file.alternative, else: '{f:translate(key: \'LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:authorBox.imageAlt\')}')}"
+                            loading="{f:if(condition: file.properties.tx_sitepackage_loading, then: file.properties.tx_sitepackage_loading, else: 'eager')}"
+                            decoding="async"
+                            fetchpriority="{f:if(condition: file.properties.tx_sitepackage_fetchpriority, then: file.properties.tx_sitepackage_fetchpriority, else: 'high')}"
+                        />
+                        <figcaption class="hero__caption">
+                            <f:if condition="{file.description}">
+                                <f:then>{file.description}</f:then>
+                                <f:else><f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:hero.caption" /></f:else>
+                            </f:if>
+                        </figcaption>
+                    </figure>
+                </f:if>
+            </f:for>
+        </f:for>
+    </div>
+</section>
+
+</html>
