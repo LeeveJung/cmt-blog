@@ -9,6 +9,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction;
 use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
@@ -98,6 +99,12 @@ final class BlogListProcessor implements DataProcessorInterface
         unset($row);
 
         $processedData['blogPosts'] = $rows;
+
+        // only the home page shows the newest post as a large featured teaser,
+        // other pages (e.g. the blog overview) render all posts as a compact list
+        $site = $cObj->getRequest()->getAttribute('site');
+        $processedData['isHomePage'] = $site instanceof Site
+            && (int)($cObj->data['pid'] ?? 0) === $site->getRootPageId();
 
         return $processedData;
     }

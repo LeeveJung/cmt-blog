@@ -23,72 +23,91 @@
     </f:if>
     <f:if condition="{blogPosts}">
         <f:then>
-            <f:comment>Neuester Beitrag groß links, die folgenden als kompakte Liste rechts. Ohne Liste nimmt der Hauptbeitrag die volle Breite ein (:only-child).</f:comment>
-            <div class="blog-list__grid">
-                <f:for each="{blogPosts}" as="post" iteration="i">
-                    <f:if condition="{i.isFirst}">
-                        <f:link.page pageUid="{post.uid}" class="blog-list__link blog-list__featured">
-                            <article>
-                                <f:if condition="{post.teaser_image}">
-                                    <img
-                                        class="blog-list__image"
-                                        src="{f:uri.image(image: post.teaser_image, width: '640c', height: '360c', fileExtension: 'webp')}"
-                                        srcset="{f:uri.image(image: post.teaser_image, width: '480c', height: '270c', fileExtension: 'webp')} 480w, {f:uri.image(image: post.teaser_image, width: '640c', height: '360c', fileExtension: 'webp')} 640w, {f:uri.image(image: post.teaser_image, width: '960c', height: '540c', fileExtension: 'webp')} 960w, {f:uri.image(image: post.teaser_image, width: '1280c', height: '720c', fileExtension: 'webp')} 1280w"
-                                        sizes="(min-width: 1280px) 634px, (min-width: 960px) calc((100vw - 96px) * 0.535), calc(100vw - 48px)"
-                                        width="640"
-                                        height="360"
-                                        loading="{f:if(condition: post.teaser_image.properties.tx_sitepackage_loading, then: post.teaser_image.properties.tx_sitepackage_loading, else: 'lazy')}" decoding="async"
-                                        <f:if condition="{post.teaser_image.properties.tx_sitepackage_fetchpriority}">fetchpriority="{post.teaser_image.properties.tx_sitepackage_fetchpriority}"</f:if>
-                                        alt="" />
-                                </f:if>
-                                <f:render section="Meta" arguments="{post: post}" />
-                                <h3 class="blog-list__heading">{post.title}</h3>
-                                <f:if condition="{post.description}">
-                                    <p class="blog-list__teaser">{post.description}</p>
-                                </f:if>
-                            </article>
-                        </f:link.page>
-                    </f:if>
-                </f:for>
-                <f:if condition="{blogPosts.1}">
+            <f:if condition="{isHomePage}">
+                <f:then>
+                    <f:comment>Neuester Beitrag groß links, die folgenden als kompakte Liste rechts. Ohne Liste nimmt der Hauptbeitrag die volle Breite ein (:only-child).</f:comment>
+                    <div class="blog-list__grid">
+                        <f:for each="{blogPosts}" as="post" iteration="i">
+                            <f:if condition="{i.isFirst}">
+                                <f:link.page pageUid="{post.uid}" class="blog-list__link blog-list__featured">
+                                    <article>
+                                        <f:if condition="{post.teaser_image}">
+                                            <img
+                                                class="blog-list__image"
+                                                src="{f:uri.image(image: post.teaser_image, width: '640c', height: '360c', fileExtension: 'webp')}"
+                                                srcset="{f:uri.image(image: post.teaser_image, width: '480c', height: '270c', fileExtension: 'webp')} 480w, {f:uri.image(image: post.teaser_image, width: '640c', height: '360c', fileExtension: 'webp')} 640w, {f:uri.image(image: post.teaser_image, width: '960c', height: '540c', fileExtension: 'webp')} 960w, {f:uri.image(image: post.teaser_image, width: '1280c', height: '720c', fileExtension: 'webp')} 1280w"
+                                                sizes="(min-width: 1280px) 634px, (min-width: 960px) calc((100vw - 96px) * 0.535), calc(100vw - 48px)"
+                                                width="640"
+                                                height="360"
+                                                loading="{f:if(condition: post.teaser_image.properties.tx_sitepackage_loading, then: post.teaser_image.properties.tx_sitepackage_loading, else: 'lazy')}" decoding="async"
+                                                <f:if condition="{post.teaser_image.properties.tx_sitepackage_fetchpriority}">fetchpriority="{post.teaser_image.properties.tx_sitepackage_fetchpriority}"</f:if>
+                                                alt="" />
+                                        </f:if>
+                                        <f:render section="Meta" arguments="{post: post}" />
+                                        <h3 class="blog-list__heading">{post.title}</h3>
+                                        <f:if condition="{post.description}">
+                                            <p class="blog-list__teaser">{post.description}</p>
+                                        </f:if>
+                                    </article>
+                                </f:link.page>
+                            </f:if>
+                        </f:for>
+                        <f:if condition="{blogPosts.1}">
+                            <ul class="blog-list__list" role="list">
+                                <f:for each="{blogPosts}" as="post" iteration="i">
+                                    <f:if condition="{i.index} > 0">
+                                        <f:render section="Item" arguments="{post: post, loading: 'lazy'}" />
+                                    </f:if>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </div>
+                </f:then>
+                <f:else>
+                    <f:comment>Übrige Seiten (z.B. Blog-Übersicht): alle Beiträge als kompakte Liste über die volle Breite. Die ersten Vorschaubilder liegen im sichtbaren Bereich und laden sofort.</f:comment>
                     <ul class="blog-list__list" role="list">
                         <f:for each="{blogPosts}" as="post" iteration="i">
-                            <f:if condition="{i.index} > 0">
-                                <li class="blog-list__item">
-                                    <f:link.page pageUid="{post.uid}" class="blog-list__link blog-list__row">
-                                        <f:if condition="{post.teaser_image}">
-                                            <f:then>
-                                                <img
-                                                    class="blog-list__thumb"
-                                                    src="{f:uri.image(image: post.teaser_image, width: '240c', height: '240c', fileExtension: 'webp')}"
-                                                    srcset="{f:uri.image(image: post.teaser_image, width: '120c', height: '120c', fileExtension: 'webp')} 120w, {f:uri.image(image: post.teaser_image, width: '240c', height: '240c', fileExtension: 'webp')} 240w"
-                                                    sizes="(min-width: 640px) 120px, 88px"
-                                                    width="120"
-                                                    height="120"
-                                                    loading="lazy" decoding="async"
-                                                    alt="" />
-                                            </f:then>
-                                            <f:else>
-                                                <span class="blog-list__thumb" aria-hidden="true"></span>
-                                            </f:else>
-                                        </f:if>
-                                        <article>
-                                            <f:render section="Meta" arguments="{post: post}" />
-                                            <h3 class="blog-list__heading">{post.title}</h3>
-                                        </article>
-                                    </f:link.page>
-                                </li>
+                            <f:if condition="{i.index} < 4">
+                                <f:then><f:render section="Item" arguments="{post: post, loading: 'eager'}" /></f:then>
+                                <f:else><f:render section="Item" arguments="{post: post, loading: 'lazy'}" /></f:else>
                             </f:if>
                         </f:for>
                     </ul>
-                </f:if>
-            </div>
+                </f:else>
+            </f:if>
         </f:then>
         <f:else>
             <p class="text-slate-500">Noch keine Beiträge vorhanden.</p>
         </f:else>
     </f:if>
 </section>
+
+<f:section name="Item">
+    <li class="blog-list__item">
+        <f:link.page pageUid="{post.uid}" class="blog-list__link blog-list__row">
+            <f:if condition="{post.teaser_image}">
+                <f:then>
+                    <img
+                        class="blog-list__thumb"
+                        src="{f:uri.image(image: post.teaser_image, width: '240c', height: '240c', fileExtension: 'webp')}"
+                        srcset="{f:uri.image(image: post.teaser_image, width: '120c', height: '120c', fileExtension: 'webp')} 120w, {f:uri.image(image: post.teaser_image, width: '240c', height: '240c', fileExtension: 'webp')} 240w"
+                        sizes="(min-width: 640px) 120px, 88px"
+                        width="120"
+                        height="120"
+                        loading="{loading}" decoding="async"
+                        alt="" />
+                </f:then>
+                <f:else>
+                    <span class="blog-list__thumb" aria-hidden="true"></span>
+                </f:else>
+            </f:if>
+            <article>
+                <f:render section="Meta" arguments="{post: post}" />
+                <h3 class="blog-list__heading">{post.title}</h3>
+            </article>
+        </f:link.page>
+    </li>
+</f:section>
 
 <f:section name="Meta">
     <div class="blog-list__meta">
