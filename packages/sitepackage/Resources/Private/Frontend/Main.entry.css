@@ -104,5 +104,26 @@
     .rounded-md img {
         @apply rounded-md;
     }
+
+    /* RTE-Tabellen (CKEditor: figure.table > table) */
+    figure.table {
+        @apply my-6 overflow-x-auto;
+
+        table {
+            @apply w-full border-collapse text-left text-base;
+        }
+
+        th, td {
+            @apply px-3 py-2 align-top border-b border-slate-200;
+        }
+
+        thead th {
+            @apply font-semibold text-slate-900 bg-brand-50 border-b-2 border-brand-500;
+        }
+
+        tbody tr:nth-child(even) {
+            @apply bg-slate-50;
+        }
+    }
 }
 
