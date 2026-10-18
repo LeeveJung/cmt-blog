@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+
+## Description: Dump the remote database via SSH, download it and import it into DDEV
+## Usage: pull-db [--no-snapshot]
+## Example: "ddev pull-db" or "ddev pull-db --no-snapshot"
+## Flags: [{"Name":"no-snapshot","Usage":"Skip the local DDEV snapshot before importing"}]
+
+set -euo pipefail
+
+cd "${DDEV_APPROOT:-$(dirname "$0")/../../..}"
+
+# Reads KEY=value from a dotenv file (last match wins, surrounding quotes stripped)
+env_value() {
+    [ -f "$2" ] || return 0
+    sed -n -E "s/^[[:space:]]*(export[[:space:]]+)?$1=//p" "$2" | tail -n 1 | sed -E "s/^([\"'])(.*)\1[[:space:]]*$/\2/"
+}
+
+snapshot=1
+for arg in "$@"; do
+    case "$arg" in
+        --no-snapshot) snapshot=0 ;;
+        *) echo "Unknown argument: $arg" >&2; exit 1 ;;
+    esac
+done
+
+REMOTE_SSH_HOST="${REMOTE_SSH_HOST:-$(env_value REMOTE_SSH_HOST .env)}"
+REMOTE_PATH="${REMOTE_PATH:-$(env_value REMOTE_PATH .env)}"
+
+if [ -z "$REMOTE_SSH_HOST" ] || [ -z "$REMOTE_PATH" ]; then
+    echo "REMOTE_SSH_HOST and REMOTE_PATH must be set in .env (see .env.example)." >&2
+    exit 1
+fi
+
+timestamp="$(date +%Y%m%d-%H%M%S)"
+dump_file="data/db-dumps/remote-${timestamp}.sql.gz"
+mkdir -p "$(dirname "$dump_file")"
+trap 'rm -f "${dump_file}.part"' EXIT
+
+echo "Dumping database on ${REMOTE_SSH_HOST}:${REMOTE_PATH} ..."
+
+# The remote part reads the DB credentials from the TYPO3 .env on the server and
+# streams a gzipped dump to stdout. Credentials go into a temporary option file so
+# the password never shows up in the remote process list.
+ssh "$REMOTE_SSH_HOST" "bash -s -- $(printf '%q' "$REMOTE_PATH")" > "${dump_file}.part" <<'REMOTE'
+set -euo pipefail
+cd "$1"
+
+env_value() {
+    [ -f "$2" ] || return 0
+    sed -n -E "s/^[[:space:]]*(export[[:space:]]+)?$1=//p" "$2" | tail -n 1 | sed -E "s/^([\"'])(.*)\1[[:space:]]*$/\2/"
+}
+
+db_host="$(env_value DB_HOST .env)"
+db_port="$(env_value DB_PORT .env)"
+db_name="$(env_value DB_NAME .env)"
+db_user="$(env_value DB_USER .env)"
+db_password="$(env_value DB_PASSWORD .env)"
+
+if [ -z "$db_name" ] || [ -z "$db_user" ]; then
+    echo "DB_NAME / DB_USER not found in $(pwd)/.env" >&2
+    exit 1
+fi
+
+dump_bin="$(command -v mysqldump || command -v mariadb-dump || true)"
+if [ -z "$dump_bin" ]; then
+    echo "Neither mysqldump nor mariadb-dump found on remote host" >&2
+    exit 1
+fi
+
+options_file="$(mktemp)"
+trap 'rm -f "$options_file"' EXIT
+chmod 600 "$options_file"
+
+db_password="${db_password//\\/\\\\}"
+db_password="${db_password//\"/\\\"}"
+printf '[client]\nhost="%s"\nport=%s\nuser="%s"\npassword="%s"\n' \
+    "${db_host:-localhost}" "${db_port:-3306}" "$db_user" "$db_password" > "$options_file"
+
+"$dump_bin" --defaults-extra-file="$options_file" \
+    --single-transaction \
+    --quick \
+    --no-tablespaces \
+    --default-character-set=utf8mb4 \
+    "$db_name" | gzip -c
+REMOTE
+
+gzip -t "${dump_file}.part"
+mv "${dump_file}.part" "$dump_file"
+echo "Downloaded ${dump_file} ($(du -h "$dump_file" | cut -f1))"
+
+if [ "$snapshot" -eq 1 ]; then
+    ddev snapshot --name "before-pull-db-${timestamp}"
+fi
+
+ddev import-db --file="$dump_file"
+ddev exec vendor/bin/typo3 cache:flush
+
+echo "Done."
