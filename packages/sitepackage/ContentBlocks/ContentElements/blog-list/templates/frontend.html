@@ -1,73 +1,101 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
 
-<section class="max-w-7xl mx-auto py-12 md:py-20">
-    <f:if condition="{data.header}">
-        <f:if condition="{data.header_layout} == 1">
-            <f:then>
-                <h1 class="mb-12">{data.header}</h1>
-            </f:then>
-            <f:else>
-                <h2 class="mb-12">{data.header}</h2>
-            </f:else>
-        </f:if>
+<section class="blog-list max-w-7xl mx-auto py-12 md:py-20">
+    <f:if condition="{data.header} || {data.brauer_overview_link}">
+        <div class="blog-list__head">
+            <f:if condition="{data.header}">
+                <f:if condition="{data.header_layout} == 1">
+                    <f:then>
+                        <h1 class="blog-list__title">{data.header}</h1>
+                    </f:then>
+                    <f:else>
+                        <h2 class="blog-list__title">{data.header}</h2>
+                    </f:else>
+                </f:if>
+            </f:if>
+            <f:if condition="{data.brauer_overview_link}">
+                <f:link.typolink parameter="{data.brauer_overview_link}" class="blog-list__all">
+                    <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_list.overview_link" /> <span aria-hidden="true">→</span>
+                </f:link.typolink>
+            </f:if>
+        </div>
     </f:if>
     <f:if condition="{blogPosts}">
         <f:then>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <f:for each="{blogPosts}" as="post">
-                    <f:link.page pageUid="{post.uid}" class="group block no-underline h-full">
-                        <article class="flex flex-col h-full bg-white rounded-xl overflow-hidden border border-zinc-200 group-hover:border-zinc-500 transition-all duration-300">
-                            <f:if condition="{post.teaser_image}">
-                                <div class="aspect-video overflow-hidden">
+            <f:comment>Neuester Beitrag groß links, die folgenden als kompakte Liste rechts. Ohne Liste nimmt der Hauptbeitrag die volle Breite ein (:only-child).</f:comment>
+            <div class="blog-list__grid">
+                <f:for each="{blogPosts}" as="post" iteration="i">
+                    <f:if condition="{i.isFirst}">
+                        <f:link.page pageUid="{post.uid}" class="blog-list__link blog-list__featured">
+                            <article>
+                                <f:if condition="{post.teaser_image}">
                                     <img
-                                        src="{f:uri.image(image: post.teaser_image, width: '400', fileExtension: 'webp')}"
-                                        srcset="{f:uri.image(image: post.teaser_image, width: '420', fileExtension: 'webp')} 420w, {f:uri.image(image: post.teaser_image, width: '540', fileExtension: 'webp')} 540w, {f:uri.image(image: post.teaser_image, width: '640', fileExtension: 'webp')} 640w, {f:uri.image(image: post.teaser_image, width: '730', fileExtension: 'webp')} 730w, {f:uri.image(image: post.teaser_image, width: '940', fileExtension: 'webp')} 940w, {f:uri.image(image: post.teaser_image, width: '1232', fileExtension: 'webp')} 1232w"
-                                        sizes="(min-width: 1280px) 606px, (min-width: 768px) calc((100vw - 68px) / 2), calc(100vw - 50px)"
+                                        class="blog-list__image"
+                                        src="{f:uri.image(image: post.teaser_image, width: '640c', height: '360c', fileExtension: 'webp')}"
+                                        srcset="{f:uri.image(image: post.teaser_image, width: '480c', height: '270c', fileExtension: 'webp')} 480w, {f:uri.image(image: post.teaser_image, width: '640c', height: '360c', fileExtension: 'webp')} 640w, {f:uri.image(image: post.teaser_image, width: '960c', height: '540c', fileExtension: 'webp')} 960w, {f:uri.image(image: post.teaser_image, width: '1280c', height: '720c', fileExtension: 'webp')} 1280w"
+                                        sizes="(min-width: 1280px) 634px, (min-width: 960px) calc((100vw - 96px) * 0.535), calc(100vw - 48px)"
+                                        width="640"
+                                        height="360"
                                         loading="{f:if(condition: post.teaser_image.properties.tx_sitepackage_loading, then: post.teaser_image.properties.tx_sitepackage_loading, else: 'lazy')}" decoding="async"
                                         <f:if condition="{post.teaser_image.properties.tx_sitepackage_fetchpriority}">fetchpriority="{post.teaser_image.properties.tx_sitepackage_fetchpriority}"</f:if>
-                                        alt="{post.title}"
-                                        class="w-full h-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300" />
-                                </div>
-                            </f:if>
-
-                            <div class="flex-1 p-6 space-y-4">
-                                <div class="flex gap-3">
-                                    <f:for each="{post.categories}" as="category">
-                                        <span class="bg-red-50 text-red-800 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border border-red-100">
-                                            {category.title}
-                                        </span>
-                                    </f:for>
-                                    <span class="text-zinc-400 text-xs font-sans mt-1">
-                                        <time datetime="{f:format.date(date: post.display_date, format: 'd.m.Y')}" class="text-sm text-slate-700">
-                                            {post.display_date_formatted}
-                                        </time>
-                                    </span>
-                                </div>
-
-                                <h3 class="text-2xl font-serif font-bold leading-snug group-hover:text-red-800 transition-colors">
-                                    {post.title}
-                                </h3>
-
-                                <f:if condition="{post.description}">
-                                    <p class="text-zinc-600 font-sans line-clamp-3 leading-relaxed">{post.description}</p>
+                                        alt="" />
                                 </f:if>
-                            </div>
-                        </article>
-                    </f:link.page>
+                                <f:render section="Meta" arguments="{post: post}" />
+                                <h3 class="blog-list__heading">{post.title}</h3>
+                                <f:if condition="{post.description}">
+                                    <p class="blog-list__teaser">{post.description}</p>
+                                </f:if>
+                            </article>
+                        </f:link.page>
+                    </f:if>
                 </f:for>
+                <f:if condition="{blogPosts.1}">
+                    <ul class="blog-list__list" role="list">
+                        <f:for each="{blogPosts}" as="post" iteration="i">
+                            <f:if condition="{i.index} > 0">
+                                <li class="blog-list__item">
+                                    <f:link.page pageUid="{post.uid}" class="blog-list__link blog-list__row">
+                                        <f:if condition="{post.teaser_image}">
+                                            <f:then>
+                                                <img
+                                                    class="blog-list__thumb"
+                                                    src="{f:uri.image(image: post.teaser_image, width: '240c', height: '240c', fileExtension: 'webp')}"
+                                                    srcset="{f:uri.image(image: post.teaser_image, width: '120c', height: '120c', fileExtension: 'webp')} 120w, {f:uri.image(image: post.teaser_image, width: '240c', height: '240c', fileExtension: 'webp')} 240w"
+                                                    sizes="(min-width: 640px) 120px, 88px"
+                                                    width="120"
+                                                    height="120"
+                                                    loading="lazy" decoding="async"
+                                                    alt="" />
+                                            </f:then>
+                                            <f:else>
+                                                <span class="blog-list__thumb" aria-hidden="true"></span>
+                                            </f:else>
+                                        </f:if>
+                                        <article>
+                                            <f:render section="Meta" arguments="{post: post}" />
+                                            <h3 class="blog-list__heading">{post.title}</h3>
+                                        </article>
+                                    </f:link.page>
+                                </li>
+                            </f:if>
+                        </f:for>
+                    </ul>
+                </f:if>
             </div>
-            <f:if condition="{data.brauer_overview_link}">
-                <div class="flex justify-center mt-12">
-                    <f:link.typolink parameter="{data.brauer_overview_link}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#650009] text-[#650009] font-sans font-semibold text-sm tracking-wide uppercase hover:bg-[#650009] hover:text-white hover:no-underline transition-colors duration-100">
-                        <f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:blog_list.overview_link" />
-                    </f:link.typolink>
-                </div>
-            </f:if>
         </f:then>
         <f:else>
             <p class="text-slate-500">Noch keine Beiträge vorhanden.</p>
         </f:else>
     </f:if>
 </section>
+
+<f:section name="Meta">
+    <div class="blog-list__meta">
+        <f:for each="{post.categories}" as="category">
+            <span class="blog-list__badge">{category.title}</span>
+        </f:for>
+        <time datetime="{f:format.date(date: post.display_date, format: 'Y-m-d')}" class="blog-list__date">{post.display_date_formatted}</time>
+    </div>
+</f:section>
 </html>

@@ -7,7 +7,7 @@
         <source>Recent Posts</source>
       </trans-unit>
       <trans-unit id="description">
-        <source>Displays a grid of recent blog posts with teaser image, title, description and date.</source>
+        <source>Displays the latest blog post as a large teaser and the following posts as a compact list.</source>
       </trans-unit>
       <trans-unit id="max_items.label">
         <source>Maximum number of posts</source>
@@ -19,7 +19,7 @@
         <source>Link to overview page</source>
       </trans-unit>
       <trans-unit id="overview_link.description">
-        <source>If set, a button linking to the blog overview will be shown below the posts.</source>
+        <source>If set, a link to the blog overview will be shown next to the heading.</source>
       </trans-unit>
     </body>
   </file>

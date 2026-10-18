@@ -8,8 +8,8 @@
         <target>Aktuelle Beiträge</target>
       </trans-unit>
       <trans-unit id="description">
-        <source>Displays a grid of recent blog posts with teaser image, title, description and date.</source>
-        <target>Zeigt aktuelle Blog-Beiträge als Grid mit Teaserbild, Titel, Beschreibung und Datum.</target>
+        <source>Displays the latest blog post as a large teaser and the following posts as a compact list.</source>
+        <target>Zeigt den neuesten Blog-Beitrag groß und die folgenden Beiträge als kompakte Liste.</target>
       </trans-unit>
       <trans-unit id="max_items.label">
         <source>Maximum number of posts</source>
@@ -24,8 +24,8 @@
         <target>Link zur Übersichtsseite</target>
       </trans-unit>
       <trans-unit id="overview_link.description">
-        <source>If set, a button linking to the blog overview will be shown below the posts.</source>
-        <target>Wenn gesetzt, wird unterhalb der Beiträge ein Button zur Blog-Übersicht angezeigt.</target>
+        <source>If set, a link to the blog overview will be shown next to the heading.</source>
+        <target>Wenn gesetzt, wird neben der Überschrift ein Link zur Blog-Übersicht angezeigt.</target>
       </trans-unit>
     </body>
   </file>
