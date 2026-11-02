@@ -37,7 +37,7 @@ jobs:
           npm run build
 
       # The server's host keys are pinned via the SSH_KNOWN_HOSTS secret (verified
-      # known_hosts lines). No ssh-keyscan: trusting whatever key the server presents
+      # known_hosts lines, e.g. from `ssh-keygen -F <host>`). No ssh-keyscan: trusting whatever key the server presents
       # on each run would not detect a man-in-the-middle.
       - name: Configure SSH
         env:
@@ -52,12 +52,23 @@ jobs:
           fi
           install -d -m 700 ~/.ssh
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts_deploy
+          # Keys are pinned under the HostKeyAlias "deploy-target", so the format of
+          # SSH_HOST (hostname or IP) does not matter. Only "<type> <key>" of each
+          # line is used; CR characters from copy & paste are stripped.
+          printf '%s\n' "$SSH_KNOWN_HOSTS" | tr -d '\r' \
+            | awk 'NF >= 2 && $1 !~ /^#/ { print "deploy-target", $(NF-1), $NF }' \
+            > ~/.ssh/known_hosts_deploy
           chmod 600 ~/.ssh/deploy_key ~/.ssh/known_hosts_deploy
+          echo "Pinned host keys:"
+          if ! ssh-keygen -lf ~/.ssh/known_hosts_deploy; then
+            echo "::error::SSH_KNOWN_HOSTS contains no valid host keys." >&2
+            exit 1
+          fi
           cat > ~/.ssh/config <<CONFIG
           Host deploy-target
             HostName ${SSH_HOST}
             User ${SSH_USER}
+            HostKeyAlias deploy-target
             IdentityFile ~/.ssh/deploy_key
             IdentitiesOnly yes
             StrictHostKeyChecking yes
