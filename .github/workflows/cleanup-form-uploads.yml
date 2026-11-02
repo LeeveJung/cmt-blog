@@ -1,0 +1,50 @@
+name: Clean up form uploads
+
+# Safety net for photos from abandoned questionnaire submissions. Completed
+# submissions delete their upload immediately (DeleteUploads finisher); this job
+# removes leftover form_* folders in the private storage (UID 2) older than 29 days,
+# so with a daily run no folder exceeds the 30 days promised in the privacy policy.
+#
+# This repository is public, so the log is world-readable: the command is run
+# without -v and only prints folder/file counts, never names.
+#
+# Note: GitHub disables scheduled workflows after 60 days without repository
+# activity (it sends an email first). Re-enable it in the Actions tab if that happens.
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Only count expired folders, do not delete'
+        type: boolean
+        default: true
+
+concurrency:
+  group: production-ssh
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        uses: ./.github/actions/ssh-setup
+        with:
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
+
+      - name: Remove expired form uploads
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry-run && '--dry-run' || '' }}
+        run: |
+          ssh deploy-target "cd $(printf '%q' "$DEPLOY_PATH") && php -r 'echo \"PHP \", PHP_VERSION, PHP_EOL;' && php vendor/bin/typo3 form:cleanup:uploads '2:/' --retention-period=696 --no-interaction $DRY_RUN"

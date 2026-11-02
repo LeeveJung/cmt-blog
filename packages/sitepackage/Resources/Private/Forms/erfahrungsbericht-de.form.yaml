@@ -44,6 +44,12 @@ finishers:
         Weitere Informationen stehen in der Datenschutzerklärung:
         https://www.leben-mit-cmt.de/datenschutz</p>
         <p>Wenn du auf diese E-Mail antwortest, landet deine Nachricht bei hallo@leben-mit-cmt.de.</p>
+  # Removes the uploaded photo from the private storage once both mails are sent
+  # (it arrives as attachment at hallo@). If a mail finisher fails, this step does
+  # not run and the file is kept. Orphans from abandoned submissions are removed
+  # by .github/workflows/cleanup-form-uploads.yml within 30 days.
+  -
+    identifier: DeleteUploads
   -
     identifier: Confirmation
     options:

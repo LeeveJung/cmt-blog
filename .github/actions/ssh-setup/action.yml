@@ -1,0 +1,63 @@
+name: SSH setup
+description: Configures the "deploy-target" SSH host with the deploy key and pinned host keys.
+
+inputs:
+  private-key:
+    description: Private deploy key (SSH_PRIVATE_KEY secret)
+    required: true
+  known-hosts:
+    description: Verified known_hosts lines for the server (SSH_KNOWN_HOSTS secret)
+    required: true
+  host:
+    description: Server hostname or IP (SSH_HOST secret)
+    required: true
+  user:
+    description: SSH user (SSH_USER secret)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    # The server's host keys are pinned via the SSH_KNOWN_HOSTS secret (verified
+    # known_hosts lines, e.g. from `ssh-keygen -F <host>`). No ssh-keyscan: trusting
+    # whatever key the server presents on each run would not detect a man-in-the-middle.
+    - name: Configure SSH
+      shell: bash
+      env:
+        SSH_PRIVATE_KEY: ${{ inputs.private-key }}
+        SSH_KNOWN_HOSTS: ${{ inputs.known-hosts }}
+        SSH_HOST: ${{ inputs.host }}
+        SSH_USER: ${{ inputs.user }}
+      run: |
+        if [ -z "$SSH_KNOWN_HOSTS" ]; then
+          echo "::error::Secret SSH_KNOWN_HOSTS is not set." >&2
+          exit 1
+        fi
+        install -d -m 700 ~/.ssh
+        printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+        # Keys are pinned under the HostKeyAlias "deploy-target", so the format of
+        # SSH_HOST (hostname or IP) does not matter. Only "<type> <key>" of each
+        # line is used; CR characters from copy & paste are stripped.
+        printf '%s\n' "$SSH_KNOWN_HOSTS" | tr -d '\r' \
+          | awk 'NF >= 2 && $1 !~ /^#/ { print "deploy-target", $(NF-1), $NF }' \
+          > ~/.ssh/known_hosts_deploy
+        chmod 600 ~/.ssh/deploy_key ~/.ssh/known_hosts_deploy
+        echo "Deploy key (must be registered in KAS):"
+        ssh-keygen -lf ~/.ssh/deploy_key
+        echo "Pinned host keys:"
+        if ! ssh-keygen -lf ~/.ssh/known_hosts_deploy; then
+          echo "::error::SSH_KNOWN_HOSTS contains no valid host keys." >&2
+          exit 1
+        fi
+        cat > ~/.ssh/config <<CONFIG
+        Host deploy-target
+          HostName ${SSH_HOST}
+          User ${SSH_USER}
+          HostKeyAlias deploy-target
+          IdentityFile ~/.ssh/deploy_key
+          IdentitiesOnly yes
+          BatchMode yes
+          StrictHostKeyChecking yes
+          UserKnownHostsFile ~/.ssh/known_hosts_deploy
+        CONFIG
+        chmod 600 ~/.ssh/config

@@ -8,6 +8,10 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+concurrency:
+  group: production-ssh
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -36,48 +40,13 @@ jobs:
           npm ci
           npm run build
 
-      # The server's host keys are pinned via the SSH_KNOWN_HOSTS secret (verified
-      # known_hosts lines, e.g. from `ssh-keygen -F <host>`). No ssh-keyscan: trusting whatever key the server presents
-      # on each run would not detect a man-in-the-middle.
       - name: Configure SSH
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-        run: |
-          if [ -z "$SSH_KNOWN_HOSTS" ]; then
-            echo "::error::Secret SSH_KNOWN_HOSTS is not set." >&2
-            exit 1
-          fi
-          install -d -m 700 ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-          # Keys are pinned under the HostKeyAlias "deploy-target", so the format of
-          # SSH_HOST (hostname or IP) does not matter. Only "<type> <key>" of each
-          # line is used; CR characters from copy & paste are stripped.
-          printf '%s\n' "$SSH_KNOWN_HOSTS" | tr -d '\r' \
-            | awk 'NF >= 2 && $1 !~ /^#/ { print "deploy-target", $(NF-1), $NF }' \
-            > ~/.ssh/known_hosts_deploy
-          chmod 600 ~/.ssh/deploy_key ~/.ssh/known_hosts_deploy
-          echo "Deploy key (must be in ~/.ssh/authorized_keys on the server):"
-          ssh-keygen -lf ~/.ssh/deploy_key
-          echo "Pinned host keys:"
-          if ! ssh-keygen -lf ~/.ssh/known_hosts_deploy; then
-            echo "::error::SSH_KNOWN_HOSTS contains no valid host keys." >&2
-            exit 1
-          fi
-          cat > ~/.ssh/config <<CONFIG
-          Host deploy-target
-            HostName ${SSH_HOST}
-            User ${SSH_USER}
-            HostKeyAlias deploy-target
-            IdentityFile ~/.ssh/deploy_key
-            IdentitiesOnly yes
-            BatchMode yes
-            StrictHostKeyChecking yes
-            UserKnownHostsFile ~/.ssh/known_hosts_deploy
-          CONFIG
-          chmod 600 ~/.ssh/config
+        uses: ./.github/actions/ssh-setup
+        with:
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
 
       - name: Deploy via rsync
         run: |
