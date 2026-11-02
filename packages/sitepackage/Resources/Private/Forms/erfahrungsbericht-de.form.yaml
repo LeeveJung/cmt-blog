@@ -144,14 +144,12 @@ renderables:
             identifier: photo
             type: FileUpload
             label: 'Foto (optional)'
-            # TODO: Upload is disabled until the private storage exists.
-            #  1. Create the non-public File Storage (see README / setup guide), note its UID.
-            #  2. Replace STORAGE_UID below with that UID (e.g. '2:/').
-            #  3. Set renderingOptions.enabled to true.
-            # WARNING: If saveToFileMount is not accessible, EXT:form silently falls back
-            # to the PUBLIC folder 1:/user_upload/. Always verify after changes.
+            # Uploads go to the non-public File Storage UID 2 (private/form_uploads/).
+            # WARNING: If saveToFileMount is not accessible (storage missing, offline or
+            # wrong UID), EXT:form silently falls back to the PUBLIC folder 1:/user_upload/.
+            # Verify after every change and in every environment (incl. local DDEV).
             renderingOptions:
-              enabled: false
+              enabled: true
             properties:
               elementDescription: 'Wird veröffentlicht: nur wenn du zustimmst'
               saveToFileMount: '2:/'
