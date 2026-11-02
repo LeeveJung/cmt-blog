@@ -5,6 +5,7 @@ nbproject
 
 # TYPO3
 /data/
+/private/form_uploads/
 /var/*
 !/var/labels
 /vendor

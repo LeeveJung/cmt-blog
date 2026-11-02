@@ -1,0 +1,10 @@
+# EXT:form configuration set (auto-discovered in TYPO3 v14 via Configuration/Form/<SetName>/config.yaml).
+name: brauer/sitepackage-form
+label: 'Sitepackage – Form configuration'
+priority: 100
+
+persistenceManager:
+  allowedExtensionPaths:
+    10: 'EXT:sitepackage/Resources/Private/Forms/'
+  allowSaveToExtensionPaths: false
+  allowDeleteFromExtensionPaths: false

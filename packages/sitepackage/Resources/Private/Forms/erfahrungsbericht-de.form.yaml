@@ -1,0 +1,326 @@
+identifier: erfahrungsbericht-de
+label: 'Erfahrungsbericht (DE)'
+type: Form
+prototypeName: standard
+renderingOptions:
+  submitButtonLabel: Absenden
+
+finishers:
+  -
+    identifier: EmailToReceiver
+    options:
+      subject: 'Erfahrungsbericht von {name}'
+      recipients:
+        hallo@leben-mit-cmt.de: 'Leben mit CMT'
+      senderAddress: noreply@leben-mit-cmt.de
+      senderName: 'Leben mit CMT – Fragebogen'
+      replyToRecipients:
+        '{email}': '{name}'
+      addHtmlPart: true
+      attachUploads: true
+      title: 'Neuer Erfahrungsbericht (DE)'
+  -
+    identifier: EmailToSender
+    options:
+      subject: 'Deine Angaben für Leben mit CMT'
+      recipients:
+        '{email}': '{name}'
+      senderAddress: noreply@leben-mit-cmt.de
+      senderName: 'Leben mit CMT'
+      replyToRecipients:
+        hallo@leben-mit-cmt.de: 'Leben mit CMT'
+      addHtmlPart: true
+      attachUploads: false
+      title: 'Danke für deinen Erfahrungsbericht'
+      message: >-
+        <p>Hallo {name},</p>
+        <p>danke für deinen Erfahrungsbericht. Hier ist eine Kopie deiner Antworten
+        und der Einwilligungen, die du erteilt hast:</p>
+        {formValues}
+        <p>Bevor ich etwas veröffentliche, bekommst du die fertige Fassung zur Freigabe.
+        Ohne dein Okay geht nichts online.</p>
+        <p>Du kannst deine Einwilligung jederzeit ohne Angabe von Gründen per E-Mail an
+        hallo@leben-mit-cmt.de widerrufen. Dein Bericht wird dann von der Website entfernt.
+        Weitere Informationen stehen in der Datenschutzerklärung:
+        https://www.leben-mit-cmt.de/datenschutz</p>
+        <p>Wenn du auf diese E-Mail antwortest, landet deine Nachricht bei hallo@leben-mit-cmt.de.</p>
+  -
+    identifier: Confirmation
+    options:
+      message: 'Danke für deinen Erfahrungsbericht! Ich melde mich bei dir mit der Endfassung zur Freigabe. Eine Kopie deiner Antworten und Einwilligungen bekommst du per E-Mail.'
+
+renderables:
+  -
+    identifier: page-1
+    type: Page
+    label: ''
+    renderables:
+      -
+        identifier: intro
+        type: StaticText
+        label: 'Worum es geht'
+        properties:
+          text: >-
+            <p>Auf leben-mit-cmt.de sammle ich Erfahrungsberichte von Menschen mit
+            Charcot-Marie-Tooth (CMT). Jede Geschichte bekommt eine eigene Seite, damit frisch
+            Diagnostizierte sehen, wie unterschiedlich das Leben mit CMT aussehen kann.</p>
+            <p>Der Fragebogen hat sieben Fragen. Zwei bis fünf Sätze pro Frage reichen völlig, du
+            kannst aber gern mehr schreiben. Fragen, die du nicht beantworten möchtest, lässt du
+            einfach leer.</p>
+            <p>Bevor ich etwas veröffentliche, bekommst du die fertige Fassung zur Freigabe. Ohne
+            dein Okay geht nichts online.</p>
+
+      -
+        identifier: fieldset-about
+        type: Fieldset
+        label: 'Angaben zu dir'
+        renderables:
+          -
+            identifier: about-intro
+            type: StaticText
+            label: ''
+            properties:
+              text: 'Diese Angaben helfen mir bei der Zuordnung. Veröffentlicht wird nur, was du unten bei der Einwilligung auswählst.'
+          -
+            identifier: name
+            type: Text
+            label: 'Vorname oder Pseudonym'
+            properties:
+              elementDescription: 'Wird veröffentlicht: ja, wie du es unten wählst'
+              fluidAdditionalAttributes:
+                maxlength: '100'
+            validators:
+              -
+                identifier: NotEmpty
+              -
+                identifier: StringLength
+                options:
+                  minimum: '1'
+                  maximum: '100'
+          -
+            identifier: age
+            type: Number
+            label: 'Alter (optional)'
+            properties:
+              elementDescription: 'Wird veröffentlicht: nur wenn du zustimmst'
+              fluidAdditionalAttributes:
+                min: '18'
+                max: '120'
+                step: '1'
+            validators:
+              -
+                identifier: Number
+              -
+                identifier: NumberRange
+                options:
+                  minimum: '18'
+                  maximum: '120'
+          -
+            identifier: region
+            type: Text
+            label: 'Land oder Region (optional)'
+            properties:
+              elementDescription: 'Wird veröffentlicht: nur wenn du zustimmst'
+          -
+            identifier: email
+            type: Email
+            label: 'E-Mail-Adresse für Rückfragen und Freigabe'
+            properties:
+              elementDescription: 'Wird veröffentlicht: nein'
+              fluidAdditionalAttributes:
+                autocomplete: email
+            validators:
+              -
+                identifier: NotEmpty
+              -
+                identifier: EmailAddress
+          -
+            identifier: instagram
+            type: Text
+            label: 'Instagram-Name (optional)'
+            properties:
+              elementDescription: 'Wird veröffentlicht: nur wenn du zustimmst'
+          -
+            identifier: photo
+            type: FileUpload
+            label: 'Foto (optional)'
+            # TODO: Upload is disabled until the private storage exists.
+            #  1. Create the non-public File Storage (see README / setup guide), note its UID.
+            #  2. Replace STORAGE_UID below with that UID (e.g. '2:/').
+            #  3. Set renderingOptions.enabled to true.
+            # WARNING: If saveToFileMount is not accessible, EXT:form silently falls back
+            # to the PUBLIC folder 1:/user_upload/. Always verify after changes.
+            renderingOptions:
+              enabled: false
+            properties:
+              elementDescription: 'Wird veröffentlicht: nur wenn du zustimmst'
+              saveToFileMount: '2:/'
+              allowedMimeTypes:
+                - image/jpeg
+                - image/png
+                - image/heic
+                - image/heif
+              fluidAdditionalAttributes:
+                accept: 'image/jpeg,image/png,image/heic,image/heif,.jpg,.jpeg,.png,.heic,.heif'
+            validators:
+              -
+                identifier: FileSize
+                options:
+                  minimum: '0B'
+                  maximum: '10M'
+
+      -
+        identifier: fieldset-questions
+        type: Fieldset
+        label: 'Die Fragen'
+        renderables:
+          -
+            identifier: hints
+            type: StaticText
+            label: 'Hinweise zum Ausfüllen'
+            properties:
+              text: >-
+                <ul>
+                <li>Schreib so, wie du auch einer Freundin oder einem Freund davon erzählen würdest. Es gibt keine falschen Antworten.</li>
+                <li>Nenne bitte keine Namen von Ärztinnen, Ärzten, Kliniken oder anderen Personen. Ich würde sie vor der Veröffentlichung ohnehin entfernen.</li>
+                <li>Erfahrungen mit Medikamenten oder Therapien sind willkommen. Ich kennzeichne sie aber als persönliche Erfahrung, nicht als Empfehlung.</li>
+                <li>Ich kürze oder glätte Texte bei Bedarf leicht, zum Beispiel bei Rechtschreibung oder Länge. Am Inhalt ändere ich nichts ohne Rücksprache.</li>
+                </ul>
+          -
+            identifier: question-1
+            type: Textarea
+            label: 'Welchen CMT-Typ hast du, und wann hast du die Diagnose bekommen?'
+            properties:
+              elementDescription: 'Falls du den genauen Typ nicht kennst, ist das kein Problem. Schreib dann einfach, was in deinem Arztbrief steht, zum Beispiel „HMSN“ oder „CMT2“.'
+              fluidAdditionalAttributes:
+                rows: '5'
+          -
+            identifier: question-2
+            type: Textarea
+            label: 'Was waren deine ersten Anzeichen, und wie war dein Weg bis zur Diagnose?'
+            properties:
+              elementDescription: 'Zum Beispiel: Wann ist dir zum ersten Mal etwas aufgefallen? Wie lange hat es gedauert, bis klar war, dass es CMT ist?'
+              fluidAdditionalAttributes:
+                rows: '5'
+          -
+            identifier: question-3
+            type: Textarea
+            label: 'Wie zeigt sich CMT heute in deinem Alltag, und was ist dabei die größte Herausforderung?'
+            properties:
+              elementDescription: 'Zum Beispiel beim Gehen, bei der Arbeit, in der Familie oder in der Freizeit.'
+              fluidAdditionalAttributes:
+                rows: '5'
+          -
+            identifier: question-4
+            type: Textarea
+            label: 'Was hilft dir im Umgang mit CMT?'
+            properties:
+              elementDescription: 'Zum Beispiel Physiotherapie, Hilfsmittel, Sport, bestimmte Gewohnheiten oder Menschen in deinem Umfeld.'
+              fluidAdditionalAttributes:
+                rows: '5'
+          -
+            identifier: question-5
+            type: Textarea
+            label: 'Was hättest du nach der Diagnose gern früher gewusst?'
+            properties:
+              fluidAdditionalAttributes:
+                rows: '5'
+          -
+            identifier: question-6
+            type: Textarea
+            label: 'Was möchtest du anderen Betroffenen mit auf den Weg geben?'
+            properties:
+              fluidAdditionalAttributes:
+                rows: '5'
+          -
+            identifier: question-7
+            type: Textarea
+            label: 'Gibt es noch etwas, das du erzählen möchtest?'
+            properties:
+              elementDescription: 'Hier ist Platz für alles, was in den anderen Fragen keinen Platz gefunden hat.'
+              fluidAdditionalAttributes:
+                rows: '5'
+
+      -
+        identifier: fieldset-consent
+        type: Fieldset
+        label: 'Einwilligung zur Veröffentlichung'
+        renderables:
+          -
+            identifier: consent-intro
+            type: StaticText
+            label: ''
+            properties:
+              text: 'Weil Angaben zur Gesundheit besonders geschützt sind (Art. 9 DSGVO), ist eine ausdrückliche Einwilligung nötig.'
+          -
+            identifier: consent-age
+            type: Checkbox
+            label: 'Ich bin mindestens 18 Jahre alt.'
+            properties:
+              value: 'Ja'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            identifier: consent-publication
+            type: Checkbox
+            label: 'Ich willige ausdrücklich ein, dass Christoph Brauer meine Antworten, einschließlich der Angaben zu meiner Gesundheit, auf leben-mit-cmt.de veröffentlicht.'
+            properties:
+              value: 'Ja'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            identifier: consent-editing
+            type: Checkbox
+            label: 'Ich bin einverstanden, dass meine Antworten leicht gekürzt oder sprachlich geglättet werden. Die Endfassung bekomme ich vor der Veröffentlichung zur Freigabe.'
+            properties:
+              value: 'Ja'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            identifier: publish-as
+            type: RadioButton
+            label: 'Veröffentlicht werden soll mein Bericht unter:'
+            properties:
+              options:
+                first-name: 'meinem Vornamen'
+                pseudonym: 'einem Pseudonym'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            identifier: publish-extras
+            type: MultiCheckbox
+            label: 'Zusätzlich darf veröffentlicht werden:'
+            properties:
+              options:
+                age: 'mein Alter'
+                region: 'mein Land oder meine Region'
+                instagram: 'mein Instagram-Name, mit Link zu meinem Profil'
+                photo: 'mein Foto'
+          -
+            identifier: consent-version
+            type: Hidden
+            label: 'Version des Einwilligungstexts'
+            defaultValue: '2026-11-v1'
+            # Override the prototype default variant, which hides Hidden fields in
+            # EmailToSender/EmailToReceiver. The version must appear in both mails.
+            variants:
+              -
+                identifier: hide-1
+                renderingOptions:
+                  enabled: false
+                condition: 'stepType == "SummaryPage"'
+
+      -
+        identifier: withdrawal-notice
+        type: StaticText
+        label: ''
+        properties:
+          text: >-
+            <p>Ich kann meine Einwilligung jederzeit ohne Angabe von Gründen per E-Mail an
+            <a href="mailto:hallo@leben-mit-cmt.de">hallo@leben-mit-cmt.de</a> widerrufen.
+            Mein Bericht wird dann von der Website entfernt. Weitere Informationen stehen in der
+            <a href="/datenschutz">Datenschutzerklärung</a>.</p>
