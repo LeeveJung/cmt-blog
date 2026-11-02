@@ -59,6 +59,8 @@ jobs:
             | awk 'NF >= 2 && $1 !~ /^#/ { print "deploy-target", $(NF-1), $NF }' \
             > ~/.ssh/known_hosts_deploy
           chmod 600 ~/.ssh/deploy_key ~/.ssh/known_hosts_deploy
+          echo "Deploy key (must be in ~/.ssh/authorized_keys on the server):"
+          ssh-keygen -lf ~/.ssh/deploy_key
           echo "Pinned host keys:"
           if ! ssh-keygen -lf ~/.ssh/known_hosts_deploy; then
             echo "::error::SSH_KNOWN_HOSTS contains no valid host keys." >&2
@@ -71,6 +73,7 @@ jobs:
             HostKeyAlias deploy-target
             IdentityFile ~/.ssh/deploy_key
             IdentitiesOnly yes
+            BatchMode yes
             StrictHostKeyChecking yes
             UserKnownHostsFile ~/.ssh/known_hosts_deploy
           CONFIG
