@@ -75,6 +75,8 @@ page {
             80 {
                 special = rootline
                 special.range = 0|-1
+                # Auch Seiten mit "Im Menü verbergen" (z. B. Fragebogen) brauchen eine vollständige Breadcrumb.
+                includeNotInMenu = 1
                 as = breadcrumb
             }
         }

@@ -288,6 +288,8 @@ renderables:
             type: RadioButton
             label: 'Veröffentlicht werden soll mein Bericht unter:'
             properties:
+              # Die Frage ist die einzige Beschriftung der Gruppe, daher sichtbar (Core-Default: versteckt).
+              legendVisuallyHidden: 0
               options:
                 first-name: 'meinem Vornamen'
                 pseudonym: 'einem Pseudonym'

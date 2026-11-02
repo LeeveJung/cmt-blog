@@ -317,6 +317,308 @@
         object-fit: cover;
         border-radius: 8px;
     }
+
+    /* EXT:form (Formular-Framework). Der Core rendert Bootstrap-5-Klassen, die Tailwind nicht kennt;
+       Preflight hat zudem alle Formularelemente zurückgesetzt. Die Templates liegen in vendor/ und
+       werden von Tailwind nicht gescannt, daher kommen alle Abstände von hier (mb-2/mb-3 sind neutralisiert). */
+    .frame-type-form_formframework {
+        max-width: 760px;
+
+        & form {
+            @apply font-sans;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        & .form-element {
+            margin: 0;
+        }
+
+        /* Abschnitte ("Angaben zu dir", "Die Fragen", ...) */
+        & .form-element-fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            min-width: 0;
+            margin-top: 16px;
+
+            & > legend {
+                @apply font-serif font-bold text-slate-900 border-l-4 border-brand-500;
+                float: left;
+                width: 100%;
+                margin-bottom: 0;
+                padding-left: 16px;
+                font-size: 26px;
+                line-height: 1.25;
+
+                @media (width >= 640px) {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        /* Fließtexte im Formular */
+        & .form-element-statictext {
+            @apply text-slate-700;
+            line-height: 1.7;
+
+            & ul {
+                @apply list-disc list-outside;
+                margin: 0;
+                padding-left: 20px;
+            }
+
+            & li + li {
+                margin-top: 8px;
+            }
+        }
+
+        /* Hinweisbox innerhalb eines Abschnitts (z. B. "Hinweise zum Ausfüllen") */
+        & .form-element-fieldset .form-element-statictext:has(h2) {
+            @apply bg-brand-50/60 border border-brand-100 rounded-xl;
+            padding: 20px 24px;
+
+            & h2 {
+                @apply font-sans text-brand-700 border-0;
+                margin-bottom: 12px;
+                padding-left: 0;
+                font-size: 15px;
+                font-weight: 700;
+                letter-spacing: .06em;
+                text-transform: uppercase;
+            }
+        }
+
+        & .form-label,
+        & .form-element-radio > legend {
+            @apply text-slate-900;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        & .required {
+            @apply text-brand-500;
+            margin-left: 2px;
+        }
+
+        /* Text-, Zahl-, E-Mail-, Datei- und Textfelder */
+        & .form-control {
+            @apply bg-white text-slate-900 border border-stone-300 rounded-lg;
+            display: block;
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 17px;
+            line-height: 1.5;
+            transition: border-color .15s, box-shadow .15s;
+
+            &::placeholder {
+                @apply text-stone-400;
+            }
+
+            &:hover {
+                @apply border-stone-400;
+            }
+
+            &:focus {
+                @apply border-brand-500 outline-none ring-4 ring-brand-500/15;
+            }
+        }
+
+        & input[type="number"].form-control {
+            max-width: 160px;
+        }
+
+        & textarea.form-control {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        & input[type="file"].form-control {
+            padding: 6px;
+            cursor: pointer;
+
+            &::file-selector-button {
+                @apply bg-stone-100 text-slate-800 rounded-md font-sans;
+                margin-right: 12px;
+                padding: 8px 14px;
+                border: 0;
+                font-size: 15px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background-color .15s;
+            }
+
+            &:hover::file-selector-button {
+                @apply bg-stone-200;
+            }
+        }
+
+        & .form-text {
+            @apply text-stone-600;
+            display: block;
+            margin-top: 6px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Checkboxen und Radios */
+        & .form-element-check .form-check-wrapping-label,
+        & .form-check .form-check-wrapping-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        & .form-element-radio > div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        & .form-check {
+            margin: 0;
+        }
+
+        & .form-check-label {
+            @apply text-slate-800;
+            line-height: 1.55;
+            cursor: pointer;
+        }
+
+        & .form-check-input {
+            @apply bg-white border-2 border-stone-400;
+            appearance: none;
+            flex: none;
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+            transition: border-color .15s, background-color .15s, box-shadow .15s;
+
+            &[type="checkbox"] {
+                border-radius: 6px;
+            }
+
+            &[type="radio"] {
+                border-radius: 9999px;
+            }
+
+            &::before {
+                content: "";
+                transform: scale(0);
+                transition: transform .12s ease-in-out;
+            }
+
+            &[type="checkbox"]::before {
+                width: 12px;
+                height: 12px;
+                background: white;
+                clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+            }
+
+            &[type="radio"]::before {
+                width: 10px;
+                height: 10px;
+                border-radius: 9999px;
+                background: white;
+            }
+
+            &:checked {
+                @apply bg-brand-500 border-brand-500;
+            }
+
+            &:checked::before {
+                transform: scale(1);
+            }
+
+            &:hover {
+                @apply border-brand-500;
+            }
+
+            &:focus-visible {
+                @apply outline-none ring-4 ring-brand-500/20 border-brand-500;
+            }
+        }
+
+        /* Validierung (errorClassAttribute: is-invalid, errorMsgClassAttribute: invalid-feedback) */
+        & .form-control.is-invalid,
+        & .form-check-input.is-invalid,
+        & .is-invalid .form-check-input {
+            @apply border-red-600;
+        }
+
+        & .form-control.is-invalid:focus {
+            @apply ring-red-600/15;
+        }
+
+        & .invalid-feedback {
+            @apply text-red-700;
+            display: block;
+            margin-top: 6px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Bei Checkboxen und Radios an der Textkante neben dem Kästchen ausrichten (22px + 12px Gap). */
+        & .form-element-check .invalid-feedback,
+        & .form-element-radio .invalid-feedback {
+            padding-left: 34px;
+        }
+
+        & .visually-hidden {
+            @apply sr-only;
+        }
+
+        /* Absenden */
+        & .actions {
+            @apply border-t border-stone-200;
+            padding-top: 28px;
+        }
+
+        & .form-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        & .btn {
+            @apply font-sans font-bold rounded-full;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-size: 17px;
+            line-height: 1.2;
+            cursor: pointer;
+            transition: background-color .15s, box-shadow .15s;
+
+            &:focus-visible {
+                @apply outline-2 outline-offset-4 outline-brand-500;
+            }
+        }
+
+        & .btn-primary {
+            @apply bg-brand-500 text-white;
+
+            &:hover {
+                @apply bg-brand-600;
+            }
+        }
+
+        & .btn-outline-primary {
+            @apply bg-white text-brand-500 border-2 border-brand-500;
+
+            &:hover {
+                @apply bg-brand-50;
+            }
+        }
+    }
 }
 
 @layer base {

@@ -295,6 +295,8 @@ renderables:
             type: RadioButton
             label: 'My story should be published under:'
             properties:
+              # Die Frage ist die einzige Beschriftung der Gruppe, daher sichtbar (Core-Default: versteckt).
+              legendVisuallyHidden: 0
               options:
                 first-name: 'my first name'
                 pseudonym: 'a pseudonym'
