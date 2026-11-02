@@ -36,19 +36,39 @@ jobs:
           npm ci
           npm run build
 
-      - name: Configure SSH key
+      # The server's host keys are pinned via the SSH_KNOWN_HOSTS secret (verified
+      # known_hosts lines). No ssh-keyscan: trusting whatever key the server presents
+      # on each run would not detect a man-in-the-middle.
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-
-      - name: Add host to known_hosts
-        run: ssh-keyscan -T 10 -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          if [ -z "$SSH_KNOWN_HOSTS" ]; then
+            echo "::error::Secret SSH_KNOWN_HOSTS is not set." >&2
+            exit 1
+          fi
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts_deploy
+          chmod 600 ~/.ssh/deploy_key ~/.ssh/known_hosts_deploy
+          cat > ~/.ssh/config <<CONFIG
+          Host deploy-target
+            HostName ${SSH_HOST}
+            User ${SSH_USER}
+            IdentityFile ~/.ssh/deploy_key
+            IdentitiesOnly yes
+            StrictHostKeyChecking yes
+            UserKnownHostsFile ~/.ssh/known_hosts_deploy
+          CONFIG
+          chmod 600 ~/.ssh/config
 
       - name: Deploy via rsync
         run: |
           rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
+            -e ssh \
             --exclude='.git/' \
             --exclude='.github/' \
             --exclude='node_modules/' \
@@ -60,10 +80,9 @@ jobs:
             --exclude='public/typo3temp/' \
             --exclude='private/form_uploads/' \
             ./ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}
+            deploy-target:${{ secrets.DEPLOY_PATH }}
 
       - name: Post-deploy
         run: |
-          ssh -i ~/.ssh/deploy_key \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+          ssh deploy-target \
             "cd ${{ secrets.DEPLOY_PATH }} && mkdir -p private/form_uploads && chmod 2770 private/form_uploads && (php vendor/bin/typo3 cache:flush || true)"
