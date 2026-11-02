@@ -122,6 +122,10 @@
                 <source>Christoph, living with CMT</source>
                 <target>Christoph, lebt mit CMT</target>
             </trans-unit>
+            <trans-unit id="formEmail.footer">
+                <source>This email was sent via the form on Leben mit CMT.</source>
+                <target>Diese E-Mail wurde über das Formular auf Leben mit CMT versendet.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

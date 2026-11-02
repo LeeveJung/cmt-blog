@@ -93,6 +93,9 @@
             <trans-unit id="hero.caption">
                 <source>Christoph, living with CMT</source>
             </trans-unit>
+            <trans-unit id="formEmail.footer">
+                <source>This email was sent via the form on Leben mit CMT.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

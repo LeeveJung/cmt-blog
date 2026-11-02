@@ -1,0 +1,7 @@
+<f:render section="Title" optional="true" />
+
+<f:render section="Main" />
+
+--
+<f:translate key="LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:formEmail.footer" />
+{normalizedParams.siteUrl}

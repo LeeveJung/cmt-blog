@@ -8,3 +8,21 @@ persistenceManager:
     10: 'EXT:sitepackage/Resources/Private/Forms/'
   allowSaveToExtensionPaths: false
   allowDeleteFromExtensionPaths: false
+
+# Eigenes Mail-Design für alle Formular-Mails: Frage und Antwort untereinander, Logo und Farben der Seite
+# statt TYPO3-SystemEmail-Layout. Das Template heißt weiterhin "Default" und überschreibt das des Cores.
+prototypes:
+  standard:
+    finishersDefinition:
+      EmailToReceiver:
+        options:
+          templateRootPaths:
+            20: 'EXT:sitepackage/Resources/Private/FormEmail/Templates/'
+          layoutRootPaths:
+            20: 'EXT:sitepackage/Resources/Private/FormEmail/Layouts/'
+      EmailToSender:
+        options:
+          templateRootPaths:
+            20: 'EXT:sitepackage/Resources/Private/FormEmail/Templates/'
+          layoutRootPaths:
+            20: 'EXT:sitepackage/Resources/Private/FormEmail/Layouts/'
